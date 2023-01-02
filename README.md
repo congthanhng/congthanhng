@@ -14,3 +14,14 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+
+- 🔭 I’m currently working on Mobile Development
+- 🌱 I’m currently learning, improving and contributing around Flutter framework
+- 👯 I’m looking to collaborate on any kinds of project
+- 🤔 I’m looking for help with backend knowledge
+- 💬 Ask me about any things relatetive to Flutter and mobile development
+- 📫 How to reach me: https://www.linkedin.com/in/tconguit/
+
+![](https://komarev.com/ghpvc/?username=congthanhng&color=blue) 
+
+![Congthanhng's GitHub stats](https://github-readme-stats.vercel.app/api?username=congthanhng&show_icons=true&theme=radical)
