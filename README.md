@@ -50,6 +50,7 @@ Here are some ideas to get you started:
 <code><a href="https://github.com/search?q=visual+code&type=topics" target="_blank"><img height="20" src="https://raw.githubusercontent.com/github/explore/bbd48b997e8d0bef63f676eca4da5e1f76487b56/topics/visual-studio-code/visual-studio-code.png" ></a></code>
 <code><a href="https://github.com/search?q=android+studio&type=topics" target="_blank"><img height="20" src="https://raw.githubusercontent.com/github/explore/44926f43f6a0d183b5965bebd1e77069ab00c26a/topics/android-studio/android-studio.png" ></a></code>
 
-![](https://komarev.com/ghpvc/?username=congthanhng&color=blue) 
+![Profile views](https://komarev.com/ghpvc/?username=congthanhng&color=blue) 
+<!-- ![Visitors](https://visitor-badge.glitch.me/badge?page_id=congthanhng.congthanhng) -->
 
 ![Congthanhng's GitHub stats](https://github-readme-stats-46zz.vercel.app/api?username=congthanhng&show_icons=true&theme=radical)
