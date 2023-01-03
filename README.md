@@ -24,4 +24,4 @@ Here are some ideas to get you started:
 
 ![](https://komarev.com/ghpvc/?username=congthanhng&color=blue) 
 
-![Congthanhng's GitHub stats](https://github-readme-stats.vercel.app/api?username=congthanhng&show_icons=true&theme=radical)
+![Congthanhng's GitHub stats](https://github-readme-stats-46zz.vercel.app/api?username=congthanhng&show_icons=true&theme=radical)
