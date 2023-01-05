@@ -41,8 +41,8 @@
 
 <!-- ![Congthanhng's GitHub stats](https://github-readme-stats-46zz.vercel.app/api?username=congthanhng&show_icons=true&theme=radical)  -->
 <p align="center">&nbsp;
-  <img align="center" src="https://github-readme-stats-46zz.vercel.app/api?username=congthanhng&show_icons=true&theme=radical" alt="congthanhng" width=35% />
-  <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=congthanhng&" alt="congthanhng" width=35%/>
+  <img align="center" src="https://github-readme-stats-46zz.vercel.app/api?username=congthanhng&show_icons=true&theme=radical" alt="congthanhng" width=45% />
+  <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=congthanhng&" alt="congthanhng" width=45%/>
 </p>
 <p align="center"><code><a href="https://github.com/congthanhng"><img src="snake_game.svg"></a></code></p>
 <h3 align="center">Connect with me</h3>
@@ -51,7 +51,7 @@
 </p>
 <h3 align="center">Support</h3>
 <p align="center">
-  <a href="https://www.buymeacoffee.com/congthanhng"> <img align="center" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="congthanhng" /></a>
-  <a href="https://ko-fi.com/congthanhng"> <img align="center" src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" height="50" width="210" alt="congthanhng" /></a></p>
+  <a href="https://www.buymeacoffee.com/congthanhng"> <img align="center" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="15%" alt="congthanhng" /></a>
+  <a href="https://ko-fi.com/congthanhng"> <img align="center" src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" width="15%" alt="congthanhng" /></a></p>
 <p align="center"><img align="center" src="https://komarev.com/ghpvc/?username=congthanhng&color=blue" /></p>
 <!-- ![Profile views](https://komarev.com/ghpvc/?username=congthanhng&color=blue)  -->
