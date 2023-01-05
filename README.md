@@ -35,11 +35,33 @@
 <code><a href="https://github.com/search?q=c%2B%2B&type=topics" target="_blank"><img height="20" src="https://raw.githubusercontent.com/github/explore/f3e22f0dca2be955676bc70d6214b95b13354ee8/topics/c/c.png" ></a></code>
 <code><a href="https://github.com/search?q=c%2B%2B&type=topics" target="_blank"><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/csharp/csharp.png" ></a></code> -->
   </p>
-  </br>
+  
 
 <!-- ![Visitors](https://visitor-badge.glitch.me/badge?page_id=congthanhng.congthanhng) -->
 
 <!-- ![Congthanhng's GitHub stats](https://github-readme-stats-46zz.vercel.app/api?username=congthanhng&show_icons=true&theme=radical)  -->
+
+<h3 align="center"> Open source projects
+ </h3>
+<table align="center">
+  <thead align="center">
+    <tr border: none;>
+      <td><b>🎁 Projects</b></td>
+      <td><b>👍 Likes</b></td>
+      <td><b>💯 Points</b></td>
+      <td><b>🌐 Popularity</b></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://github.com/congthanhng/Expansion-Tile-Group"><b>Flutter Expansion-Tile-Group Widget</b></a></td>
+      <td><img alt="Likes" src="https://img.shields.io/pub/likes/expansion_tile_group"/></td>
+      <td><img alt="Points" src="https://img.shields.io/pub/points/expansion_tile_group"/></td>
+      <td><img alt="Popularity" src="https://img.shields.io/pub/popularity/expansion_tile_group"/></td>
+    </tr>
+  </tbody>
+</table>
+</br>
 <p align="center">&nbsp;
   <img align="center" src="https://github-readme-stats-46zz.vercel.app/api?username=congthanhng&show_icons=true&theme=radical" alt="congthanhng" width=45% />
   <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=congthanhng&" alt="congthanhng" width=45%/>
