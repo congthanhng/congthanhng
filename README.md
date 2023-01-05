@@ -55,9 +55,9 @@
   <tbody>
     <tr>
       <td><a href="https://github.com/congthanhng/Expansion-Tile-Group"><b>Flutter Expansion-Tile-Group Widget</b></a></td>
-      <td><img alt="Likes" src="https://img.shields.io/pub/likes/expansion_tile_group"/></td>
-      <td><img alt="Points" src="https://img.shields.io/pub/points/expansion_tile_group"/></td>
-      <td><img alt="Popularity" src="https://img.shields.io/pub/popularity/expansion_tile_group"/></td>
+      <td><a href="https://pub.dev/packages/expansion_tile_group/score" target="_blank"><img src="https://img.shields.io/pub/likes/expansion_tile_group" ></a></td>
+      <td><a href="https://pub.dev/packages/expansion_tile_group/score" target="_blank"><img src="https://img.shields.io/pub/points/expansion_tile_group" ></a></td>
+      <td><a href="https://pub.dev/packages/expansion_tile_group/score" target="_blank"><img src="https://img.shields.io/pub/popularity/expansion_tile_group" ></a></td>
     </tr>
   </tbody>
 </table>
