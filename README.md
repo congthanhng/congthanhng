@@ -1,10 +1,9 @@
-<!-- ### Hi there 👋
-
-- 🔭 I’m currently working on Mobile Development with Flutter
-- 🌱 I’m currently learning, improving and contributing around Flutter framework
-- 👯 I’m looking to collaborate on any kinds of project
-- 🤔 I’m looking for help with backend knowledge
-- 💬 Ask me about any things relatetive to Flutter and mobile development -->
+<h2 align="center">👋 Hi there 👋 </h2>
+<p align="center"> 🔭 I’m currently working on Mobile Development with Flutter 🔭</p>
+<p align="center"> 🌱 I’m currently learning, improving and contributing around Flutter framework 🌱</p>
+<p align="center"> 👯 I’m looking to collaborate on any kinds of project 👯</p>
+<p align="center"> 🤔 I’m looking for help with backend knowledge 🤔</p>
+<p align="center"> 💬 Ask me about any things relatetive to Flutter and mobile development 💬</p>
 
 <h3 align="center"> Languages, Frameworks and Tools </h3>
 
@@ -41,9 +40,9 @@
 <!-- ![Visitors](https://visitor-badge.glitch.me/badge?page_id=congthanhng.congthanhng) -->
 
 <!-- ![Congthanhng's GitHub stats](https://github-readme-stats-46zz.vercel.app/api?username=congthanhng&show_icons=true&theme=radical)  -->
-<p>&nbsp;
-  <img align="center" src="https://github-readme-stats-46zz.vercel.app/api?username=congthanhng&show_icons=true&theme=radical" alt="congthanhng" />
-  <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=congthanhng&" alt="congthanhng" />
+<p align="center">&nbsp;
+  <img align="center" src="https://github-readme-stats-46zz.vercel.app/api?username=congthanhng&show_icons=true&theme=radical" alt="congthanhng" width=35% />
+  <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=congthanhng&" alt="congthanhng" width=35%/>
 </p>
 <p align="center"><code><a href="https://github.com/congthanhng"><img src="snake_game.svg"></a></code></p>
 <h3 align="center">Connect with me</h3>
