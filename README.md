@@ -40,3 +40,5 @@
 <!-- ![Visitors](https://visitor-badge.glitch.me/badge?page_id=congthanhng.congthanhng) -->
 
 ![Congthanhng's GitHub stats](https://github-readme-stats-46zz.vercel.app/api?username=congthanhng&show_icons=true&theme=radical)
+
+<a href="https://github.com/congthanhng"><img src="snake_game.svg"></a>
