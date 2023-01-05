@@ -1,14 +1,14 @@
-### Hi there 👋
+<!-- ### Hi there 👋
 
-- 🔭 I’m currently working on Mobile Development
+- 🔭 I’m currently working on Mobile Development with Flutter
 - 🌱 I’m currently learning, improving and contributing around Flutter framework
 - 👯 I’m looking to collaborate on any kinds of project
 - 🤔 I’m looking for help with backend knowledge
-- 💬 Ask me about any things relatetive to Flutter and mobile development
-- 📫 How to reach me: https://www.linkedin.com/in/tconguit/
+- 💬 Ask me about any things relatetive to Flutter and mobile development -->
 
-**Languages, Frameworks and Tools**
+<h3 align="center"> Languages, Frameworks and Tools </h3>
 
+<p align="center">
 <code><a href="https://github.com/search?q=flutter&type=topics" target="_blank"><img height="20" src="https://raw.githubusercontent.com/github/explore/cebd63002168a05a6a642f309227eefeccd92950/topics/flutter/flutter.png" ></a></code>
 <code><a href="https://github.com/search?q=dart&type=topics" target="_blank"><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/dart/dart.png" ></a></code>
 <code><a href="https://github.com/search?q=kotlin&type=topics" target="_blank"><img height="20" src="https://raw.githubusercontent.com/github/explore/4479d2a2c854198cb00160f8593519c14dc3b905/topics/kotlin/kotlin.png" ></a></code>
@@ -35,10 +35,24 @@
 <!-- <code><a href="https://github.com/search?q=c%2B%2B&type=topics" target="_blank"><img height="20" src="https://raw.githubusercontent.com/github/explore/180320cffc25f4ed1bbdfd33d4db3a66eeeeb358/topics/cpp/cpp.png" ></a></code>
 <code><a href="https://github.com/search?q=c%2B%2B&type=topics" target="_blank"><img height="20" src="https://raw.githubusercontent.com/github/explore/f3e22f0dca2be955676bc70d6214b95b13354ee8/topics/c/c.png" ></a></code>
 <code><a href="https://github.com/search?q=c%2B%2B&type=topics" target="_blank"><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/csharp/csharp.png" ></a></code> -->
+  </p>
+  </br>
 
-![Profile views](https://komarev.com/ghpvc/?username=congthanhng&color=blue) 
 <!-- ![Visitors](https://visitor-badge.glitch.me/badge?page_id=congthanhng.congthanhng) -->
 
-![Congthanhng's GitHub stats](https://github-readme-stats-46zz.vercel.app/api?username=congthanhng&show_icons=true&theme=radical)
-
-<a href="https://github.com/congthanhng"><img src="snake_game.svg"></a>
+<!-- ![Congthanhng's GitHub stats](https://github-readme-stats-46zz.vercel.app/api?username=congthanhng&show_icons=true&theme=radical)  -->
+<p>&nbsp;
+  <img align="center" src="https://github-readme-stats-46zz.vercel.app/api?username=congthanhng&show_icons=true&theme=radical" alt="congthanhng" />
+  <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=congthanhng&" alt="congthanhng" />
+</p>
+<p align="center"><code><a href="https://github.com/congthanhng"><img src="snake_game.svg"></a></code></p>
+<h3 align="center">Connect with me</h3>
+<p align="center">
+<a href="https://linkedin.com/in/tconguit" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="tconguit" height="20" width="30" /></a>
+</p>
+<h3 align="center">Support</h3>
+<p align="center">
+  <a href="https://www.buymeacoffee.com/congthanhng"> <img align="center" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="congthanhng" /></a>
+  <a href="https://ko-fi.com/congthanhng"> <img align="center" src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" height="50" width="210" alt="congthanhng" /></a></p>
+<p align="center"><img align="center" src="https://komarev.com/ghpvc/?username=congthanhng&color=blue" /></p>
+<!-- ![Profile views](https://komarev.com/ghpvc/?username=congthanhng&color=blue)  -->
