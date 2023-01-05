@@ -1,9 +1,9 @@
 <h2 align="center">👋 Hi there, I'm Congthanhng 👋 </h2>
 <p align="center"> I’m currently working on Mobile Development with Flutter</p>
 <p align="center"> I’m currently learning, improving and contributing around Flutter framework</p>
-<p align="center"> I’m looking to collaborate on any kinds of project</p>
+<p align="center"> I’m looking to collaborate on any kind of project</p>
 <p align="center"> I’m looking for help with backend knowledge</p>
-<p align="center"> Ask me about any things relatetive to Flutter and mobile development</p>
+<p align="center"> Ask me about any things relative to Flutter and mobile development</p>
 
 <h3 align="center"> Languages, Frameworks and Tools </h3>
 
