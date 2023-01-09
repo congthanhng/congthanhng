@@ -28,20 +28,6 @@
 <code><a href="https://github.com/search?q=android+studio&type=topics" target="_blank"><img height="20" src="https://raw.githubusercontent.com/github/explore/44926f43f6a0d183b5965bebd1e77069ab00c26a/topics/android-studio/android-studio.png" ></a></code>
 <code><a href="https://github.com/search?q=Android&type=topics" target="_blank"><img height="20" src="https://raw.githubusercontent.com/github/explore/8baf984947f4d9c32006bd03fa4c51ff91aadf8d/topics/android/android.png" ></a></code>
 <code><a href="https://github.com/search?q=IOS&type=topics" target="_blank"><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/ios/ios.png" ></a></code>
-<!-- <code><a href="https://github.com/search?q=SQL+server&type=topics" target="_blank"><img height="20" src="https://raw.githubusercontent.com/github/explore/96943574ba0c0340ba6ea1e6f768e9abe43e34e1/topics/sql-server/sql-server.png" ></a></code> -->
-<!-- <code><a href="https://github.com/search?q=JQuery&type=topics" target="_blank"><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/jquery/jquery.png" ></a></code>
-<code><a href="https://github.com/search?q=bootstrap&type=topics" target="_blank"><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/bootstrap/bootstrap.png" ></a></code> -->
-<!-- <code><a href="https://github.com/search?q=html&type=topics" target="_blank"><img height="20" src="https://raw.githubusercontent.com/github/explore/5b3600551e122a3277c2c5368af2ad5725ffa9a1/topics/html/html.png" ></a></code>
-<code><a href="https://github.com/search?q=css&type=topics" target="_blank"><img height="20" src="https://raw.githubusercontent.com/github/explore/5b3600551e122a3277c2c5368af2ad5725ffa9a1/topics/css/css.png" ></a></code> -->
-<!-- <code><a href="https://github.com/search?q=c%2B%2B&type=topics" target="_blank"><img height="20" src="https://raw.githubusercontent.com/github/explore/180320cffc25f4ed1bbdfd33d4db3a66eeeeb358/topics/cpp/cpp.png" ></a></code>
-<code><a href="https://github.com/search?q=c%2B%2B&type=topics" target="_blank"><img height="20" src="https://raw.githubusercontent.com/github/explore/f3e22f0dca2be955676bc70d6214b95b13354ee8/topics/c/c.png" ></a></code>
-<code><a href="https://github.com/search?q=c%2B%2B&type=topics" target="_blank"><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/csharp/csharp.png" ></a></code> -->
-  </p>
-  
-
-<!-- ![Visitors](https://visitor-badge.glitch.me/badge?page_id=congthanhng.congthanhng) -->
-
-<!-- ![Congthanhng's GitHub stats](https://github-readme-stats-46zz.vercel.app/api?username=congthanhng&show_icons=true&theme=radical)  -->
 
 <h3 align="center"> Open source projects
  </h3>
@@ -72,6 +58,7 @@
 <h3 align="center">Connect with me</h3>
 <p align="center">
 <a href="https://linkedin.com/in/tconguit" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="tconguit" height="20" width="30" /></a>
+  <a href="https://twitter.com/congthanhng11" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="congthanhng11" height="30" width="40" /></a>
 </p>
 <h3 align="center">Support</h3>
 <p align="center">
