@@ -180,8 +180,8 @@ String generateREADME(StateData data, bool canPowerful) {
   </thead>
   <tbody>
     <tr align="center">
-      <td><code><img src="assets/jotaro_kujo.png" width=55%></code></td>
-      <td><code><img src="assets/dio_brando.png" width=55%></code></td>
+      <td><code><a href="https://github.com/congthanhng"><img src="assets/jotaro_kujo.png" width=55%></a></code></td>
+      <td><code><a href="https://github.com/congthanhng"><img src="assets/dio_brando.png" width=55%></a></code></td>
     </tr>
     <tr>
       <td>HP: ${generateHP(data.joJo.hp)} ${data.joJo.hp.toString()}/100 <br> MP: ${generateMP(data.joJo.mana)} ${data.joJo.mana.toString()}/25</td>

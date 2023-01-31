@@ -1,6 +1,6 @@
 String howToPlay =
 '''<details>
-<p align="center"><summary></p><b>How do I play?</b></summary></p>
+<summary></p><b>How do I play?</b></summary>
 
 ## Rules of the game
 
