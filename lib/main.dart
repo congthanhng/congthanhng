@@ -211,8 +211,8 @@ String generateREADME(StateData data, bool canPowerful, Map<String, dynamic> act
       <td><code><a href="https://github.com/congthanhng"><img src="assets/dio_brando.png" width=55%></a></code></td>
     </tr>
     <tr>
-      <td>HP: ${generateHP(data.joJo.hp)} ${data.joJo.hp.toString()}/100 <br> MP: ${generateMP(data.joJo.mana)} ${data.joJo.mana.toString()}/25</td>
-      <td>HP: ${generateHP(data.dio.hp)} ${data.dio.hp.toString()}/100 <br> MP: ${generateMP(data.dio.mana)} ${data.dio.mana.toString()}/25</td>
+      <td>HP: ${generateHP(data.joJo.hp)} ${data.joJo.hp.toString()}/100 <br> MP: ${generateMP(data.joJo.mana)} ${data.joJo.mana.toString()}/25 <br>Win: ${activityData['joJo']['win']} <br> Total Damage: ${activityData['joJo']['attackDmg']} <br> Total Heal: ${activityData['joJo']['healRecover']}</td>
+      <td>HP: ${generateHP(data.dio.hp)} ${data.dio.hp.toString()}/100 <br> MP: ${generateMP(data.dio.mana)} ${data.dio.mana.toString()}/25 <br>Win: ${activityData['dio']['win']} <br> Total Damage: ${activityData['dio']['attackDmg']} <br> Total Heal: ${activityData['dio']['healRecover']}</td>
     </tr>
   </tbody>
 </table>
