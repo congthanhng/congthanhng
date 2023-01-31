@@ -391,5 +391,5 @@ String generateCharacter(String key){
 }
 
 String generatePlayerCheckIn(Map<String, dynamic> userData){
-  return userData.entries.toList().map((e) => '<a href="https://github.com/${e.key}"><img src="https://img.shields.io/badge/${e.key}-blue" ></a>').join(' ');
+  return userData.entries.toList().map((e) => '<a href="https://github.com/${e.key}"><img src="https://img.shields.io/badge/@${e.key}-${e.value.toString()}-blue" ></a>').join(' ');
 }
