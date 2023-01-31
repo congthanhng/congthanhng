@@ -315,6 +315,7 @@ ${canPowerful
 <div align="center">
 
 **🎮 Players check-in**
+
 ${generatePlayerCheckIn(userData)}
 
 </div>
@@ -390,5 +391,5 @@ String generateCharacter(String key){
 }
 
 String generatePlayerCheckIn(Map<String, dynamic> userData){
-  return userData.entries.toList().map((e) => '<a href="https://github.com/${e.key}"><img src="https://img.shields.io/badge/${e.key}-black" ></a>').join(' ');
+  return userData.entries.toList().map((e) => '<a href="https://github.com/${e.key}"><img src="https://img.shields.io/badge/${e.key}-blue" ></a>').join(' ');
 }
