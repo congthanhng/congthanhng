@@ -1,7 +1,7 @@
-  <h2>👋 Hi, I'm Cong Nguyen 👋 </h2>
-Welcome to my Github profile! We're playing Battle game, you can join!
+  <p align="center"><h2>👋 Hi, I'm Cong Nguyen 👋 </h2></p>
+<p align="center">Welcome to my Github profile! We're playing Battle game, you can join!</p>
 
-It's the **Dio Brando** team's turn.
+<p align="center">It's the <b>Jotaro Kujo<b> team's turn.</p>
 <table align="center">
   <thead align="center">
     <tr>
@@ -15,7 +15,7 @@ It's the **Dio Brando** team's turn.
       <td><code><img src="assets/dio_brando.png" width=55%></code></td>
     </tr>
     <tr>
-      <td>HP: ████████░░ 85/100 <br> MP: ███░░░ 15/25</td>
+      <td>HP: ███████░░░ 75/100 <br> MP: ██████ 25/25</td>
       <td>HP: ████████░░ 88/100 <br> MP: ██░░░░ 12/25</td>
     </tr>
   </tbody>
@@ -23,22 +23,25 @@ It's the **Dio Brando** team's turn.
 
 
 <p align="center">
-    ---<img src="assets/dice_white/dice_5.png" width=10%>
+    ---<img src="assets/dice_white/dice_6.png" width=10%>
     ----
-    <img src="assets/dice_black/dice_5.png" width=10%>---
+    <img src="assets/dice_black/dice_6.png" width=10%>---
 </p>
 
-**Dio Brando** turn. You rolled a 10!
+<p align="center"><b>Jotaro Kujo<b> turn. You rolled a 12!</p>
 
-What would you like to do?
+<p align="center">What would you like to do?</p>
+
+<div align="center">
 
 | Choices *(pick one of them!)*                                                                                                                                                                          |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Attack Jotaro Kujo with 10 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C10&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
-| [Heal yourself with 10 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C10&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
+| [Attack Dio Brando with 12 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C12&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
+| [Heal yourself with 12 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C12&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
+| [Using MP, Attack with x2 dame: 24 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattackx2%7C12&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
+| [Using MP, Heal with x2 value: 24 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Chealx2%7C12&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
 
-
-
+</div>
       
   <h2 align="center">About me </h2>
 
