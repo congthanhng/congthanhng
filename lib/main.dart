@@ -51,7 +51,7 @@ void main(List<String> arguments) async {
 
   if (ActionState.values.toString().contains(args[2]) &&
       point == resource.totalDice) {
-    userData[userName] += 1;
+    userData[userName] ++;
     await File('lib/core/state.json')
         .writeAsString(jsonEncode(userData));
 
@@ -115,8 +115,8 @@ void main(List<String> arguments) async {
         reset.dice2 = dice2;
         await File('lib/core/state.json')
             .writeAsString(jsonEncode(reset.toJson()));
-        activityData['dio']['win'] += 1;
-        activityData['completeGame'] += 1;
+        activityData['dio']['win']++;
+        activityData['completeGame']++;
         await File('lib/core/activity.json')
             .writeAsString(jsonEncode(activityData));
 
@@ -158,8 +158,8 @@ void main(List<String> arguments) async {
         reset.dice2 = dice2;
         await File('lib/core/state.json')
             .writeAsString(jsonEncode(reset.toJson()));
-        activityData['joJo']['win'] += 1;
-        activityData['completeGame'] += 1;
+        activityData['joJo']['win']++;
+        activityData['completeGame']++;
         await File('lib/core/activity.json')
             .writeAsString(jsonEncode(activityData));
         await File('README.md')
@@ -203,7 +203,7 @@ void main(List<String> arguments) async {
         .writeAsString(
         generateREADME(resource, canPowerful, activityData, userData, battleLog));
 
-    activityData['moves'] += 1;
+    activityData['moves']++;
     await File('lib/core/activity.json')
         .writeAsString(jsonEncode(activityData));
 
