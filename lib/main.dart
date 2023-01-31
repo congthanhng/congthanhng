@@ -278,7 +278,7 @@ String generateREADME(StateData data, bool canPowerful,
 <div align="center">
 
 | Choices *(pick one of them!)*                                                                                                                                                                          |
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Attack ${isDioTurn ? "Jotaro Kujo" : "Dio Brando"} with ${data.totalDice
       .toString()} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C${data
       .totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
@@ -306,10 +306,16 @@ ${canPowerful
 
 **:alarm_clock: Most recent moves**
 | Team | Dices Roll | Action | Made by |
-| ---- | ---- | ------- | ------- |
+| ---- | :----: | ------- | ------- |
 | ${generateCharacter(battleLog.values.last["character"])} | ${battleLog.values.last["point"]} | ${battleLog.values.last["state"]} | [@${battleLog.values.last["player_name"]}](https://github.com/${battleLog.values.last["player_name"]}) |
 | ${generateCharacter(battleLog.values.toList()[battleLog.values.length - 2]["character"])} | ${battleLog.values.toList()[battleLog.values.length - 2]["point"]} | ${battleLog.values.toList()[battleLog.values.length - 2]["state"]} | [@${battleLog.values.toList()[battleLog.values.length - 2]["player_name"]}](https://github.com/${battleLog.values.toList()[battleLog.values.length - 2]["player_name"]}) |
 
+</div>
+<br>
+<div align="center">
+
+**🎮 Players check-in**
+${generatePlayerCheckIn(userData)}
 
 </div>
 
@@ -381,4 +387,8 @@ String generateCharacter(String key){
     case "Dio": return "<img src='assets/dio_brando.png' width=30>";
     default: return "<img src='assets/jotaro_kujo.png' width=30>";
   }
+}
+
+String generatePlayerCheckIn(Map<String, dynamic> userData){
+  return userData.entries.toList().map((e) => '<a href="https://github.com/${e.key}"><img src="https://img.shields.io/badge/${e.key}-black" ></a>').join(' ');
 }
