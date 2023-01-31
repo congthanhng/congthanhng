@@ -3,13 +3,13 @@
 
 <div align="center">
 
-![](https://img.shields.io/badge/Moves%20played-67-blue)
+![](https://img.shields.io/badge/Moves%20played-68-blue)
 ![](https://img.shields.io/badge/Completed%20games-3-orange)
 ![](https://img.shields.io/badge/Total%20players-2-red)
 
 </div>
 
-<p align="center">It's the <b><img src='assets/dio_brando.png' width=30><b> team's turn.</p>
+<p align="center">It's the <b><img src='assets/jotaro_kujo.png' width=30><b> team's turn.</p>
 <table align="center">
   <thead align="center">
     <tr>
@@ -23,19 +23,19 @@
       <td><code><a href="https://github.com/congthanhng"><img src="assets/dio_brando.png" width=55%></a></code></td>
     </tr>
     <tr>
-      <td>HP: ████░░░░░░ 41/100 <br> MP: █████░ 22/25 <br>Win: 1 <br> Total Damage: 241 <br> Total Heal: 56</td>
-      <td>HP: ██░░░░░░░░ 28/100 <br> MP: ██████ 25/25 <br>Win: 2 <br> Total Damage: 280 <br> Total Heal: 40</td>
+      <td>HP: ███░░░░░░░ 33/100 <br> MP: ██████ 25/25 <br>Win: 1 <br> Total Damage: 241 <br> Total Heal: 56</td>
+      <td>HP: ██░░░░░░░░ 28/100 <br> MP: ██████ 25/25 <br>Win: 2 <br> Total Damage: 288 <br> Total Heal: 40</td>
     </tr>
   </tbody>
 </table>
 
 <p align="center">
-    ---<img src="assets/dice_white/dice_5.png" width=10%>
+    ---<img src="assets/dice_white/dice_2.png" width=10%>
     ----
-    <img src="assets/dice_black/dice_3.png" width=10%>---
+    <img src="assets/dice_black/dice_2.png" width=10%>---
 </p>
 
-<p align="center"><b><img src='assets/dio_brando.png' width=30><b> turn. You rolled a 8!</p>
+<p align="center"><b><img src='assets/jotaro_kujo.png' width=30><b> turn. You rolled a 4!</p>
 
 <p align="center">What would you like to do?</p>
 
@@ -43,10 +43,10 @@
 
 | Choices *(pick one of them!)*                                                                                                                                                                          |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Attack Jotaro Kujo with 8 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C8&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
-| [Heal yourself with 8 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C8&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
-| [Using MP, Attack with x2 dame: 16 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattackx2%7C8&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
-| [Using MP, Heal with x2 value: 16 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Chealx2%7C8&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
+| [Attack Dio Brando with 4 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C4&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
+| [Heal yourself with 4 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C4&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
+| [Using MP, Attack with x2 dame: 8 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattackx2%7C4&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
+| [Using MP, Heal with x2 value: 8 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Chealx2%7C4&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
 
 </div>
 
@@ -57,8 +57,8 @@
 **:alarm_clock: Most recent moves**
 | Team | Dices Roll | Action | Made by |
 | ---- | :----: | ------- | ------- |
+| <img src='assets/dio_brando.png' width=30> | 8 | attack | [@congthanhng](https://github.com/congthanhng) |
 | <img src='assets/jotaro_kujo.png' width=30> | 8 | attack | [@congthanhngnashtech](https://github.com/congthanhngnashtech) |
-| <img src='assets/dio_brando.png' width=30> | 8 | heal | [@congthanhngnashtech](https://github.com/congthanhngnashtech) |
 
 </div>
 <br>
@@ -66,7 +66,7 @@
 
 **🎮 Players check-in**
 
-<a href="https://github.com/congthanhng"><img src="https://img.shields.io/badge/@congthanhng-0-blue" ></a> <a href="https://github.com/congthanhngnashtech"><img src="https://img.shields.io/badge/@congthanhngnashtech-2-blue" ></a>
+<a href="https://github.com/congthanhng"><img src="https://img.shields.io/badge/@congthanhng-1-blue" ></a> <a href="https://github.com/congthanhngnashtech"><img src="https://img.shields.io/badge/@congthanhngnashtech-2-blue" ></a>
 
 </div>
 
