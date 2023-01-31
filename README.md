@@ -1,7 +1,7 @@
   <h2 align="center">Welcome to Community Battle game</h2>
 <p align="center">Welcome to my Github profile! We're playing Battle game, you can join with us!</p>
 
-<p align="center">It's the <b><img src='assets/jotaro_kujo.png' width=30><b> team's turn.</p>
+<p align="center">It's the <b><img src='assets/dio_brando.png' width=30><b> team's turn.</p>
 <table align="center">
   <thead align="center">
     <tr>
@@ -11,24 +11,24 @@
   </thead>
   <tbody>
     <tr align="center">
-      <td><code><img src="assets/jotaro_kujo.png" width=55%></code></td>
-      <td><code><img src="assets/dio_brando.png" width=55%></code></td>
+      <td><code><a href="https://github.com/congthanhng"><img src="assets/jotaro_kujo.png" width=55%></a></code></td>
+      <td><code><a href="https://github.com/congthanhng"><img src="assets/dio_brando.png" width=55%></a></code></td>
     </tr>
     <tr>
       <td>HP: ██████░░░░ 62/100 <br> MP: ██░░░░ 11/25</td>
-      <td>HP: ██████░░░░ 63/100 <br> MP: ██░░░░ 11/25</td>
+      <td>HP: █████░░░░░ 52/100 <br> MP: █████░ 22/25</td>
     </tr>
   </tbody>
 </table>
 
 
 <p align="center">
-    ---<img src="assets/dice_white/dice_6.png" width=10%>
+    ---<img src="assets/dice_white/dice_3.png" width=10%>
     ----
-    <img src="assets/dice_black/dice_5.png" width=10%>---
+    <img src="assets/dice_black/dice_1.png" width=10%>---
 </p>
 
-<p align="center"><b><img src='assets/jotaro_kujo.png' width=30><b> turn. You rolled a 11!</p>
+<p align="center"><b><img src='assets/dio_brando.png' width=30><b> turn. You rolled a 4!</p>
 
 <p align="center">What would you like to do?</p>
 
@@ -36,15 +36,15 @@
 
 | Choices *(pick one of them!)*                                                                                                                                                                          |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| [Attack Dio Brando with 11 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C11&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
-| [Heal yourself with 11 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C11&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
+| [Attack Jotaro Kujo with 4 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C4&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
+| [Heal yourself with 4 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C4&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
 
 
 
 </div>
       
   <details>
-<p align="center"><summary></p><b>How do I play?</b></summary></p>
+<summary></p><b>How do I play?</b></summary>
 
 ## Rules of the game
 
