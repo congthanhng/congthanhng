@@ -300,14 +300,15 @@ ${canPowerful
 
 </div>
 
+<br>
 
 <div align="center">
 
 **:alarm_clock: Most recent moves**
 | Team | Dices Roll | Action | Made by |
 | ---- | ---- | ------- | ------- |
-| <img src='assets/jotaro_kujo.png' width=30> | ${battleLog.values.last["point"]} | ${battleLog.values.last["state"]} | [@${battleLog.values.last["player_name"]}](https://github.com/${battleLog.values.last["player_name"]}) |
-| <img src='assets/dio_brando.png' width=30> | ${battleLog.values.last["point"]} | ${battleLog.values.last["state"]} | [@${battleLog.values.last["player_name"]}](https://github.com/${battleLog.values.last["player_name"]}) |
+| ${generateCharacter(battleLog.values.last["character"])} | ${battleLog.values.last["point"]} | ${battleLog.values.last["state"]} | [@${battleLog.values.last["player_name"]}](https://github.com/${battleLog.values.last["player_name"]}) |
+| ${generateCharacter(battleLog.values.toList()[battleLog.values.length - 2]["character"])} | ${battleLog.values.toList()[battleLog.values.length - 2]["point"]} | ${battleLog.values.toList()[battleLog.values.length - 2]["state"]} | [@${battleLog.values.toList()[battleLog.values.length - 2]["player_name"]}](https://github.com/${battleLog.values.toList()[battleLog.values.length - 2]["player_name"]}) |
 
 
 </div>
@@ -372,5 +373,12 @@ String generateDice(int point, bool isWhiteDice) {
       return "assets/${isWhiteDice ? 'dice_white' : 'dice_black'}/dice_6.png";
     default:
       return "assets/${isWhiteDice ? 'dice_white' : 'dice_black'}/dice_1.png";
+  }
+}
+
+String generateCharacter(String key){
+  switch(key){
+    case "Dio": return "<img src='assets/dio_brando.png' width=30>";
+    default: return "<img src='assets/jotaro_kujo.png' width=30>";
   }
 }
