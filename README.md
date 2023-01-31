@@ -1,4 +1,4 @@
-<h2 align="center">👋 Hi, I'm Congthanhng 👋 </h2>
+<h2 align="center">👋 Hi, I'm Cong Nguyen 👋 </h2>
 <p align="center"> I’m currently working on Mobile Development with Flutter</p>
 <p align="center"> I’m currently learning, improving and contributing around Flutter framework</p>
 <p align="center"> I’m looking to collaborate on any kind of project</p>
@@ -54,7 +54,7 @@
   <img align="center" src="https://github-readme-stats-46zz.vercel.app/api?username=congthanhng&show_icons=true&theme=radical" alt="congthanhng" width=45% />
   <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=congthanhng&" alt="congthanhng" width=45%/>
 </p>
-<p align="center"><code><a href="https://github.com/congthanhng"><img src="snake_game.svg"></a></code></p>
+<p align="center"><code><a href="https://github.com/congthanhng"><img src="assets/snake_game.svg"></a></code></p>
 <h3 align="center">Connect with me</h3>
 <p align="center">
 <a href="https://linkedin.com/in/tconguit" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="tconguit" height="20" width="30" /></a>
