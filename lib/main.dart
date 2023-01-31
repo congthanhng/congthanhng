@@ -166,8 +166,8 @@ Future<Map<String, dynamic>> readJsonFile(String filePath) async {
 
 String generateREADME(StateData data, bool canPowerful) {
   var isDioTurn = data.isDioTurn;
-  String afterAction = '''<h2 align="center">👋 Hi, I'm Cong Nguyen 👋 </h2>
-<p align="center">Welcome to my Github profile! We're playing Battle game, you can join!</p>
+  String afterAction = '''<h2 align="center">Welcome to Community Battle game</h2>
+<p align="center">Welcome to my Github profile! We're playing Battle game, you can join with us!</p>
 
 <p align="center">It's the <b>${isDioTurn ? "Dio Brando" : "Jotaro Kujo"}<b> team's turn.</p>
 <table align="center">

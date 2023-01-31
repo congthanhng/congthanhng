@@ -1,6 +1,7 @@
 String introduce =
 '''<h2 align="center">About me </h2>
 
+<p align="center"> I’m Cong Nguyen</p>
 <p align="center"> I’m currently working on Mobile Development with Flutter</p>
 <p align="center"> I’m currently learning, improving and contributing around Flutter framework</p>
 <p align="center"> I’m looking to collaborate on any kind of project</p>
