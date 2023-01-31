@@ -19,7 +19,7 @@ jobs:
       - name: Install dart
         uses: dart-lang/setup-dart@v1
       - name: run-game
-        run: dart run lib/main.dart "${{ github.event.issue.title }}"
+        run: dart run lib/main.dart "${{ github.event.issue.title }}" "${{ github.event.issue.user.login }}"
       - name: Push change commit
         uses: stefanzweifel/git-auto-commit-action@v4
         with:

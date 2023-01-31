@@ -30,6 +30,8 @@ extension ActionStateExtension on String {
 
 void main(List<String> arguments) async {
   String data = arguments[0];
+  String userName = arguments[1];
+  print('userName: $userName');
   List<String> args = data.split('|');
   ActionState actionState = args[2].actionStateFromString();
   int point = int.parse(args[3]);
