@@ -52,7 +52,7 @@ void main(List<String> arguments) async {
   if (ActionState.values.toString().contains(args[2]) &&
       point == resource.totalDice) {
     userData[userName]= (userData[userName]??0) + 1;
-    await File('lib/core/state.json')
+    await File('lib/core/user.json')
         .writeAsString(jsonEncode(userData));
 
     int attackValue = 0;
