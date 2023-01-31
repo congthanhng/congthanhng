@@ -190,8 +190,12 @@ String generateREADME(StateData data, bool canPowerful, Map<String, dynamic> act
   String afterAction = '''<h2 align="center">Welcome to Community Battle game</h2>
 <p align="center">Welcome to my Github profile! We're playing Battle game, you can join with us!</p>
 
+<div align="center">
+
 ![](https://img.shields.io/badge/Moves%20played-${activityData['moves'].toString()}-blue)
 ![](https://img.shields.io/badge/Completed%20games-${activityData['completeGame'].toString()}-orange)
+
+</div>
 
 <p align="center">It's the <b>${isDioTurn ? "<img src='assets/dio_brando.png' width=30>" : "<img src='assets/jotaro_kujo.png' width=30>"}<b> team's turn.</p>
 <table align="center">
