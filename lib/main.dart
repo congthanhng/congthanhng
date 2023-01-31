@@ -203,7 +203,7 @@ String generateREADME(StateData data, bool canPowerful) {
 <div align="center">
 
 | Choices *(pick one of them!)*                                                                                                                                                                          |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 | [Attack ${isDioTurn ? "Jotaro Kujo" : "Dio Brando"} with ${data.totalDice.toString()} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
 | [Heal yourself with ${data.totalDice.toString()} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
 ${canPowerful ? "| [Using MP, Attack with x2 dame: ${data.totalDice * 2} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattackx2%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |" : ""}
