@@ -18,8 +18,9 @@ jobs:
         uses: actions/checkout@v3
       - name: Install dart
         uses: dart-lang/setup-dart@v1
-      - name: Run-Game
+      - name: run-game
         run: dart run lib/main.dart "${{ github.event.issue.title }}"
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - name: Close Issue
+          uses: peter-evans/close-issue@v2
           with:
-            commit_message: Apply Run-Game changes
+            comment: Auto-closing issue
