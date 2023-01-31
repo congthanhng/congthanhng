@@ -13,8 +13,8 @@
 <table align="center">
   <thead align="center">
     <tr>
-      <td><h3>Jotaro Kujo</h3></td>
-      <td><h3>Dio Brando</h3></td>
+      <td><b>Jotaro Kujo</b></td>
+      <td><b>Dio Brando</b></td>
     </tr>
   </thead>
   <tbody>
