@@ -32,4 +32,13 @@ class StateData {
   int get totalDice => dice1 + dice2;
 
   String toJsonString() => '${this.toJson()}';
+
+  StateData resetGame(bool isDioTurn) {
+    return StateData(
+        dio: Player(hp: 100, mana: 0, name: 'Dio Brando'),
+        joJo: Player(name: 'Jotaro Kujo', mana: 0, hp: 100),
+        dice1: 1,
+        dice2: 1,
+        isDioTurn: isDioTurn);
+  }
 }

@@ -45,13 +45,32 @@ void main(List<String> arguments) async {
         attackValue = point;
         break;
       case ActionState.attackx2:
-        attackValue = point * 2;
+        if (resource.isDioTurn) {
+          if (resource.dio.mana >= 25) {
+            attackValue = point * 2;
+            resource.dio.mana = 0;
+          } else {
+            attackValue = point;
+          }
+        } else {
+          if (resource.joJo.mana >= 25) {
+            attackValue = point * 2;
+            resource.joJo.mana = 0;
+          } else {
+            attackValue = point;
+          }
+        }
         break;
       case ActionState.heal:
         healValue = point;
         break;
       case ActionState.healx2:
         healValue = point * 2;
+        if (resource.isDioTurn) {
+          resource.dio.mana = 0;
+        } else {
+          resource.joJo.mana = 0;
+        }
         break;
     }
 
@@ -59,42 +78,59 @@ void main(List<String> arguments) async {
       if (resource.joJo.hp <= 0 || resource.joJo.hp <= attackValue) {
         //Dio WIN
         //reset game
+        var reset = resource.resetGame(false);
+        var dice1 = Random().nextInt(6) + 1;
+        var dice2 = Random().nextInt(6) + 1;
+        reset.dice1 = dice1;
+        reset.dice2 = dice2;
+        await File('lib/core/state.json')
+            .writeAsString(jsonEncode(reset.toJson()));
+        return;
       } else {
         //decrease jojo HP
         resource.joJo.hp -= attackValue;
         //increase JoJO MP
         resource.joJo.mana += attackValue;
-        if(resource.joJo.mana >= 25){
+        if (resource.joJo.mana >= 25) {
           resource.joJo.mana = 25;
           canPowerful = true;
         }
       }
 
-      if(resource.dio.hp + healValue > 100){
+      if (resource.dio.hp + healValue > 100) {
+        resource.dio.hp = 100;
         int remainHealValue = healValue - (100 - resource.dio.hp);
         resource.dio.mana += remainHealValue;
-      }else{
+      } else {
         resource.dio.hp += healValue;
       }
-
     } else {
       if (resource.dio.hp <= 0 || resource.dio.hp <= attackValue) {
-        //Dio WIN
+        //JoJo WIN
         //reset game
+        var reset = resource.resetGame(true);
+        var dice1 = Random().nextInt(6) + 1;
+        var dice2 = Random().nextInt(6) + 1;
+        reset.dice1 = dice1;
+        reset.dice2 = dice2;
+        await File('lib/core/state.json')
+            .writeAsString(jsonEncode(reset.toJson()));
+        return;
       } else {
         //decrease dio HP
         resource.dio.hp -= attackValue;
         //increase dio MP
         resource.dio.mana += attackValue;
-        if(resource.dio.mana >= 25){
+        if (resource.dio.mana >= 25) {
           resource.dio.mana = 25;
           canPowerful = true;
         }
       }
-      if(resource.joJo.hp + healValue > 100){
+      if (resource.joJo.hp + healValue > 100) {
+        resource.joJo.hp = 100;
         int remainHealValue = healValue - (100 - resource.dio.hp);
         resource.joJo.mana += remainHealValue;
-      }else{
+      } else {
         resource.joJo.hp += healValue;
       }
     }
@@ -106,9 +142,9 @@ void main(List<String> arguments) async {
     resource.dice1 = dice1;
     resource.dice2 = dice2;
 
-    // print('toJsonString: ${resource.toJsonString()}');
-    await File('lib/core/state.json').writeAsString(jsonEncode(resource.toJson()));
-
+    print('toJsonString: ${resource.toJsonString()}');
+    await File('lib/core/state.json')
+        .writeAsString(jsonEncode(resource.toJson()));
   } else
     throw Exception('The Issue is not correct with title format');
 }
