@@ -170,7 +170,7 @@ String generateREADME(StateData data, bool canPowerful) {
   String afterAction = '''<h2 align="center">Welcome to Community Battle game</h2>
 <p align="center">Welcome to my Github profile! We're playing Battle game, you can join with us!</p>
 
-<p align="center">It's the <b>${isDioTurn ? "Dio Brando" : "Jotaro Kujo"}<b> team's turn.</p>
+<p align="center">It's the <b>${isDioTurn ? "<img src='assets/dio_brando.png' width=30>" : "<img src='assets/jotaro_kujo.png' width=30>"}<b> team's turn.</p>
 <table align="center">
   <thead align="center">
     <tr>
@@ -197,7 +197,7 @@ String generateREADME(StateData data, bool canPowerful) {
     <img src="${generateDice(data.dice2, false)}" width=10%>---
 </p>
 
-<p align="center"><b>${isDioTurn ? "Dio Brando" : "Jotaro Kujo"}<b> turn. You rolled a ${data.totalDice.toString()}!</p>
+<p align="center"><b>${isDioTurn ? "<img src='assets/dio_brando.png' width=30>" : "<img src='assets/jotaro_kujo.png' width=30>"}<b> turn. You rolled a ${data.totalDice.toString()}!</p>
 
 <p align="center">What would you like to do?</p>
 
