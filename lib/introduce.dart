@@ -1,47 +1,6 @@
-<h2>👋 Hi, I'm Cong Nguyen 👋 </h2>
-Welcome to my Github profile! We're playing Battle game, you can join!
-
-It's the **Jotaro Kujo** team's turn.
-<table align="center">
-  <thead align="center">
-    <tr>
-      <td><b>Jotaro Kujo</b></td>
-      <td><b>Dio Brando</b></td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr align="center">
-      <td><code><img src="assets/jotaro_kujo.png" width=55%></code></td>
-      <td><code><img src="assets/dio_brando.png" width=55%></code></td>
-    </tr>
-    <tr>
-      <td>HP: ██████████ 100 <br> MP: ░░░░░░░░░░ 0/25</td>
-      <td>HP: ██████████ 100 <br> MP: ░░░░░░░░░░ 0/25</td>
-    </tr>
-  </tbody>
-</table>
-
-
-<p align="center">
-    ---<img src="assets/dice_black/db_1.png" width=10%>
-    ----
-    <img src="assets/dice_white/dw_1.png" width=10%>---
-</p>
-
-**Jotaro Kujo** turn. You rolled a 2!
-
-What would you like to do?
-
-| Choices *(pick one of them!)*                                                                                                                                                                          |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Attack Dio Brando with 4 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C2&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
-| [Heal yourself with 4 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C2&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
-
-[//]: # (| [Attack using MP to x2 dame]&#40;https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattackx2&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.&#41;     |)
-
-[//]: # (| [Heal with using MP to x2 effect]&#40;https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Chealx2&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.&#41; |)
-
------
+String introduce =
+    '''
+    -----
 <h2 align="center">About me </h2>
 
 <p align="center"> I’m currently working on Mobile Development with Flutter</p>
@@ -111,3 +70,5 @@ What would you like to do?
   <a href="https://ko-fi.com/congthanhng"> <img align="center" src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" width="20%" alt="congthanhng" /></a></p>
 <p align="center"><img align="center" src="https://komarev.com/ghpvc/?username=congthanhng&color=blue" /></p>
 <!-- ![Profile views](https://komarev.com/ghpvc/?username=congthanhng&color=blue)  -->
+
+    ''';
