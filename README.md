@@ -1,7 +1,7 @@
-  <h2 align="center">👋 Hi, I'm Cong Nguyen 👋 </h2>
-<p align="center">Welcome to my Github profile! We're playing Battle game, you can join!</p>
+  <h2 align="center">Welcome to Community Battle game</h2>
+<p align="center">Welcome to my Github profile! We're playing Battle game, you can join with us!</p>
 
-<p align="center">It's the <b>Dio Brando<b> team's turn.</p>
+<p align="center">It's the <b>Jotaro Kujo<b> team's turn.</p>
 <table align="center">
   <thead align="center">
     <tr>
@@ -15,7 +15,7 @@
       <td><code><img src="assets/dio_brando.png" width=55%></code></td>
     </tr>
     <tr>
-      <td>HP: ███████░░░ 75/100 <br> MP: ██████ 25/25</td>
+      <td>HP: ███████░░░ 73/100 <br> MP: ██████ 25/25</td>
       <td>HP: ███████░░░ 76/100 <br> MP: █████░ 24/25</td>
     </tr>
   </tbody>
@@ -25,10 +25,10 @@
 <p align="center">
     ---<img src="assets/dice_white/dice_1.png" width=10%>
     ----
-    <img src="assets/dice_black/dice_1.png" width=10%>---
+    <img src="assets/dice_black/dice_3.png" width=10%>---
 </p>
 
-<p align="center"><b>Dio Brando<b> turn. You rolled a 2!</p>
+<p align="center"><b>Jotaro Kujo<b> turn. You rolled a 4!</p>
 
 <p align="center">What would you like to do?</p>
 
@@ -36,15 +36,16 @@
 
 | Choices *(pick one of them!)*                                                                                                                                                                          |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Attack Jotaro Kujo with 2 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C2&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
-| [Heal yourself with 2 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C2&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
-
-
+| [Attack Dio Brando with 4 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C4&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
+| [Heal yourself with 4 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C4&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
+| [Using MP, Attack with x2 dame: 8 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattackx2%7C4&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
+| [Using MP, Heal with x2 value: 8 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Chealx2%7C4&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
 
 </div>
       
   <h2 align="center">About me </h2>
 
+<p align="center"> I’m Cong Nguyen</p>
 <p align="center"> I’m currently working on Mobile Development with Flutter</p>
 <p align="center"> I’m currently learning, improving and contributing around Flutter framework</p>
 <p align="center"> I’m looking to collaborate on any kind of project</p>
