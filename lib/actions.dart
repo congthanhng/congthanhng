@@ -13,3 +13,4 @@ String generateHeal(int point){
 String generateHealUsingMP(int point){
   return 'https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Chealx2%7C$point&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.';
 }
+
