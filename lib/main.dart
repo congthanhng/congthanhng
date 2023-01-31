@@ -166,10 +166,10 @@ Future<Map<String, dynamic>> readJsonFile(String filePath) async {
 
 String generateREADME(StateData data, bool canPowerful) {
   var isDioTurn = data.isDioTurn;
-  String afterAction = '''<h2>👋 Hi, I'm Cong Nguyen 👋 </h2>
-Welcome to my Github profile! We're playing Battle game, you can join!
+  String afterAction = '''<p align="center"><h2>👋 Hi, I'm Cong Nguyen 👋 </h2></p>
+<p align="center">Welcome to my Github profile! We're playing Battle game, you can join!</p>
 
-It's the ${isDioTurn ? "**Dio Brando**" : "**Jotaro Kujo**"} team's turn.
+<p align="center">It's the <b>${isDioTurn ? "Dio Brando" : "Jotaro Kujo"}<b> team's turn.</p>
 <table align="center">
   <thead align="center">
     <tr>
@@ -196,9 +196,11 @@ It's the ${isDioTurn ? "**Dio Brando**" : "**Jotaro Kujo**"} team's turn.
     <img src="${generateDice(data.dice2, false)}" width=10%>---
 </p>
 
-${isDioTurn ? "**Dio Brando**" : "**Jotaro Kujo**"} turn. You rolled a ${data.totalDice.toString()}!
+<p align="center"><b>${isDioTurn ? "Dio Brando" : "Jotaro Kujo"}<b> turn. You rolled a ${data.totalDice.toString()}!</p>
 
-What would you like to do?
+<p align="center">What would you like to do?</p>
+
+<div align="center">
 
 | Choices *(pick one of them!)*                                                                                                                                                                          |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -207,6 +209,7 @@ What would you like to do?
 ${canPowerful ? "| [Using MP, Attack with x2 dame: ${data.totalDice * 2} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattackx2%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |" : ""}
 ${canPowerful ? "| [Using MP, Heal with x2 value: ${data.totalDice * 2} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Chealx2%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |" : ""}
 
+</div>
       ''';
 
   var result = '''
