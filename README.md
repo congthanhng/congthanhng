@@ -1,8 +1,7 @@
-  <h2 align="center">👋 Hi, I'm Cong Nguyen 👋 </h2>
-<p align="center">Welcome to my Github profile! We're playing Battle game, you can join!</p>
+  <h2>👋 Hi, I'm Cong Nguyen 👋 </h2>
+Welcome to my Github profile! We're playing Battle game, you can join!
 
-<p align="center">It's the <b>Jotaro Kujo<b> team's turn.</p>
-
+It's the **Dio Brando** team's turn.
 <table align="center">
   <thead align="center">
     <tr>
@@ -17,30 +16,28 @@
     </tr>
     <tr>
       <td>HP: ████████░░ 85/100 <br> MP: ███░░░ 15/25</td>
-      <td>HP: █████████░ 95/100 <br> MP: █░░░░░ 5/25</td>
+      <td>HP: ████████░░ 88/100 <br> MP: ██░░░░ 12/25</td>
     </tr>
   </tbody>
 </table>
 
 
 <p align="center">
-    ---<img src="assets/dice_white/dice_6.png" width=10%>
+    ---<img src="assets/dice_white/dice_5.png" width=10%>
     ----
-    <img src="assets/dice_black/dice_1.png" width=10%>---
+    <img src="assets/dice_black/dice_5.png" width=10%>---
 </p>
 
-<p align="center"><b>Jotaro Kujo<b> turn. You rolled a 7!</p>
+**Dio Brando** turn. You rolled a 10!
 
-<p align="center">What would you like to do?</p>
+What would you like to do?
 
-<div align="center">
-  
 | Choices *(pick one of them!)*                                                                                                                                                                          |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Attack Dio Brando with 7 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C7&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
-| [Heal yourself with 7 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C7&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
+| [Attack Jotaro Kujo with 10 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C10&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
+| [Heal yourself with 10 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C10&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
 
-</div>
+
 
       
   <h2 align="center">About me </h2>
