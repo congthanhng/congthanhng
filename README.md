@@ -1,15 +1,7 @@
 <h2>👋 Hi, I'm Cong Nguyen 👋 </h2>
+Welcome to my Github profile! We're playing Battle game, you can join!
 
-[//]: # (<p align="center">)
-
-[//]: # (<code><a href="https://github.com/congthanhng"><img src="assets/jotaro_kujo.png" width=20%></a></code>)
-
-[//]: # (<a href="https://github.com/congthanhng"><img src="assets/vs.png" width=20%></a>)
-
-[//]: # (<code><a href="https://github.com/congthanhng"><img src="assets/dio_brando.png" width=20%></a></code>)
-
-[//]: # (</p>)
-
+It's the **Jotaro Kujo** team's turn.
 <table align="center">
   <thead align="center">
     <tr>
@@ -29,6 +21,26 @@
   </tbody>
 </table>
 
+
+<p align="center">
+    <img src="assets/dice_black/db_1.png" width=10%>
+    <img src="assets/dice_white/dw_1.png" width=10%>
+</p>
+
+**Jotaro Kujo** turn. You rolled a 4!
+
+What would you like to do?
+
+| Choices *(pick one of them!)*                                                                                                                                                                                                                                           |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Attack Dio Brando with 4 points](https://github.com/congthanhng/congthanhng/issues/new?title=ur-move-4%402-0&amp;body=Press+Submit%21+You+don%27t+need+to+edit+this+text+or+do+anything+else.%0D%0A%0D%0ABe+aware+that+your+move+can+take+a+minute+or+two+to+process.) |
+| [Heal yourself with 4 points](https://github.com/congthanhng/congthanhng/issues/new?title=ur-move-4%404-0&amp;body=Press+Submit%21+You+don%27t+need+to+edit+this+text+or+do+anything+else.%0D%0A%0D%0ABe+aware+that+your+move+can+take+a+minute+or+two+to+process.)     |
+
+[//]: # (| [Attack using MP to x2 dame]&#40;https://github.com/congthanhng/congthanhng/issues/new?title=ur-move-4%404-0&amp;body=Press+Submit%21+You+don%27t+need+to+edit+this+text+or+do+anything+else.%0D%0A%0D%0ABe+aware+that+your+move+can+take+a+minute+or+two+to+process.&#41;      |)
+
+[//]: # (| [Heal with using MP to x2 effect]&#40;https://github.com/congthanhng/congthanhng/issues/new?title=ur-move-4%404-0&amp;body=Press+Submit%21+You+don%27t+need+to+edit+this+text+or+do+anything+else.%0D%0A%0D%0ABe+aware+that+your+move+can+take+a+minute+or+two+to+process.&#41; |)
+
+-----
 <h2 align="center">About me </h2>
 
 <p align="center"> I’m currently working on Mobile Development with Flutter</p>
