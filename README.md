@@ -1,7 +1,7 @@
   <h2 align="center">Welcome to Community Battle game</h2>
 <p align="center">Welcome to my Github profile! We're playing Battle game, you can join with us!</p>
 
-<p align="center">It's the <b>Jotaro Kujo<b> team's turn.</p>
+<p align="center">It's the <b>Dio Brando<b> team's turn.</p>
 <table align="center">
   <thead align="center">
     <tr>
@@ -16,19 +16,19 @@
     </tr>
     <tr>
       <td>HP: ███████░░░ 73/100 <br> MP: ░░░░░░ 0/25</td>
-      <td>HP: ███████░░░ 74/100 <br> MP: ░░░░░░ 0/25</td>
+      <td>HP: ██████░░░░ 63/100 <br> MP: ██░░░░ 11/25</td>
     </tr>
   </tbody>
 </table>
 
 
 <p align="center">
-    ---<img src="assets/dice_white/dice_6.png" width=10%>
+    ---<img src="assets/dice_white/dice_5.png" width=10%>
     ----
-    <img src="assets/dice_black/dice_5.png" width=10%>---
+    <img src="assets/dice_black/dice_6.png" width=10%>---
 </p>
 
-<p align="center"><b>Jotaro Kujo<b> turn. You rolled a 11!</p>
+<p align="center"><b>Dio Brando<b> turn. You rolled a 11!</p>
 
 <p align="center">What would you like to do?</p>
 
@@ -36,7 +36,7 @@
 
 | Choices *(pick one of them!)*                                                                                                                                                                          |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| [Attack Dio Brando with 11 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C11&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
+| [Attack Jotaro Kujo with 11 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C11&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
 | [Heal yourself with 11 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C11&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
 
 
@@ -44,7 +44,7 @@
 </div>
       
   <details>
-<summary><b>How do I play?</b></summary>
+<summary><p align="center"></p><b>How do I play?</b></p></summary>
 
 ## Rules of the game
 
