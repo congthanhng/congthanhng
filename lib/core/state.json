@@ -1,0 +1,13 @@
+{
+  "Dio": {
+    "HP": 100,
+    "Mana": 0
+  },
+  "JoJo": {
+    "HP": 100,
+    "Mana": 0
+  },
+  "isDioTurn": false,
+  "Dice1": 1,
+  "Dice2": 1
+}

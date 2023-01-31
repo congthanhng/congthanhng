@@ -1,4 +1,36 @@
-<h2 align="center">👋 Hi, I'm Cong Nguyen 👋 </h2>
+<h2>👋 Hi, I'm Cong Nguyen 👋 </h2>
+
+[//]: # (<p align="center">)
+
+[//]: # (<code><a href="https://github.com/congthanhng"><img src="assets/jotaro_kujo.png" width=20%></a></code>)
+
+[//]: # (<a href="https://github.com/congthanhng"><img src="assets/vs.png" width=20%></a>)
+
+[//]: # (<code><a href="https://github.com/congthanhng"><img src="assets/dio_brando.png" width=20%></a></code>)
+
+[//]: # (</p>)
+
+<table align="center">
+  <thead align="center">
+    <tr>
+      <td><h3>Jotaro Kujo</h3></td>
+      <td><h3>Dio Brando</h3></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr align="center">
+      <td><code><img src="assets/jotaro_kujo.png" width=50%></code></td>
+      <td><code><img src="assets/dio_brando.png" width=50%></code></td>
+    </tr>
+    <tr>
+      <td>HP: ██████████ 100 <br> MP: ░░░░░░░░░░ 0/25</td>
+      <td>HP: ██████████ 100 <br> MP: ░░░░░░░░░░ 0/25</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 align="center">About me </h2>
+
 <p align="center"> I’m currently working on Mobile Development with Flutter</p>
 <p align="center"> I’m currently learning, improving and contributing around Flutter framework</p>
 <p align="center"> I’m looking to collaborate on any kind of project</p>
@@ -33,7 +65,7 @@
  </h3>
 <table align="center">
   <thead align="center">
-    <tr border: none;>
+    <tr>
       <td><b>🎁 Projects</b></td>
       <td><b>👍 Likes</b></td>
       <td><b>💯 Points</b></td>
