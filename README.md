@@ -3,12 +3,12 @@
 
 <div align="center">
 
-![](https://img.shields.io/badge/Moves%20played-58-blue)
+![](https://img.shields.io/badge/Moves%20played-59-blue)
 ![](https://img.shields.io/badge/Completed%20games-3-orange)
 
 </div>
 
-<p align="center">It's the <b><img src='assets/jotaro_kujo.png' width=30><b> team's turn.</p>
+<p align="center">It's the <b><img src='assets/dio_brando.png' width=30><b> team's turn.</p>
 <table align="center">
   <thead align="center">
     <tr>
@@ -22,8 +22,8 @@
       <td><code><a href="https://github.com/congthanhng"><img src="assets/dio_brando.png" width=55%></a></code></td>
     </tr>
     <tr>
-      <td>HP: █████░░░░░ 56/100 <br> MP: ██████ 25/25 <br>Win: 1 <br> Total Damage: 209 <br> Total Heal: 49</td>
-      <td>HP: █████░░░░░ 52/100 <br> MP: ░░░░░░ 0/25 <br>Win: 2 <br> Total Damage: 258 <br> Total Heal: 32</td>
+      <td>HP: █████░░░░░ 56/100 <br> MP: ░░░░░░ 0/25 <br>Win: 1 <br> Total Damage: 223 <br> Total Heal: 49</td>
+      <td>HP: ███░░░░░░░ 38/100 <br> MP: ███░░░ 14/25 <br>Win: 2 <br> Total Damage: 258 <br> Total Heal: 32</td>
     </tr>
   </tbody>
 </table>
@@ -34,7 +34,7 @@
     <img src="assets/dice_black/dice_6.png" width=10%>---
 </p>
 
-<p align="center"><b><img src='assets/jotaro_kujo.png' width=30><b> turn. You rolled a 7!</p>
+<p align="center"><b><img src='assets/dio_brando.png' width=30><b> turn. You rolled a 7!</p>
 
 <p align="center">What would you like to do?</p>
 
@@ -42,10 +42,10 @@
 
 | Choices *(pick one of them!)*                                                                                                                                                                          |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| [Attack Dio Brando with 7 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C7&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
+| [Attack Jotaro Kujo with 7 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C7&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
 | [Heal yourself with 7 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C7&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
-| [Using MP, Attack with x2 dame: 14 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattackx2%7C7&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
-| [Using MP, Heal with x2 value: 14 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Chealx2%7C7&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
+
+
 
 </div>
 
