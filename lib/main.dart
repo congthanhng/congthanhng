@@ -166,8 +166,7 @@ Future<Map<String, dynamic>> readJsonFile(String filePath) async {
 
 String generateREADME(StateData data, bool canPowerful) {
   var isDioTurn = data.isDioTurn;
-  String afterAction = '''
-      <h2>👋 Hi, I'm Cong Nguyen 👋 </h2>
+  String afterAction = '''<h2>👋 Hi, I'm Cong Nguyen 👋 </h2>
 Welcome to my Github profile! We're playing Battle game, you can join!
 
 It's the ${isDioTurn ? "**Dio Brando**" : "**Jotaro Kujo**"} team's turn.
@@ -231,17 +230,17 @@ String generateHP(int current) {
 }
 
 String generateMP(int current) {
-  int div = ((current / 25) * 10).floor();
+  int div = ((current / 25) * 6).floor();
   List<String> result = [];
-  for (int i = 1; i <= 10; i++) {
+  for (int i = 1; i <= 6; i++) {
     if (current == 25) {
       result.add('█');
     } else if (div == 0 && current == 0) {
       result.add('░');
-    } else if (div == 0 && current > 0) {
+    } else if (div == 0 && current > 0 && i == 1) {
       result.add('█');
     } else {
-      if (div == 0 || div >= i) {
+      if (div >= i) {
         result.add('█');
       } else {
         result.add('░');

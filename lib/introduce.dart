@@ -1,7 +1,5 @@
 String introduce =
-    '''
-    -----
-<h2 align="center">About me </h2>
+'''<h2 align="center">About me </h2>
 
 <p align="center"> I’m currently working on Mobile Development with Flutter</p>
 <p align="center"> I’m currently learning, improving and contributing around Flutter framework</p>
