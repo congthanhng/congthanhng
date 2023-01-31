@@ -51,7 +51,7 @@ void main(List<String> arguments) async {
 
   if (ActionState.values.toString().contains(args[2]) &&
       point == resource.totalDice) {
-    userData[userName] ++;
+    userData[userName]= (userData[userName]??0) + 1;
     await File('lib/core/state.json')
         .writeAsString(jsonEncode(userData));
 
@@ -299,6 +299,7 @@ ${canPowerful
       : ""}
 
 </div>
+
 
 <div align="center">
 
