@@ -14,10 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     if: startsWith(github.event.issue.title, 'battle|')
     steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: battle_game
-      - uses: dart-lang/setup-dart@v1
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install dart
+        uses: dart-lang/setup-dart@v1
       - name: Run Game
         env:
           REPOSITORY: ${{ github.repository }}
