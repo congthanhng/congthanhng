@@ -20,3 +20,6 @@ jobs:
         uses: dart-lang/setup-dart@v1
       - name: Run-Game
         run: dart run lib/main.dart "${{ github.event.issue.title }}"
+      - uses: stefanzweifel/git-auto-commit-action@v4
+          with:
+            commit_message: Apply Run-Game changes
