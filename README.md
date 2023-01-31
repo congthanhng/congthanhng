@@ -1,7 +1,7 @@
   <h2 align="center">Welcome to Community Battle game</h2>
 <p align="center">Welcome to my Github profile! We're playing Battle game, you can join with us!</p>
 
-<p align="center">It's the <b>Dio Brando<b> team's turn.</p>
+<p align="center">It's the <b>Jotaro Kujo<b> team's turn.</p>
 <table align="center">
   <thead align="center">
     <tr>
@@ -16,19 +16,19 @@
     </tr>
     <tr>
       <td>HP: ███████░░░ 73/100 <br> MP: ░░░░░░ 0/25</td>
-      <td>HP: ██████░░░░ 68/100 <br> MP: ██████ 25/25</td>
+      <td>HP: ███████░░░ 74/100 <br> MP: ░░░░░░ 0/25</td>
     </tr>
   </tbody>
 </table>
 
 
 <p align="center">
-    ---<img src="assets/dice_white/dice_1.png" width=10%>
+    ---<img src="assets/dice_white/dice_6.png" width=10%>
     ----
-    <img src="assets/dice_black/dice_2.png" width=10%>---
+    <img src="assets/dice_black/dice_5.png" width=10%>---
 </p>
 
-<p align="center"><b>Dio Brando<b> turn. You rolled a 3!</p>
+<p align="center"><b>Jotaro Kujo<b> turn. You rolled a 11!</p>
 
 <p align="center">What would you like to do?</p>
 
@@ -36,13 +36,64 @@
 
 | Choices *(pick one of them!)*                                                                                                                                                                          |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| [Attack Jotaro Kujo with 3 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C3&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
-| [Heal yourself with 3 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C3&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
-| [Using MP, Attack with x2 dame: 6 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattackx2%7C3&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
-| [Using MP, Heal with x2 value: 6 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Chealx2%7C3&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
+| [Attack Dio Brando with 11 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C11&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
+| [Heal yourself with 11 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C11&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
+
+
 
 </div>
       
+  <details>
+<summary><b>How do I play?</b></summary>
+
+## Rules of the game
+
+It's the <img src="assets/jotaro_kujo.png" width=30> team versus the <img src="assets/dio_brando.png" width=30>
+team.
+
+The first team make the HP of opponent to 0 will be win.
+
+Before you action, you must to roll 2 dices, the dices have 6 side: 1 -> 6.
+
+The Dices will randomly roll and return you the result.
+
+Base on the result of roll, you need to choice Attack or Heal.
+
+If you choose Attack, the opponent will be decreased the HP correspond with the points dices rolled. The opponent also increase the MP point.
+
+If you choose Heal, your character will be recovered the HP lost correspond with the total point of the dices. If you recover your heal over max HP, the remain HP will be increase the MP point.
+
+When the MP is full, you can call Stand. If you call the Stand all your next action will be double value. After call the Stand, you MP is reset to 0.
+
+## How to play
+
+Playing Community Battle game on my GitHub profile is easy. The dice have already been rolled
+for you &mdash; all you have to do is decide what to do with them. Anyone
+with a GitHub account can play.
+
+Anyone can join either team at any time, but once you're in a team, you're
+locked into it until the game ends. You won't be able to play a move when
+it's the other team's turn.
+
+The list of links below the board image shows each possible move. Clicking
+one of those will take you to a page where you can create an issue in this
+repository, where all you have to do is click submit to play your move.
+
+It will take a moment for Github Actions to acknowledge your move, it'll also make a commit to record your move.
+
+## Behind the scenes
+
+Check out the [`source` branch of this repository](https://github.com/congthanhng/congthanhng) for the source
+code and a little commentary on the inspiration behind this project.
+
+### Contributing
+
+I welcome bug reports, feature suggestions and pull requests! Just make
+sure you ping me in your issue or PR by adding `cc @congthanhng`, as I don't receive notifications for new issues in this repository
+(for hopefully obvious reasons).
+
+</details>
+
   <h2 align="center">About me </h2>
 
 <p align="center"> I’m Cong Nguyen</p>
