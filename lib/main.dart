@@ -4,6 +4,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'core/state_data.dart';
+import 'how_to_play.dart';
 import 'introduce.dart';
 
 String example = "battle|play|healx2|10";
@@ -214,6 +215,7 @@ ${canPowerful ? "| [Using MP, Heal with x2 value: ${data.totalDice * 2} points](
 
   var result = '''
   $afterAction
+  $howToPlay
   $introduce
   ''';
   return result;
