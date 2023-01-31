@@ -1,7 +1,8 @@
-  <h2>👋 Hi, I'm Cong Nguyen 👋 </h2>
-Welcome to my Github profile! We're playing Battle game, you can join!
+  <h2 align="center">👋 Hi, I'm Cong Nguyen 👋 </h2>
+<p align="center">Welcome to my Github profile! We're playing Battle game, you can join!</p>
 
-It's the **Jotaro Kujo** team's turn.
+<p align="center">It's the <b>Jotaro Kujo<b> team's turn.</p>
+
 <table align="center">
   <thead align="center">
     <tr>
@@ -28,9 +29,10 @@ It's the **Jotaro Kujo** team's turn.
     <img src="assets/dice_black/dice_1.png" width=10%>---
 </p>
 
-**Jotaro Kujo** turn. You rolled a 7!
+<p align="center"><b>Jotaro Kujo<b> turn. You rolled a 7!</p>
 
-What would you like to do?
+<p align="center">What would you like to do?</p>
+
 
 | Choices *(pick one of them!)*                                                                                                                                                                          |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
