@@ -15,27 +15,27 @@ It's the **Jotaro Kujo** team's turn.
       <td><code><img src="assets/dio_brando.png" width=55%></code></td>
     </tr>
     <tr>
+      <td>HP: █████████░ 93/100 <br> MP: █░░░░░ 7/25</td>
       <td>HP: █████████░ 98/100 <br> MP: █░░░░░ 2/25</td>
-      <td>HP: ██████████ 100/100 <br> MP: ░░░░░░ 0/25</td>
     </tr>
   </tbody>
 </table>
 
 
 <p align="center">
-    ---<img src="assets/dice_black/db_1.png" width=10%>
+    ---<img src="assets/dice_white/dice_2.png" width=10%>
     ----
-    <img src="assets/dice_white/dw_1.png" width=10%>---
+    <img src="assets/dice_black/dice_1.png" width=10%>---
 </p>
 
-**Jotaro Kujo** turn. You rolled a 9!
+**Jotaro Kujo** turn. You rolled a 3!
 
 What would you like to do?
 
 | Choices *(pick one of them!)*                                                                                                                                                                          |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Attack Dio Brando with 9 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C9&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
-| [Heal yourself with 9 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C9&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
+| [Attack Dio Brando with 3 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C3&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
+| [Heal yourself with 3 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C3&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
 
 
 

@@ -191,9 +191,9 @@ It's the ${isDioTurn ? "**Dio Brando**" : "**Jotaro Kujo**"} team's turn.
 
 
 <p align="center">
-    ---<img src="assets/dice_black/db_1.png" width=10%>
+    ---<img src="${generateDice(data.dice1, true)}" width=10%>
     ----
-    <img src="assets/dice_white/dw_1.png" width=10%>---
+    <img src="${generateDice(data.dice2, false)}" width=10%>---
 </p>
 
 ${isDioTurn ? "**Dio Brando**" : "**Jotaro Kujo**"} turn. You rolled a ${data.totalDice.toString()}!
@@ -248,4 +248,16 @@ String generateMP(int current) {
     }
   }
   return result.join('');
+}
+
+String generateDice(int point, bool isWhiteDice){
+  switch(point){
+    case 1: return "assets/${isWhiteDice?'dice_white':'dice_black'}/dice_1.png";
+    case 2: return "assets/${isWhiteDice?'dice_white':'dice_black'}/dice_2.png";
+    case 3: return "assets/${isWhiteDice?'dice_white':'dice_black'}/dice_3.png";
+    case 4: return "assets/${isWhiteDice?'dice_white':'dice_black'}/dice_4.png";
+    case 5: return "assets/${isWhiteDice?'dice_white':'dice_black'}/dice_5.png";
+    case 6: return "assets/${isWhiteDice?'dice_white':'dice_black'}/dice_6.png";
+    default: return "assets/${isWhiteDice?'dice_white':'dice_black'}/dice_1.png";
+  }
 }
