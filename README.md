@@ -33,13 +33,14 @@
 
 <p align="center">What would you like to do?</p>
 
-
+<div align="center">
+  
 | Choices *(pick one of them!)*                                                                                                                                                                          |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Attack Dio Brando with 7 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C7&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
 | [Heal yourself with 7 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C7&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
 
-
+</div>
 
       
   <h2 align="center">About me </h2>
