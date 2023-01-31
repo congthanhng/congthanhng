@@ -19,8 +19,8 @@
   </thead>
   <tbody>
     <tr align="center">
-      <td><code><img src="assets/jotaro_kujo.png" width=50%></code></td>
-      <td><code><img src="assets/dio_brando.png" width=50%></code></td>
+      <td><code><img src="assets/jotaro_kujo.png" width=55%></code></td>
+      <td><code><img src="assets/dio_brando.png" width=55%></code></td>
     </tr>
     <tr>
       <td>HP: ██████████ 100 <br> MP: ░░░░░░░░░░ 0/25</td>
