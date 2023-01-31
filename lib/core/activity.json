@@ -8,5 +8,7 @@
     "win": 0,
     "attackDmg": 0,
     "healRecover": 0
-  }
+  },
+  "moves": 0,
+  "completeGame": 0
 }

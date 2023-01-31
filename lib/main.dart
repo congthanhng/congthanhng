@@ -35,6 +35,7 @@ void main(List<String> arguments) async {
   int point = int.parse(args[3]);
 
   Map<String, dynamic> stateData = await readJsonFile('lib/core/state.json');
+  Map<String, dynamic> activityData = await readJsonFile('lib/core/activity.json');
   StateData resource = StateData.fromJson(stateData);
 
   if (ActionState.values.toString().contains(args[2]) &&
@@ -87,12 +88,18 @@ void main(List<String> arguments) async {
         reset.dice2 = dice2;
         await File('lib/core/state.json')
             .writeAsString(jsonEncode(reset.toJson()));
+        activityData['dio']['win'] += 1;
+        activityData['completeGame'] += 1;
+        await File('lib/core/activity.json')
+            .writeAsString(jsonEncode(activityData));
+
         await File('README.md')
-            .writeAsString(generateREADME(reset, canPowerful));
+            .writeAsString(generateREADME(reset, canPowerful, activityData));
         return;
       } else {
         //decrease jojo HP
         resource.joJo.hp -= attackValue;
+        activityData['dio']['attackDmg'] += attackValue;
         //increase JoJO MP
         resource.joJo.mana += attackValue;
         if (resource.joJo.mana >= 25) {
@@ -102,11 +109,14 @@ void main(List<String> arguments) async {
       }
 
       if (resource.dio.hp + healValue > 100) {
-        resource.dio.hp = 100;
         int remainHealValue = healValue - (100 - resource.dio.hp);
+        activityData['dio']['healRecover'] += 100 - resource.dio.hp;
+
         resource.dio.mana += remainHealValue;
+        resource.dio.hp = 100;
       } else {
         resource.dio.hp += healValue;
+        activityData['dio']['healRecover'] += healValue;
       }
     } else {
       if (resource.dio.hp <= 0 || resource.dio.hp <= attackValue) {
@@ -119,13 +129,17 @@ void main(List<String> arguments) async {
         reset.dice2 = dice2;
         await File('lib/core/state.json')
             .writeAsString(jsonEncode(reset.toJson()));
-
+        activityData['joJo']['win'] += 1;
+        activityData['completeGame'] += 1;
+        await File('lib/core/activity.json')
+            .writeAsString(jsonEncode(activityData));
         await File('README.md')
-            .writeAsString(generateREADME(reset, canPowerful));
+            .writeAsString(generateREADME(reset, canPowerful, activityData));
         return;
       } else {
         //decrease dio HP
         resource.dio.hp -= attackValue;
+        activityData['joJo']['attackDmg'] += attackValue;
         //increase dio MP
         resource.dio.mana += attackValue;
         if (resource.dio.mana >= 25) {
@@ -134,11 +148,13 @@ void main(List<String> arguments) async {
         }
       }
       if (resource.joJo.hp + healValue > 100) {
-        resource.joJo.hp = 100;
-        int remainHealValue = healValue - (100 - resource.dio.hp);
+        int remainHealValue = healValue - (100 - resource.joJo.hp);
+        activityData['joJo']['healRecover'] += healValue;
         resource.joJo.mana += remainHealValue;
+        resource.joJo.hp = 100;
       } else {
         resource.joJo.hp += healValue;
+        activityData['joJo']['healRecover'] += healValue;
       }
     }
 
@@ -154,7 +170,11 @@ void main(List<String> arguments) async {
         .writeAsString(jsonEncode(resource.toJson()));
 
     await File('README.md')
-        .writeAsString(generateREADME(resource, canPowerful));
+        .writeAsString(generateREADME(resource, canPowerful, activityData));
+
+    activityData['moves'] += 1;
+    await File('lib/core/activity.json')
+        .writeAsString(jsonEncode(activityData));
   } else
     throw Exception('The Issue is not correct with title format');
 }
@@ -165,10 +185,13 @@ Future<Map<String, dynamic>> readJsonFile(String filePath) async {
   return map;
 }
 
-String generateREADME(StateData data, bool canPowerful) {
+String generateREADME(StateData data, bool canPowerful, Map<String, dynamic> activityData) {
   var isDioTurn = data.isDioTurn;
   String afterAction = '''<h2 align="center">Welcome to Community Battle game</h2>
 <p align="center">Welcome to my Github profile! We're playing Battle game, you can join with us!</p>
+
+![](https://img.shields.io/badge/Moves%20played-${activityData['moves'].toString()}-blue)
+![](https://img.shields.io/badge/Completed%20games-${activityData['completeGame'].toString()}-orange)
 
 <p align="center">It's the <b>${isDioTurn ? "<img src='assets/dio_brando.png' width=30>" : "<img src='assets/jotaro_kujo.png' width=30>"}<b> team's turn.</p>
 <table align="center">
@@ -190,7 +213,6 @@ String generateREADME(StateData data, bool canPowerful) {
   </tbody>
 </table>
 
-
 <p align="center">
     ---<img src="${generateDice(data.dice1, true)}" width=10%>
     ----
@@ -211,7 +233,7 @@ ${canPowerful ? "| [Using MP, Attack with x2 dame: ${data.totalDice * 2} points]
 ${canPowerful ? "| [Using MP, Heal with x2 value: ${data.totalDice * 2} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Chealx2%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |" : ""}
 
 </div>
-      ''';
+''';
 
   var result = '''
   $afterAction
