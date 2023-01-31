@@ -31,17 +31,21 @@ extension ActionStateExtension on String {
 void main(List<String> arguments) async {
   String data = arguments[0];
   String userName = arguments[1];
-  print('userName: $userName');
   List<String> args = data.split('|');
   ActionState actionState = args[2].actionStateFromString();
   int point = int.parse(args[3]);
 
   Map<String, dynamic> stateData = await readJsonFile('lib/core/state.json');
   Map<String, dynamic> activityData = await readJsonFile('lib/core/activity.json');
+  Map<String, dynamic> userData = await readJsonFile('lib/core/user.json');
   StateData resource = StateData.fromJson(stateData);
 
   if (ActionState.values.toString().contains(args[2]) &&
       point == resource.totalDice) {
+    userData[userName] += 1;
+    await File('lib/core/state.json')
+        .writeAsString(jsonEncode(userData));
+
     int attackValue = 0;
     int healValue = 0;
     bool canPowerful = false;
@@ -96,7 +100,7 @@ void main(List<String> arguments) async {
             .writeAsString(jsonEncode(activityData));
 
         await File('README.md')
-            .writeAsString(generateREADME(reset, canPowerful, activityData));
+            .writeAsString(generateREADME(reset, canPowerful, activityData, userData));
         return;
       } else {
         //decrease jojo HP
@@ -136,7 +140,7 @@ void main(List<String> arguments) async {
         await File('lib/core/activity.json')
             .writeAsString(jsonEncode(activityData));
         await File('README.md')
-            .writeAsString(generateREADME(reset, canPowerful, activityData));
+            .writeAsString(generateREADME(reset, canPowerful, activityData, userData));
         return;
       } else {
         //decrease dio HP
@@ -172,7 +176,7 @@ void main(List<String> arguments) async {
         .writeAsString(jsonEncode(resource.toJson()));
 
     await File('README.md')
-        .writeAsString(generateREADME(resource, canPowerful, activityData));
+        .writeAsString(generateREADME(resource, canPowerful, activityData, userData));
 
     activityData['moves'] += 1;
     await File('lib/core/activity.json')
@@ -187,7 +191,7 @@ Future<Map<String, dynamic>> readJsonFile(String filePath) async {
   return map;
 }
 
-String generateREADME(StateData data, bool canPowerful, Map<String, dynamic> activityData) {
+String generateREADME(StateData data, bool canPowerful, Map<String, dynamic> activityData, Map<String, dynamic> userData) {
   var isDioTurn = data.isDioTurn;
   String afterAction = '''<h2 align="center">Welcome to Community Battle game</h2>
 <p align="center">Welcome to my Github profile! We're playing Battle game, you can join with us!</p>
@@ -196,6 +200,7 @@ String generateREADME(StateData data, bool canPowerful, Map<String, dynamic> act
 
 ![](https://img.shields.io/badge/Moves%20played-${activityData['moves'].toString()}-blue)
 ![](https://img.shields.io/badge/Completed%20games-${activityData['completeGame'].toString()}-orange)
+![](https://img.shields.io/badge/Total%20players-${userData.entries.length.toString()}-red)
 
 </div>
 
