@@ -1,7 +1,7 @@
   <h2>👋 Hi, I'm Cong Nguyen 👋 </h2>
 Welcome to my Github profile! We're playing Battle game, you can join!
 
-It's the **Dio Brando** team's turn.
+It's the **Jotaro Kujo** team's turn.
 <table align="center">
   <thead align="center">
     <tr>
@@ -15,8 +15,8 @@ It's the **Dio Brando** team's turn.
       <td><code><img src="assets/dio_brando.png" width=55%></code></td>
     </tr>
     <tr>
-      <td>HP: ████████░░ 88/100 <br> MP: ██░░░░ 12/25</td>
-      <td>HP: █████████░ 95/100 <br> MP: █░░░░░ 5/25</td>
+      <td>HP: █████████░ 98/100 <br> MP: █░░░░░ 2/25</td>
+      <td>HP: ██████████ 100/100 <br> MP: ░░░░░░ 0/25</td>
     </tr>
   </tbody>
 </table>
@@ -28,14 +28,14 @@ It's the **Dio Brando** team's turn.
     <img src="assets/dice_white/dw_1.png" width=10%>---
 </p>
 
-**Dio Brando** turn. You rolled a 7!
+**Jotaro Kujo** turn. You rolled a 9!
 
 What would you like to do?
 
 | Choices *(pick one of them!)*                                                                                                                                                                          |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Attack Jotaro Kujo with 7 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C7&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
-| [Heal yourself with 7 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C7&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
+| [Attack Dio Brando with 9 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C9&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
+| [Heal yourself with 9 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C9&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
 
 
 
