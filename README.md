@@ -181,7 +181,11 @@ sure you ping me in your issue or PR by adding `cc @congthanhng`, as I don't rec
   <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=congthanhng&" alt="congthanhng" width=45%/>
 </p>
   
-<p align="center"><code><a href="https://github.com/congthanhng"><img src="https://raw.githubusercontent.com/platane/platane/output/github-contribution-grid-snake.svg"></a></code></p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/congthanhng/congthanhng/output/github-contribution-grid-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/congthanhng/congthanhng/output/github-contribution-grid-snake.svg">
+  <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/congthanhng/congthanhng/output/github-contribution-grid-snake.svg">
+</picture>
   
 <h3 align="center">Connect with me</h3>
 <p align="center">
