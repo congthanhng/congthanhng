@@ -57,7 +57,13 @@ String introduce =
   <img align="center" src="https://github-readme-stats-46zz.vercel.app/api?username=congthanhng&show_icons=true&theme=radical" alt="congthanhng" width=45% />
   <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=congthanhng&" alt="congthanhng" width=45%/>
 </p>
-<p align="center"><code><a href="https://github.com/congthanhng"><img src="assets/snake_game.svg"></a></code></p>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/congthanhng/congthanhng/output/github-contribution-grid-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/congthanhng/congthanhng/output/github-contribution-grid-snake.svg">
+  <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/congthanhng/congthanhng/output/github-contribution-grid-snake.svg">
+</picture>
+
 <h3 align="center">Connect with me</h3>
 <p align="center">
 <a href="https://linkedin.com/in/tconguit" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="tconguit" height="20" width="30" /></a>
