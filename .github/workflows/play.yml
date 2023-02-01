@@ -27,4 +27,9 @@ jobs:
       - name: Close Issue
         uses: peter-evans/close-issue@v2
         with:
-          comment: Auto-closing issue
+          comment: Move Success - Auto Close Issue
+      - name: The job has failed
+        if: ${{ failure() }}
+        uses: peter-evans/close-issue@v2
+        with:
+          comment: Move Failure - Auto Close Issue
