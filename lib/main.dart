@@ -254,10 +254,10 @@ String generateREADME(StateData data, bool canPowerful,
     <tr>
       <td>HP: ${generateHP(data.joJo.hp)} ${data.joJo.hp
       .toString()}/100 <br> MP: ${generateMP(data.joJo.mana)} ${data.joJo.mana
-      .toString()}/25 <br>Win: ${activityData['joJo']['win']} <br> Total Damage: ${activityData['joJo']['attackDmg']} <br> Total Heal: ${activityData['joJo']['healRecover']}</td>
+      .toString()}/25 <br>Won: ${activityData['joJo']['win']}</td>
       <td>HP: ${generateHP(data.dio.hp)} ${data.dio.hp
       .toString()}/100 <br> MP: ${generateMP(data.dio.mana)} ${data.dio.mana
-      .toString()}/25 <br>Win: ${activityData['dio']['win']} <br> Total Damage: ${activityData['dio']['attackDmg']} <br> Total Heal: ${activityData['dio']['healRecover']}</td>
+      .toString()}/25 <br>Won: ${activityData['dio']['win']}</td>
     </tr>
   </tbody>
 </table>
