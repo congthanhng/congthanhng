@@ -36,11 +36,11 @@ void main(List<String> arguments) async {
   int point = int.parse(args[3]);
 
   Map<String, dynamic> stateData = await readJsonFile('lib/core/state.json');
-  Map<String, dynamic> activityData = await readJsonFile(
-      'lib/core/activity.json');
+  Map<String, dynamic> activityData =
+      await readJsonFile('lib/core/activity.json');
   Map<String, dynamic> userData = await readJsonFile('lib/core/user.json');
-  Map<String, dynamic> battleLog = await readJsonFile(
-      'lib/core/battle_log.json');
+  Map<String, dynamic> battleLog =
+      await readJsonFile('lib/core/battle_log.json');
   StateData resource = StateData.fromJson(stateData);
 
   //init battleLog
@@ -51,9 +51,8 @@ void main(List<String> arguments) async {
 
   if (ActionState.values.toString().contains(args[2]) &&
       point == resource.totalDice) {
-    userData[userName]= (userData[userName]??0) + 1;
-    await File('lib/core/user.json')
-        .writeAsString(jsonEncode(userData));
+    userData[userName] = (userData[userName] ?? 0) + 1;
+    await File('lib/core/user.json').writeAsString(jsonEncode(userData));
 
     int attackValue = 0;
     int healValue = 0;
@@ -66,7 +65,7 @@ void main(List<String> arguments) async {
         battleLog[keyLog]["state"] = "attack";
         break;
       case ActionState.attackx2:
-      //set State of battle log
+        //set State of battle log
         battleLog[keyLog]["state"] = "attackx2";
         if (resource.isDioTurn) {
           if (resource.dio.mana >= 25) {
@@ -85,13 +84,13 @@ void main(List<String> arguments) async {
         }
         break;
       case ActionState.heal:
-      //set State of battle log
+        //set State of battle log
 
         battleLog[keyLog]["state"] = "heal";
         healValue = point;
         break;
       case ActionState.healx2:
-      //set State of battle log
+        //set State of battle log
 
         battleLog[keyLog]["state"] = "healx2";
         healValue = point * 2;
@@ -120,9 +119,8 @@ void main(List<String> arguments) async {
         await File('lib/core/activity.json')
             .writeAsString(jsonEncode(activityData));
 
-        await File('README.md')
-            .writeAsString(
-            generateREADME(reset, canPowerful, activityData, userData, battleLog));
+        await File('README.md').writeAsString(generateREADME(
+            reset, canPowerful, activityData, userData, battleLog));
         return;
       } else {
         //decrease jojo HP
@@ -162,9 +160,8 @@ void main(List<String> arguments) async {
         activityData['completeGame']++;
         await File('lib/core/activity.json')
             .writeAsString(jsonEncode(activityData));
-        await File('README.md')
-            .writeAsString(
-            generateREADME(reset, canPowerful, activityData, userData, battleLog));
+        await File('README.md').writeAsString(generateREADME(
+            reset, canPowerful, activityData, userData, battleLog));
         return;
       } else {
         //decrease dio HP
@@ -199,16 +196,14 @@ void main(List<String> arguments) async {
     await File('lib/core/state.json')
         .writeAsString(jsonEncode(resource.toJson()));
 
-    await File('README.md')
-        .writeAsString(
-        generateREADME(resource, canPowerful, activityData, userData, battleLog));
+    await File('README.md').writeAsString(generateREADME(
+        resource, canPowerful, activityData, userData, battleLog));
 
     activityData['moves']++;
     await File('lib/core/activity.json')
         .writeAsString(jsonEncode(activityData));
 
-    await File('lib/core/battle_log.json')
-        .writeAsString(jsonEncode(battleLog));
+    await File('lib/core/battle_log.json').writeAsString(jsonEncode(battleLog));
   } else
     throw Exception('The Issue is not correct with title format');
 }
@@ -219,26 +214,26 @@ Future<Map<String, dynamic>> readJsonFile(String filePath) async {
   return map;
 }
 
-String generateREADME(StateData data, bool canPowerful,
-    Map<String, dynamic> activityData, Map<String, dynamic> userData, Map<String, dynamic> battleLog) {
+String generateREADME(
+    StateData data,
+    bool canPowerful,
+    Map<String, dynamic> activityData,
+    Map<String, dynamic> userData,
+    Map<String, dynamic> battleLog) {
   var isDioTurn = data.isDioTurn;
-  String afterAction = '''<h2 align="center">Welcome to Community Battle game</h2>
+  String afterAction =
+      '''<h2 align="center">Welcome to Community Battle game</h2>
 <p align="center">Welcome to my Github profile! We're playing Battle game, you can join with us!</p>
 
 <div align="center">
 
-![](https://img.shields.io/badge/Moves%20played-${activityData['moves']
-      .toString()}-blue)
-![](https://img.shields.io/badge/Completed%20games-${activityData['completeGame']
-      .toString()}-orange)
-![](https://img.shields.io/badge/Total%20players-${userData.entries.length
-      .toString()}-red)
+![](https://img.shields.io/badge/Moves%20played-${activityData['moves'].toString()}-blue)
+![](https://img.shields.io/badge/Completed%20games-${activityData['completeGame'].toString()}-orange)
+![](https://img.shields.io/badge/Total%20players-${userData.entries.length.toString()}-red)
 
 </div>
 
-<p align="center">It's the <b>${isDioTurn
-      ? "<img src='assets/dio_brando.png' width=30>"
-      : "<img src='assets/jotaro_kujo.png' width=30>"}<b> team's turn.</p>
+<p align="center">It's the <b>${isDioTurn ? "<img src='assets/dio_brando.png' width=30>" : "<img src='assets/jotaro_kujo.png' width=30>"}<b> team's turn.</p>
 <table align="center">
   <thead align="center">
     <tr>
@@ -252,12 +247,8 @@ String generateREADME(StateData data, bool canPowerful,
       <td><code><a href="https://github.com/congthanhng"><img src="assets/dio_brando.png" width=55%></a></code></td>
     </tr>
     <tr>
-      <td>HP: ${generateHP(data.joJo.hp)} ${data.joJo.hp
-      .toString()}/100 <br> MP: ${generateMP(data.joJo.mana)} ${data.joJo.mana
-      .toString()}/25 <br>Won: ${activityData['joJo']['win']}</td>
-      <td>HP: ${generateHP(data.dio.hp)} ${data.dio.hp
-      .toString()}/100 <br> MP: ${generateMP(data.dio.mana)} ${data.dio.mana
-      .toString()}/25 <br>Won: ${activityData['dio']['win']}</td>
+      <td>HP: ${generateHP(data.joJo.hp)} ${data.joJo.hp.toString()}/100 <br> MP: ${generateMP(data.joJo.mana)} ${data.joJo.mana.toString()}/25 <br>Won: ${activityData['joJo']['win']}</td>
+      <td>HP: ${generateHP(data.dio.hp)} ${data.dio.hp.toString()}/100 <br> MP: ${generateMP(data.dio.mana)} ${data.dio.mana.toString()}/25 <br>Won: ${activityData['dio']['win']}</td>
     </tr>
   </tbody>
 </table>
@@ -268,10 +259,7 @@ String generateREADME(StateData data, bool canPowerful,
     <img src="${generateDice(data.dice2, false)}" width=10%>---
 </p>
 
-<p align="center"><b>${isDioTurn
-      ? "<img src='assets/dio_brando.png' width=30>"
-      : "<img src='assets/jotaro_kujo.png' width=30>"}<b> turn. You rolled a ${data
-      .totalDice.toString()}!</p>
+<p align="center"><b>${isDioTurn ? "<img src='assets/dio_brando.png' width=30>" : "<img src='assets/jotaro_kujo.png' width=30>"}<b> turn. You rolled a ${data.totalDice.toString()}!</p>
 
 <p align="center">What would you like to do?</p>
 
@@ -279,24 +267,10 @@ String generateREADME(StateData data, bool canPowerful,
 
 | Choices *(pick one of them!)*                                                                                                                                                                          |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Attack ${isDioTurn ? "Jotaro Kujo" : "Dio Brando"} with ${data.totalDice
-      .toString()} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C${data
-      .totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
-| [Heal yourself with ${data.totalDice
-      .toString()} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C${data
-      .totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
-${canPowerful
-      ? "| [Using MP, Attack with x2 dame: ${data.totalDice *
-      2} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattackx2%7C${data
-      .totalDice
-      .toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |"
-      : ""}
-${canPowerful
-      ? "| [Using MP, Heal with x2 value: ${data.totalDice *
-      2} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Chealx2%7C${data
-      .totalDice
-      .toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |"
-      : ""}
+| [Attack ${isDioTurn ? "Jotaro Kujo" : "Dio Brando"} with ${data.totalDice.toString()} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
+| [Heal yourself with ${data.totalDice.toString()} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
+${canPowerful ? "| [Using MP, Attack with x2 dame: ${data.totalDice * 2} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattackx2%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |" : ""}
+${canPowerful ? "| [Using MP, Heal with x2 value: ${data.totalDice * 2} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Chealx2%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |" : ""}
 
 </div>
 
@@ -331,10 +305,12 @@ ${generatePlayerCheckIn(userData)}
 }
 
 String generateHP(int current) {
-  int div = (current / 10).floor();
+  int div = ((current / 100) * 10).floor();
   List<String> result = [];
   for (int i = 1; i <= 10; i++) {
-    if (div == 0 || div >= i) {
+    if (div == 0 && current > 0 && i == 1) {
+      result.add('█');
+    } else if (div >= i) {
       result.add('█');
     } else {
       result.add('░');
@@ -383,13 +359,19 @@ String generateDice(int point, bool isWhiteDice) {
   }
 }
 
-String generateCharacter(String key){
-  switch(key){
-    case "Dio": return "<img src='assets/dio_brando.png' width=30>";
-    default: return "<img src='assets/jotaro_kujo.png' width=30>";
+String generateCharacter(String key) {
+  switch (key) {
+    case "Dio":
+      return "<img src='assets/dio_brando.png' width=30>";
+    default:
+      return "<img src='assets/jotaro_kujo.png' width=30>";
   }
 }
 
-String generatePlayerCheckIn(Map<String, dynamic> userData){
-  return userData.entries.toList().map((e) => '<a href="https://github.com/${e.key}"><img src="https://img.shields.io/badge/@${e.key}-${e.value.toString()}-blue" ></a>').join(' ');
+String generatePlayerCheckIn(Map<String, dynamic> userData) {
+  return userData.entries
+      .toList()
+      .map((e) =>
+          '<a href="https://github.com/${e.key}"><img src="https://img.shields.io/badge/@${e.key}-${e.value.toString()}-blue" ></a>')
+      .join(' ');
 }
