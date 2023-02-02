@@ -25,13 +25,13 @@ jobs:
       - name: Push change commit to root branch
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Apply run-game changes
-          branch: build
+          commit_message: Apply run-game changes on main
+          branch: main
           file_pattern: 'README.md'
       - name: Push change commit to build branch
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Apply run-game changes
+          commit_message: Apply run-game changes on build
       - name: Close Issue
         uses: peter-evans/close-issue@v2
         with:
