@@ -234,7 +234,7 @@ String generateREADME(
 
 </div>
 
-<p align="center">It's the <b>${isDioTurn ? "<img src='assets/dio_brando.png' width=30>" : "<img src='assets/jotaro_kujo.png' width=30>"}<b> team's turn.</p>
+<p align="center">It's the <b>${isDioTurn ? "Dio Brando <img src='assets/dio_brando.png' width=30>" : "Jotaro Kujo <img src='assets/jotaro_kujo.png' width=30>"}<b> team's turn.</p>
 <table align="center">
   <thead align="center">
     <tr>
@@ -260,7 +260,7 @@ String generateREADME(
     <img src="${generateDice(data.dice2, false)}" width=10%>---
 </p>
 
-<p align="center"><b>${isDioTurn ? "<img src='assets/dio_brando.png' width=30>" : "<img src='assets/jotaro_kujo.png' width=30>"}<b> turn. You rolled a ${data.totalDice.toString()}!</p>
+<p align="center"><b>${isDioTurn ? "Dio Brando <img src='assets/dio_brando.png' width=30>" : "Jotaro Kujo <img src='assets/jotaro_kujo.png' width=30>"}<b> turn. <b>You rolled a ${data.totalDice.toString()}!</b></p>
 
 <p align="center">What would you like to do?</p>
 
@@ -280,7 +280,7 @@ ${canPowerful ? "| [Using MP, Heal with x2 value: ${data.totalDice * 2} points](
 <div align="center">
 
 **:alarm_clock: Most recent moves**
-| Team | Dices Roll | Action | Made by |
+| Team | Dices rolled | Action | Made by |
 | ---- | :----: | ------- | ------- |
 | ${generateCharacter(battleLog.values.last["character"])} | ${battleLog.values.last["point"]} | ${battleLog.values.last["state"]} | [@${battleLog.values.last["player_name"]}](https://github.com/${battleLog.values.last["player_name"]}) |
 | ${generateCharacter(battleLog.values.toList()[battleLog.values.length - 2]["character"])} | ${battleLog.values.toList()[battleLog.values.length - 2]["point"]} | ${battleLog.values.toList()[battleLog.values.length - 2]["state"]} | [@${battleLog.values.toList()[battleLog.values.length - 2]["player_name"]}](https://github.com/${battleLog.values.toList()[battleLog.values.length - 2]["player_name"]}) |
