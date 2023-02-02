@@ -30,7 +30,6 @@ jobs:
           file_pattern: 'README.md'
           skip_dirty_check: true
           push_options: '--force'
-
       - name: Push change commit to build branch
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
