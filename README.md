@@ -57,8 +57,8 @@
 **:alarm_clock: Most recent moves**
 | Team | Dices Roll | Action | Made by |
 | ---- | :----: | ------- | ------- |
-| <img src='assets/dio_brando.png' width=30> | 10 | attackx2 | [@congthanhng](https://github.com/congthanhng) |
-| <img src='assets/jotaro_kujo.png' width=30> | 10 | attackx2 | [@congthanhng](https://github.com/congthanhng) |
+| <img src='assets/dio_brando.png' width=30> | 5 | attack | [@fatoligih](https://github.com/fatoligih) |
+| <img src='assets/jotaro_kujo.png' width=30> | 5 | heal | [@bone1406](https://github.com/bone1406) |
 
 </div>
 <br>
