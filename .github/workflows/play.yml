@@ -3,7 +3,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: "Battle"
+name: "Run Battle"
 
 on:
   issues:
@@ -14,13 +14,21 @@ jobs:
     runs-on: ubuntu-latest
     if: startsWith(github.event.issue.title, 'battle|')
     steps:
-      - name: Checkout
+      - name: Checkout build branch
         uses: actions/checkout@v3
-      - name: Install dart
+        with:
+          ref: build
+      - name: Install Dart
         uses: dart-lang/setup-dart@v1
       - name: run-game
         run: dart run lib/main.dart "${{ github.event.issue.title }}" "${{ github.event.issue.user.login }}"
-      - name: Push change commit
+      - name: Push change commit to root branch
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Apply run-game changes
+          branch: build
+          file_pattern: 'README.md'
+      - name: Push change commit to build branch
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Apply run-game changes
