@@ -32,4 +32,4 @@ jobs:
         if: ${{ failure() }}
         uses: peter-evans/close-issue@v2
         with:
-          comment: "Hi @${{ github.event.issue.user.login }}! Your move failed. Please try again. The Issue will be closed"
+          comment: "Hi @${{ github.event.issue.user.login }}! Your move failed. Please try again. The Issue will be closed."
