@@ -58,8 +58,8 @@
 **:alarm_clock: Most recent moves**
 | Team | Dices rolled | Action | Made by |
 | ---- | :----: | ------- | ------- |
-| <img src='assets/dio_brando.png' width=30> | 6 | attack | [@congthanhng](https://github.com/congthanhng) |
-| <img src='assets/jotaro_kujo.png' width=30> | 6 | attack | [@congthanhng](https://github.com/congthanhng) |
+| <img src='assets/dio_brando.png' width=30> | 6 | attack | [@bone1406](https://github.com/bone1406) |
+| <img src='assets/jotaro_kujo.png' width=30> | 6 | attack | [@bone1406](https://github.com/bone1406) |
 
 </div>
 <br>
