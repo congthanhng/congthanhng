@@ -230,6 +230,7 @@ String generateREADME(
 ![](https://img.shields.io/badge/Moves%20played-${activityData['moves'].toString()}-blue)
 ![](https://img.shields.io/badge/Completed%20games-${activityData['completeGame'].toString()}-orange)
 ![](https://img.shields.io/badge/Total%20players-${userData.entries.length.toString()}-red)
+<img src="https://komarev.com/ghpvc/?username=congthanhng&color=blue" />
 
 </div>
 

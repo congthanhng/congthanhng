@@ -6,6 +6,8 @@
 ![](https://img.shields.io/badge/Moves%20played-93-blue)
 ![](https://img.shields.io/badge/Completed%20games-4-orange)
 ![](https://img.shields.io/badge/Total%20players-9-red)
+<img src="https://komarev.com/ghpvc/?username=congthanhng&color=blue" />
+
 
 </div>
 
