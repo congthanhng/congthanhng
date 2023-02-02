@@ -27,9 +27,9 @@ jobs:
       - name: Close Issue
         uses: peter-evans/close-issue@v2
         with:
-          comment: "Hi @${{ github.event.issue.title }}! Your move Success - Auto Close Issue"
+          comment: "Hi @${{ github.event.issue.user.login }}! Your move Success - Auto Close Issue"
       - name: The job has failed
         if: ${{ failure() }}
         uses: peter-evans/close-issue@v2
         with:
-          comment: "Hi @${{ github.event.issue.title }}! Your move Failure - Auto Close Issue"
+          comment: "Hi @${{ github.event.issue.user.login }}! Your move Failure - Auto Close Issue"
