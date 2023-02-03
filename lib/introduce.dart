@@ -7,7 +7,6 @@ String introduce =
 <p align="center"> I’m looking to collaborate on any kind of project</p>
 <p align="center"> I’m looking for help with backend knowledge</p>
 <p align="center"> Ask me about any things relative to Flutter and mobile development</p>
-// <p align="center"> Fun fact: I'm looking for a new job</p>
 
 
 <h3 align="center"> Languages, Frameworks and Tools </h3>
