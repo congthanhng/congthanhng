@@ -157,6 +157,7 @@ ${canPowerful ? "| [Using MP, Heal with x2 value: ${data.totalDice * 2} points](
 <div align="center">
 
 **:alarm_clock: Most recent moves**
+
 | Team | Dices rolled | Action | Made by |
 | ---- | :----: | ------- | ------- |
 | ${generateCharacter(battleLog.values.last["character"])} | ${battleLog.values.last["point"]} | ${battleLog.values.last["state"]} | [@${battleLog.values.last["player_name"]}](https://github.com/${battleLog.values.last["player_name"]}) |
