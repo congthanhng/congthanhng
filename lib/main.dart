@@ -3,30 +3,10 @@ import 'dart:core';
 import 'dart:io';
 import 'dart:math';
 
+import 'core/action_state.dart';
+import 'core/actions.dart';
 import 'core/state_data.dart';
-import 'how_to_play.dart';
-import 'introduce.dart';
-
-String example = "battle|play|healx2|10";
-
-enum ActionState { attack, attackx2, heal, healx2 }
-
-extension ActionStateExtension on String {
-  ActionState actionStateFromString() {
-    switch (this) {
-      case "attack":
-        return ActionState.attack;
-      case "attackx2":
-        return ActionState.attackx2;
-      case "heal":
-        return ActionState.heal;
-      case "healx2":
-        return ActionState.healx2;
-      default:
-        return ActionState.attack;
-    }
-  }
-}
+import 'data/data_path.dart';
 
 void main(List<String> arguments) async {
   String data = arguments[0];
@@ -35,12 +15,12 @@ void main(List<String> arguments) async {
   ActionState actionState = args[2].actionStateFromString();
   int point = int.parse(args[3]);
 
-  Map<String, dynamic> stateData = await readJsonFile('lib/core/state.json');
+  Map<String, dynamic> stateData = await readJsonFile(statePath);
   Map<String, dynamic> activityData =
-      await readJsonFile('lib/core/activity.json');
-  Map<String, dynamic> userData = await readJsonFile('lib/core/user.json');
+      await readJsonFile(activityPath);
+  Map<String, dynamic> userData = await readJsonFile(userRecordPath);
   Map<String, dynamic> battleLog =
-      await readJsonFile('lib/core/battle_log.json');
+      await readJsonFile(battleLogPath);
   StateData resource = StateData.fromJson(stateData);
 
   //init battleLog
@@ -52,7 +32,7 @@ void main(List<String> arguments) async {
   if (ActionState.values.toString().contains(args[2]) &&
       point == resource.totalDice) {
     userData[userName] = (userData[userName] ?? 0) + 1;
-    await File('lib/core/user.json').writeAsString(jsonEncode(userData));
+    await File(userRecordPath).writeAsString(jsonEncode(userData));
 
     int attackValue = 0;
     int healValue = 0;
@@ -68,14 +48,14 @@ void main(List<String> arguments) async {
         //set State of battle log
         battleLog[keyLog]["state"] = "attackx2";
         if (resource.isDioTurn) {
-          if (resource.dio.mana >= 25) {
+          if (resource.dio.mana >= 15) {
             attackValue = point * 2;
             resource.dio.mana = 0;
           } else {
             attackValue = point;
           }
         } else {
-          if (resource.joJo.mana >= 25) {
+          if (resource.joJo.mana >= 15) {
             attackValue = point * 2;
             resource.joJo.mana = 0;
           } else {
@@ -112,12 +92,14 @@ void main(List<String> arguments) async {
         var dice2 = Random().nextInt(6) + 1;
         reset.dice1 = dice1;
         reset.dice2 = dice2;
-        await File('lib/core/state.json')
+        await File(statePath)
             .writeAsString(jsonEncode(reset.toJson()));
         activityData['dio']['win']++;
         activityData['completeGame']++;
-        await File('lib/core/activity.json')
+        await File(activityPath)
             .writeAsString(jsonEncode(activityData));
+
+        var historyData = await _gameHistoryRecord(battleLog, true);
 
         await File('README.md').writeAsString(generateREADME(
             reset, canPowerful, activityData, userData, battleLog));
@@ -128,18 +110,18 @@ void main(List<String> arguments) async {
         activityData['dio']['attackDmg'] += attackValue;
         //increase JoJO MP
         resource.joJo.mana += attackValue;
-        if (resource.joJo.mana >= 25) {
-          resource.joJo.mana = 25;
+        if (resource.joJo.mana >= 15) {
+          resource.joJo.mana = 15;
           canPowerful = true;
         }
       }
 
-      if (resource.dio.hp + healValue > 100) {
-        int remainHealValue = healValue - (100 - resource.dio.hp);
-        activityData['dio']['healRecover'] += 100 - resource.dio.hp;
+      if (resource.dio.hp + healValue > 50) {
+        int remainHealValue = healValue - (50 - resource.dio.hp);
+        activityData['dio']['healRecover'] += 50 - resource.dio.hp;
 
         resource.dio.mana += remainHealValue;
-        resource.dio.hp = 100;
+        resource.dio.hp = 50;
       } else {
         resource.dio.hp += healValue;
         activityData['dio']['healRecover'] += healValue;
@@ -154,12 +136,15 @@ void main(List<String> arguments) async {
         var dice2 = Random().nextInt(6) + 1;
         reset.dice1 = dice1;
         reset.dice2 = dice2;
-        await File('lib/core/state.json')
+        await File(statePath)
             .writeAsString(jsonEncode(reset.toJson()));
         activityData['joJo']['win']++;
         activityData['completeGame']++;
-        await File('lib/core/activity.json')
+        await File(activityPath)
             .writeAsString(jsonEncode(activityData));
+
+        var historyData = await _gameHistoryRecord(battleLog, false);
+
         await File('README.md').writeAsString(generateREADME(
             reset, canPowerful, activityData, userData, battleLog));
         return;
@@ -169,16 +154,16 @@ void main(List<String> arguments) async {
         activityData['joJo']['attackDmg'] += attackValue;
         //increase dio MP
         resource.dio.mana += attackValue;
-        if (resource.dio.mana >= 25) {
-          resource.dio.mana = 25;
+        if (resource.dio.mana >= 15) {
+          resource.dio.mana = 15;
           canPowerful = true;
         }
       }
-      if (resource.joJo.hp + healValue > 100) {
-        int remainHealValue = healValue - (100 - resource.joJo.hp);
+      if (resource.joJo.hp + healValue > 50) {
+        int remainHealValue = healValue - (50 - resource.joJo.hp);
         activityData['joJo']['healRecover'] += healValue;
         resource.joJo.mana += remainHealValue;
-        resource.joJo.hp = 100;
+        resource.joJo.hp = 50;
       } else {
         resource.joJo.hp += healValue;
         activityData['joJo']['healRecover'] += healValue;
@@ -193,17 +178,17 @@ void main(List<String> arguments) async {
     resource.dice2 = dice2;
 
     // print('toJsonString: ${resource.toJsonString()}');
-    await File('lib/core/state.json')
+    await File(statePath)
         .writeAsString(jsonEncode(resource.toJson()));
 
     await File('README.md').writeAsString(generateREADME(
         resource, canPowerful, activityData, userData, battleLog));
 
     activityData['moves']++;
-    await File('lib/core/activity.json')
+    await File(activityPath)
         .writeAsString(jsonEncode(activityData));
 
-    await File('lib/core/battle_log.json').writeAsString(jsonEncode(battleLog));
+    await File(battleLogPath).writeAsString(jsonEncode(battleLog));
   } else
     throw Exception('The Issue is not correct with title format');
 }
@@ -214,165 +199,20 @@ Future<Map<String, dynamic>> readJsonFile(String filePath) async {
   return map;
 }
 
-String generateREADME(
-    StateData data,
-    bool canPowerful,
-    Map<String, dynamic> activityData,
-    Map<String, dynamic> userData,
-    Map<String, dynamic> battleLog) {
-  var isDioTurn = data.isDioTurn;
-  String afterAction =
-      '''<h2 align="center">Welcome to Community Battle game</h2>
-<p align="center">Welcome to my Github profile! We're playing Battle game, you can join with us!</p>
+Future<Map<String, dynamic>> _gameHistoryRecord(Map<String, dynamic> battleLog, bool isDioWon)async{
+  Map<String, dynamic> historyData = await readJsonFile(gameHistoryPath);
+  var currentRecordKey = historyData.entries.length;
+  historyData['$currentRecordKey'] = {};
+  historyData['$currentRecordKey']['isDioWon'] = isDioWon;
+  historyData['$currentRecordKey']['gameNumber'] = currentRecordKey;
+  var listDio = battleLog.values.where((element) => element["character"] == "Dio",).map((e) => e["player_name"],).toSet();
+  var listJoJo = battleLog.values.where((element) => element["character"] != "Dio",).map((e) => e["player_name"],).toSet();
+  historyData['$currentRecordKey']['dioPlayer'] = [...listDio];
+  historyData['$currentRecordKey']['jojoPlayer'] = [...listJoJo];
+  historyData['$currentRecordKey']['totalMoves'] = battleLog.length;
 
-<div align="center">
+  await File(gameHistoryPath)
+      .writeAsString(jsonEncode(historyData));
 
-![](https://img.shields.io/badge/Moves%20played-${activityData['moves'].toString()}-blue)
-![](https://img.shields.io/badge/Completed%20games-${activityData['completeGame'].toString()}-orange)
-![](https://img.shields.io/badge/Total%20players-${userData.entries.length.toString()}-red)
-<img src="https://komarev.com/ghpvc/?username=congthanhng&color=blue" />
-
-</div>
-
-<p align="center">It's the <b>${isDioTurn ? "Dio Brando <img src='assets/dio_brando.png' width=30>" : "Jotaro Kujo <img src='assets/jotaro_kujo.png' width=30>"}<b> team's turn.</p>
-<table align="center">
-  <thead align="center">
-    <tr>
-      <td><b>Jotaro Kujo</b></td>
-      <td><b>Dio Brando</b></td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr align="center">
-      <td><code><a href="https://github.com/congthanhng"><img src="assets/jotaro_kujo.png" width=55%></a></code></td>
-      <td><code><a href="https://github.com/congthanhng"><img src="assets/dio_brando.png" width=55%></a></code></td>
-    </tr>
-    <tr>
-      <td>HP: ${generateHP(data.joJo.hp)} ${data.joJo.hp.toString()}/100 <br> MP: ${generateMP(data.joJo.mana)} ${data.joJo.mana.toString()}/25 <br>Won: ${activityData['joJo']['win']}</td>
-      <td>HP: ${generateHP(data.dio.hp)} ${data.dio.hp.toString()}/100 <br> MP: ${generateMP(data.dio.mana)} ${data.dio.mana.toString()}/25 <br>Won: ${activityData['dio']['win']}</td>
-    </tr>
-  </tbody>
-</table>
-
-<p align="center">
-    ---<img src="${generateDice(data.dice1, true)}" width=10%>
-    ----
-    <img src="${generateDice(data.dice2, false)}" width=10%>---
-</p>
-
-<p align="center"><b>${isDioTurn ? "Dio Brando <img src='assets/dio_brando.png' width=30>" : "Jotaro Kujo <img src='assets/jotaro_kujo.png' width=30>"}<b> turn. <b>You rolled a ${data.totalDice.toString()}!</b></p>
-
-<p align="center">What would you like to do?</p>
-
-<div align="center">
-
-| Choices *(pick one of them!)*                                                                                                                                                                          |
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Attack ${isDioTurn ? "**Jotaro Kujo**" : "**Dio Brando**"} with ${data.totalDice.toString()} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
-| [Heal ${isDioTurn ? "**Dio Brando**" : "**Jotaro Kujo**"} with ${data.totalDice.toString()} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
-${canPowerful ? "| [Using MP, Attack with x2 dame: ${data.totalDice * 2} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattackx2%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |" : ""}
-${canPowerful ? "| [Using MP, Heal with x2 value: ${data.totalDice * 2} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Chealx2%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |" : ""}
-
-</div>
-
-<br>
-
-<div align="center">
-
-**:alarm_clock: Most recent moves**
-| Team | Dices rolled | Action | Made by |
-| ---- | :----: | ------- | ------- |
-| ${generateCharacter(battleLog.values.last["character"])} | ${battleLog.values.last["point"]} | ${battleLog.values.last["state"]} | [@${battleLog.values.last["player_name"]}](https://github.com/${battleLog.values.last["player_name"]}) |
-| ${generateCharacter(battleLog.values.toList()[battleLog.values.length - 2]["character"])} | ${battleLog.values.toList()[battleLog.values.length - 2]["point"]} | ${battleLog.values.toList()[battleLog.values.length - 2]["state"]} | [@${battleLog.values.toList()[battleLog.values.length - 2]["player_name"]}](https://github.com/${battleLog.values.toList()[battleLog.values.length - 2]["player_name"]}) |
-
-</div>
-<br>
-<div align="center">
-
-**🎮 Players check-in**
-
-${generatePlayerCheckIn(userData)}
-
-</div>
-
-''';
-
-  var result = '''
-  $afterAction
-  $howToPlay
-  $introduce
-  ''';
-  return result;
-}
-
-String generateHP(int current) {
-  int div = ((current / 100) * 10).floor();
-  List<String> result = [];
-  for (int i = 1; i <= 10; i++) {
-    if (div == 0 && current > 0 && i == 1) {
-      result.add('█');
-    } else if (div >= i) {
-      result.add('█');
-    } else {
-      result.add('░');
-    }
-  }
-  return result.join('');
-}
-
-String generateMP(int current) {
-  int div = ((current / 25) * 6).floor();
-  List<String> result = [];
-  for (int i = 1; i <= 6; i++) {
-    if (current == 25) {
-      result.add('█');
-    } else if (div == 0 && current == 0) {
-      result.add('░');
-    } else if (div == 0 && current > 0 && i == 1) {
-      result.add('█');
-    } else {
-      if (div >= i) {
-        result.add('█');
-      } else {
-        result.add('░');
-      }
-    }
-  }
-  return result.join('');
-}
-
-String generateDice(int point, bool isWhiteDice) {
-  switch (point) {
-    case 1:
-      return "assets/${isWhiteDice ? 'dice_white' : 'dice_black'}/dice_1.png";
-    case 2:
-      return "assets/${isWhiteDice ? 'dice_white' : 'dice_black'}/dice_2.png";
-    case 3:
-      return "assets/${isWhiteDice ? 'dice_white' : 'dice_black'}/dice_3.png";
-    case 4:
-      return "assets/${isWhiteDice ? 'dice_white' : 'dice_black'}/dice_4.png";
-    case 5:
-      return "assets/${isWhiteDice ? 'dice_white' : 'dice_black'}/dice_5.png";
-    case 6:
-      return "assets/${isWhiteDice ? 'dice_white' : 'dice_black'}/dice_6.png";
-    default:
-      return "assets/${isWhiteDice ? 'dice_white' : 'dice_black'}/dice_1.png";
-  }
-}
-
-String generateCharacter(String key) {
-  switch (key) {
-    case "Dio":
-      return "<img src='assets/dio_brando.png' width=30>";
-    default:
-      return "<img src='assets/jotaro_kujo.png' width=30>";
-  }
-}
-
-String generatePlayerCheckIn(Map<String, dynamic> userData) {
-  return userData.entries
-      .toList()
-      .map((e) =>
-          '<a href="https://github.com/${e.key}"><img src="https://img.shields.io/badge/@${e.key}-${e.value.toString()}-blue" ></a>')
-      .join(' ');
+  return historyData;
 }

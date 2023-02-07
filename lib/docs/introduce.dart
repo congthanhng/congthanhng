@@ -1,5 +1,7 @@
 String introduce =
-'''<h2 align="center">About me </h2>
+'''
+<br>
+<h2 align="center">About me </h2>
 
 <p align="center"> I’m Cong Nguyen</p>
 <p align="center"> I’m currently working on Mobile Development with Flutter</p>
@@ -7,7 +9,6 @@ String introduce =
 <p align="center"> I’m looking to collaborate on any kind of project</p>
 <p align="center"> I’m looking for help with backend knowledge</p>
 <p align="center"> Ask me about any things relative to Flutter and mobile development</p>
-
 
 <h3 align="center"> Languages, Frameworks and Tools </h3>
 
@@ -73,6 +74,4 @@ String introduce =
   <a href="https://www.buymeacoffee.com/congthanhng"> <img align="center" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="20%" alt="congthanhng" /></a>
   <a href="https://ko-fi.com/congthanhng"> <img align="center" src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" width="20%" alt="congthanhng" /></a></p>
 <p align="center"><img align="center" src="https://komarev.com/ghpvc/?username=congthanhng&color=blue" /></p>
-<!-- ![Profile views](https://komarev.com/ghpvc/?username=congthanhng&color=blue)  -->
-
-    ''';
+''';

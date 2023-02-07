@@ -3,14 +3,14 @@
 
 <div align="center">
 
-![](https://img.shields.io/badge/Moves%20played-97-blue)
-![](https://img.shields.io/badge/Completed%20games-4-orange)
+![](https://img.shields.io/badge/Moves%20played-122-blue)
+![](https://img.shields.io/badge/Completed%20games-5-orange)
 ![](https://img.shields.io/badge/Total%20players-10-red)
 <img src="https://komarev.com/ghpvc/?username=congthanhng&color=blue" />
 
 </div>
 
-<p align="center">It's the <b>Jotaro Kujo <img src='assets/jotaro_kujo.png' width=30><b> team's turn.</p>
+<p align="center">It's the <b>Jotaro Kujo</b> <img src='assets/jotaro_kujo.png' width=30> team's turn.</p>
 <table align="center">
   <thead align="center">
     <tr>
@@ -24,30 +24,29 @@
       <td><code><a href="https://github.com/congthanhng"><img src="assets/dio_brando.png" width=55%></a></code></td>
     </tr>
     <tr>
-      <td>HP: ████░░░░░░ 46/100 <br> MP: ██████ 25/25 <br>Won: 2</td>
-      <td>HP: █████░░░░░ 52/100 <br> MP: ██░░░░ 11/25 <br>Won: 2</td>
+      <td>HP: ████████░░ 42/50 <br> MP: ███░░░ 8/15 <br>Won: 2</td>
+      <td>HP: ██████████ 50/50 <br> MP: ░░░░░░ 0/15 <br>Won: 9</td>
     </tr>
   </tbody>
 </table>
 
-<p align="center">
-    ---<img src="assets/dice_white/dice_1.png" width=10%>
-    ----
-    <img src="assets/dice_black/dice_6.png" width=10%>---
-</p>
-
-<p align="center"><b>Jotaro Kujo <img src='assets/jotaro_kujo.png' width=30><b> turn. <b>You rolled a 7!</b></p>
+<div align="center">
+    <img src="assets/dice_white/dice_5.png" width=10%>
+    <img src="assets/dice_black/dice_4.png" width=10%>
+</div>
+<br>
+<p align="center">It's <b>Jotaro Kujo</b> <img src='assets/jotaro_kujo.png' width=30> turn. You rolled a <b style="color:Tomato;font-size:25px;">9</b></p>
 
 <p align="center">What would you like to do?</p>
 
 <div align="center">
 
-| Choices *(pick one of them!)*                                                                                                                                                                          |
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Attack **Dio Brando** with 7 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C7&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
-| [Heal **Jotaro Kujo** with 7 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C7&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
-| [Using MP, Attack with x2 dame: 14 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattackx2%7C7&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
-| [Using MP, Heal with x2 value: 14 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Chealx2%7C7&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
+| Type Action |Choices *(pick one of them!)*                                                                                                                                                                          |
+|:-------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <img src="assets/actions/attack.png" width=30> | [Attack **Dio Brando**: 9 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C9&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
+| <img src="assets/actions/heal.png" width=30> | [Heal **Jotaro Kujo**: 9 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C9&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
+
+
 
 </div>
 
@@ -56,10 +55,11 @@
 <div align="center">
 
 **:alarm_clock: Most recent moves**
-| Team | Dices rolled | Action | Made by |
-| ---- | :----: | ------- | ------- |
-| <img src='assets/dio_brando.png' width=30> | 5 | attack | [@congthanhng](https://github.com/congthanhng) |
-| <img src='assets/jotaro_kujo.png' width=30> | 5 | attack | [@mynamebvh](https://github.com/mynamebvh) |
+
+| Team | Dices rolled | Type Action | Made by |
+| ---- | :----: | :-------: | ------- |
+| <img src='assets/dio_brando.png' width=30> | 8 | <img src='assets/actions/attack.png' width=30> | [@congthanhng](https://github.com/congthanhng) |
+| <img src='assets/jotaro_kujo.png' width=30> | 5 | <img src='assets/actions/attack.png' width=30> | [@mynamebvh](https://github.com/mynamebvh) |
 
 </div>
 <br>
@@ -67,12 +67,13 @@
 
 **🎮 Players check-in**
 
-<a href="https://github.com/congthanhng"><img src="https://img.shields.io/badge/@congthanhng-21-blue" ></a> <a href="https://github.com/congthanhngnashtech"><img src="https://img.shields.io/badge/@congthanhngnashtech-3-blue" ></a> <a href="https://github.com/chihuy105"><img src="https://img.shields.io/badge/@chihuy105-2-blue" ></a> <a href="https://github.com/vietkeep"><img src="https://img.shields.io/badge/@vietkeep-1-blue" ></a> <a href="https://github.com/BBBloveRED"><img src="https://img.shields.io/badge/@BBBloveRED-1-blue" ></a> <a href="https://github.com/thewind11235"><img src="https://img.shields.io/badge/@thewind11235-1-blue" ></a> <a href="https://github.com/qcuong97"><img src="https://img.shields.io/badge/@qcuong97-1-blue" ></a> <a href="https://github.com/bone1406"><img src="https://img.shields.io/badge/@bone1406-1-blue" ></a> <a href="https://github.com/fatoligih"><img src="https://img.shields.io/badge/@fatoligih-1-blue" ></a> <a href="https://github.com/mynamebvh"><img src="https://img.shields.io/badge/@mynamebvh-1-blue" ></a>
+<a href="https://github.com/congthanhng"><img src="https://img.shields.io/badge/@congthanhng-22-blue" ></a> <a href="https://github.com/congthanhngnashtech"><img src="https://img.shields.io/badge/@congthanhngnashtech-3-blue" ></a> <a href="https://github.com/chihuy105"><img src="https://img.shields.io/badge/@chihuy105-2-blue" ></a> <a href="https://github.com/vietkeep"><img src="https://img.shields.io/badge/@vietkeep-1-blue" ></a> <a href="https://github.com/BBBloveRED"><img src="https://img.shields.io/badge/@BBBloveRED-1-blue" ></a> <a href="https://github.com/thewind11235"><img src="https://img.shields.io/badge/@thewind11235-1-blue" ></a> <a href="https://github.com/qcuong97"><img src="https://img.shields.io/badge/@qcuong97-1-blue" ></a> <a href="https://github.com/bone1406"><img src="https://img.shields.io/badge/@bone1406-1-blue" ></a> <a href="https://github.com/fatoligih"><img src="https://img.shields.io/badge/@fatoligih-1-blue" ></a> <a href="https://github.com/mynamebvh"><img src="https://img.shields.io/badge/@mynamebvh-1-blue" ></a>
 
 </div>
 
 
-  <details>
+  <div align="center">
+<details>
 <summary><b>How do I play?</b></summary>
 
 ## Rules of the game
@@ -122,8 +123,10 @@ sure you ping me in your issue or PR by adding `cc @congthanhng`, as I don't rec
 (for hopefully obvious reasons).
 
 </details>
+</div>
 
-  <h2 align="center">About me </h2>
+  <br>
+<h2 align="center">About me </h2>
 
 <p align="center"> I’m Cong Nguyen</p>
 <p align="center"> I’m currently working on Mobile Development with Flutter</p>
@@ -131,7 +134,6 @@ sure you ping me in your issue or PR by adding `cc @congthanhng`, as I don't rec
 <p align="center"> I’m looking to collaborate on any kind of project</p>
 <p align="center"> I’m looking for help with backend knowledge</p>
 <p align="center"> Ask me about any things relative to Flutter and mobile development</p>
-
 
 <h3 align="center"> Languages, Frameworks and Tools </h3>
 
@@ -197,7 +199,5 @@ sure you ping me in your issue or PR by adding `cc @congthanhng`, as I don't rec
   <a href="https://www.buymeacoffee.com/congthanhng"> <img align="center" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="20%" alt="congthanhng" /></a>
   <a href="https://ko-fi.com/congthanhng"> <img align="center" src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" width="20%" alt="congthanhng" /></a></p>
 <p align="center"><img align="center" src="https://komarev.com/ghpvc/?username=congthanhng&color=blue" /></p>
-<!-- ![Profile views](https://komarev.com/ghpvc/?username=congthanhng&color=blue)  -->
 
-    
   

@@ -35,8 +35,8 @@ class StateData {
 
   StateData resetGame(bool isDioTurn) {
     return StateData(
-        dio: Player(hp: 100, mana: 0, name: 'Dio Brando'),
-        joJo: Player(name: 'Jotaro Kujo', mana: 0, hp: 100),
+        dio: Player(hp: 50, mana: 0, name: 'Dio Brando'),
+        joJo: Player(name: 'Jotaro Kujo', mana: 0, hp: 50),
         dice1: 1,
         dice2: 1,
         isDioTurn: isDioTurn);

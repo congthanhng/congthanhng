@@ -1,5 +1,7 @@
 String howToPlay =
-'''<details>
+'''
+<div align="center">
+<details>
 <summary><b>How do I play?</b></summary>
 
 ## Rules of the game
@@ -49,4 +51,5 @@ sure you ping me in your issue or PR by adding `cc @congthanhng`, as I don't rec
 (for hopefully obvious reasons).
 
 </details>
+</div>
 ''';
