@@ -3,14 +3,14 @@
 
 <div align="center">
 
-![](https://img.shields.io/badge/Moves%20played-102-blue)
+![](https://img.shields.io/badge/Moves%20played-105-blue)
 ![](https://img.shields.io/badge/Completed%20games-4-orange)
 ![](https://img.shields.io/badge/Total%20players-10-red)
 <img src="https://komarev.com/ghpvc/?username=congthanhng&color=blue" />
 
 </div>
 
-<p align="center">It's the <b>Dio Brando</b> <img src='assets/dio_brando.png' width=30> team's turn.</p>
+<p align="center">It's the <b>Jotaro Kujo</b> <img src='assets/jotaro_kujo.png' width=30> team's turn.</p>
 <table align="center">
   <thead align="center">
     <tr>
@@ -24,19 +24,19 @@
       <td><code><a href="https://github.com/congthanhng"><img src="assets/dio_brando.png" width=55%></a></code></td>
     </tr>
     <tr>
-      <td>HP: ███░░░░░░░ 31/100 <br> MP: ██████ 25/25 <br>Won: 2</td>
-      <td>HP: ██░░░░░░░░ 26/100 <br> MP: ██████ 25/25 <br>Won: 2</td>
+      <td>HP: █░░░░░░░░░ 17/100 <br> MP: ██████ 25/25 <br>Won: 2</td>
+      <td>HP: █░░░░░░░░░ 19/100 <br> MP: ██████ 25/25 <br>Won: 2</td>
     </tr>
   </tbody>
 </table>
 
 <p align="center">
-    ---<img src="assets/dice_white/dice_4.png" width=10%>
+    ---<img src="assets/dice_white/dice_6.png" width=10%>
     ----
-    <img src="assets/dice_black/dice_5.png" width=10%>---
+    <img src="assets/dice_black/dice_3.png" width=10%>---
 </p>
 
-<p align="center">It's <b>Dio Brando</b> <img src='assets/dio_brando.png' width=30> turn. You rolled a <b>9</b></p>
+<p align="center">It's <b>Jotaro Kujo</b> <img src='assets/jotaro_kujo.png' width=30> turn. You rolled a <b style="color:Tomato;font-size:25px;">9</b></p>
 
 <p align="center">What would you like to do?</p>
 
@@ -44,9 +44,9 @@
 
 | Choices *(pick one of them!)*                                                                                                                                                                          |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Attack **Jotaro Kujo** with 9 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C9&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
-| [Heal **Dio Brando** with 9 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C9&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
-| [Using MP, Attack with x2 dame: 18 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattackx2%7C9&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
+| [Attack **Dio Brando**: 9 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C9&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
+| [Heal **Jotaro Kujo**: 9 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C9&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
+| [Using MP, Attack with x2 damage: 18 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattackx2%7C9&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
 | [Using MP, Heal with x2 value: 18 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Chealx2%7C9&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
 
 </div>
@@ -59,8 +59,8 @@
 
 | Team | Dices rolled | Action | Made by |
 | ---- | :----: | ------- | ------- |
-| <img src='assets/jotaro_kujo.png' width=30> | 11 | attack | [@congthanhng](https://github.com/congthanhng) |
-| <img src='assets/dio_brando.png' width=30> | 8 | attack | [@congthanhng](https://github.com/congthanhng) |
+| <img src='assets/dio_brando.png' width=30> | 5 | attack | [@congthanhng](https://github.com/congthanhng) |
+| <img src='assets/jotaro_kujo.png' width=30> | 7 | attack | [@congthanhng](https://github.com/congthanhng) |
 
 </div>
 <br>
@@ -68,7 +68,7 @@
 
 **🎮 Players check-in**
 
-<a href="https://github.com/congthanhng"><img src="https://img.shields.io/badge/@congthanhng-26-blue" ></a> <a href="https://github.com/congthanhngnashtech"><img src="https://img.shields.io/badge/@congthanhngnashtech-3-blue" ></a> <a href="https://github.com/chihuy105"><img src="https://img.shields.io/badge/@chihuy105-2-blue" ></a> <a href="https://github.com/vietkeep"><img src="https://img.shields.io/badge/@vietkeep-1-blue" ></a> <a href="https://github.com/BBBloveRED"><img src="https://img.shields.io/badge/@BBBloveRED-1-blue" ></a> <a href="https://github.com/thewind11235"><img src="https://img.shields.io/badge/@thewind11235-1-blue" ></a> <a href="https://github.com/qcuong97"><img src="https://img.shields.io/badge/@qcuong97-1-blue" ></a> <a href="https://github.com/bone1406"><img src="https://img.shields.io/badge/@bone1406-1-blue" ></a> <a href="https://github.com/fatoligih"><img src="https://img.shields.io/badge/@fatoligih-1-blue" ></a> <a href="https://github.com/mynamebvh"><img src="https://img.shields.io/badge/@mynamebvh-1-blue" ></a>
+<a href="https://github.com/congthanhng"><img src="https://img.shields.io/badge/@congthanhng-29-blue" ></a> <a href="https://github.com/congthanhngnashtech"><img src="https://img.shields.io/badge/@congthanhngnashtech-3-blue" ></a> <a href="https://github.com/chihuy105"><img src="https://img.shields.io/badge/@chihuy105-2-blue" ></a> <a href="https://github.com/vietkeep"><img src="https://img.shields.io/badge/@vietkeep-1-blue" ></a> <a href="https://github.com/BBBloveRED"><img src="https://img.shields.io/badge/@BBBloveRED-1-blue" ></a> <a href="https://github.com/thewind11235"><img src="https://img.shields.io/badge/@thewind11235-1-blue" ></a> <a href="https://github.com/qcuong97"><img src="https://img.shields.io/badge/@qcuong97-1-blue" ></a> <a href="https://github.com/bone1406"><img src="https://img.shields.io/badge/@bone1406-1-blue" ></a> <a href="https://github.com/fatoligih"><img src="https://img.shields.io/badge/@fatoligih-1-blue" ></a> <a href="https://github.com/mynamebvh"><img src="https://img.shields.io/badge/@mynamebvh-1-blue" ></a>
 
 </div>
 
@@ -126,7 +126,8 @@ sure you ping me in your issue or PR by adding `cc @congthanhng`, as I don't rec
 </details>
 </div>
 
-  <h2 align="center">About me </h2>
+  <br>
+<h2 align="center">About me </h2>
 
 <p align="center"> I’m Cong Nguyen</p>
 <p align="center"> I’m currently working on Mobile Development with Flutter</p>

@@ -137,7 +137,7 @@ String generateREADME(
     <img src="${generateDice(data.dice2, false)}" width=10%>---
 </p>
 
-<p align="center">It's ${isDioTurn ? "<b>Dio Brando</b> <img src='assets/dio_brando.png' width=30>" : "<b>Jotaro Kujo</b> <img src='assets/jotaro_kujo.png' width=30>"} turn. You rolled a <b>${data.totalDice.toString()}</b></p>
+<p align="center">It's ${isDioTurn ? "<b>Dio Brando</b> <img src='assets/dio_brando.png' width=30>" : "<b>Jotaro Kujo</b> <img src='assets/jotaro_kujo.png' width=30>"} turn. You rolled a <b style="color:Tomato;font-size:25px;">${data.totalDice.toString()}</b></p>
 
 <p align="center">What would you like to do?</p>
 
