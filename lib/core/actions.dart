@@ -4,7 +4,7 @@ import 'state_data.dart';
 
 
 String generateHP(int current) {
-  int div = ((current / 100) * 10).floor();
+  int div = ((current / 50) * 10).floor();
   List<String> result = [];
   for (int i = 1; i <= 10; i++) {
     if (div == 0 && current > 0 && i == 1) {
@@ -19,10 +19,10 @@ String generateHP(int current) {
 }
 
 String generateMP(int current) {
-  int div = ((current / 25) * 6).floor();
+  int div = ((current / 15) * 6).floor();
   List<String> result = [];
   for (int i = 1; i <= 6; i++) {
-    if (current == 25) {
+    if (current == 15) {
       result.add('█');
     } else if (div == 0 && current == 0) {
       result.add('░');
@@ -121,8 +121,8 @@ String generateREADME(
       <td><code><a href="https://github.com/congthanhng"><img src="assets/dio_brando.png" width=55%></a></code></td>
     </tr>
     <tr>
-      <td>HP: ${generateHP(data.joJo.hp)} ${data.joJo.hp.toString()}/100 <br> MP: ${generateMP(data.joJo.mana)} ${data.joJo.mana.toString()}/25 <br>Won: ${activityData['joJo']['win']}</td>
-      <td>HP: ${generateHP(data.dio.hp)} ${data.dio.hp.toString()}/100 <br> MP: ${generateMP(data.dio.mana)} ${data.dio.mana.toString()}/25 <br>Won: ${activityData['dio']['win']}</td>
+      <td>HP: ${generateHP(data.joJo.hp)} ${data.joJo.hp.toString()}/50 <br> MP: ${generateMP(data.joJo.mana)} ${data.joJo.mana.toString()}/15 <br>Won: ${activityData['joJo']['win']}</td>
+      <td>HP: ${generateHP(data.dio.hp)} ${data.dio.hp.toString()}/50 <br> MP: ${generateMP(data.dio.mana)} ${data.dio.mana.toString()}/15 <br>Won: ${activityData['dio']['win']}</td>
     </tr>
   </tbody>
 </table>

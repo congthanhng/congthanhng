@@ -48,14 +48,14 @@ void main(List<String> arguments) async {
         //set State of battle log
         battleLog[keyLog]["state"] = "attackx2";
         if (resource.isDioTurn) {
-          if (resource.dio.mana >= 25) {
+          if (resource.dio.mana >= 15) {
             attackValue = point * 2;
             resource.dio.mana = 0;
           } else {
             attackValue = point;
           }
         } else {
-          if (resource.joJo.mana >= 25) {
+          if (resource.joJo.mana >= 15) {
             attackValue = point * 2;
             resource.joJo.mana = 0;
           } else {
@@ -110,18 +110,18 @@ void main(List<String> arguments) async {
         activityData['dio']['attackDmg'] += attackValue;
         //increase JoJO MP
         resource.joJo.mana += attackValue;
-        if (resource.joJo.mana >= 25) {
-          resource.joJo.mana = 25;
+        if (resource.joJo.mana >= 15) {
+          resource.joJo.mana = 15;
           canPowerful = true;
         }
       }
 
-      if (resource.dio.hp + healValue > 100) {
-        int remainHealValue = healValue - (100 - resource.dio.hp);
-        activityData['dio']['healRecover'] += 100 - resource.dio.hp;
+      if (resource.dio.hp + healValue > 50) {
+        int remainHealValue = healValue - (50 - resource.dio.hp);
+        activityData['dio']['healRecover'] += 50 - resource.dio.hp;
 
         resource.dio.mana += remainHealValue;
-        resource.dio.hp = 100;
+        resource.dio.hp = 50;
       } else {
         resource.dio.hp += healValue;
         activityData['dio']['healRecover'] += healValue;
@@ -154,16 +154,16 @@ void main(List<String> arguments) async {
         activityData['joJo']['attackDmg'] += attackValue;
         //increase dio MP
         resource.dio.mana += attackValue;
-        if (resource.dio.mana >= 25) {
-          resource.dio.mana = 25;
+        if (resource.dio.mana >= 15) {
+          resource.dio.mana = 15;
           canPowerful = true;
         }
       }
-      if (resource.joJo.hp + healValue > 100) {
-        int remainHealValue = healValue - (100 - resource.joJo.hp);
+      if (resource.joJo.hp + healValue > 50) {
+        int remainHealValue = healValue - (50 - resource.joJo.hp);
         activityData['joJo']['healRecover'] += healValue;
         resource.joJo.mana += remainHealValue;
-        resource.joJo.hp = 100;
+        resource.joJo.hp = 50;
       } else {
         resource.joJo.hp += healValue;
         activityData['joJo']['healRecover'] += healValue;
