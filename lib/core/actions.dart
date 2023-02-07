@@ -162,6 +162,14 @@ ${canPowerful ? "| [Using MP, Heal with x2 value: ${data.totalDice * 2} points](
 | ${generateCharacter(battleLog.values.last["character"])} | ${battleLog.values.last["point"]} | ${battleLog.values.last["state"]} | [@${battleLog.values.last["player_name"]}](https://github.com/${battleLog.values.last["player_name"]}) |
 | ${generateCharacter(battleLog.values.toList()[battleLog.values.length - 2]["character"])} | ${battleLog.values.toList()[battleLog.values.length - 2]["point"]} | ${battleLog.values.toList()[battleLog.values.length - 2]["state"]} | [@${battleLog.values.toList()[battleLog.values.length - 2]["player_name"]}](https://github.com/${battleLog.values.toList()[battleLog.values.length - 2]["player_name"]}) |
 
+**:clipboard: Analysis**
+
+| Team |  Won  |  Total damage dealt  |             Total health recovered              |
+| ---- |:-----:|:--------------------:|:-----------------------------------------------:|
+| <img src='assets/jotaro_kujo.png' width=30> | ${activityData["dio"]["win"]} | ${activityData["dio"]["attackDmg"]} | ${activityData["dio"]["healRecover"]} |
+| <img src='assets/dio_brando.png' width=30> | ${activityData["joJo"]["win"]} | ${activityData["joJo"]["attackDmg"]} | ${activityData["joJo"]["healRecover"]} |
+
+
 </div>
 <br>
 <div align="center">
