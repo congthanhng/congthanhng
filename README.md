@@ -30,11 +30,10 @@
   </tbody>
 </table>
 
-<p align="center">
-    ---<img src="assets/dice_white/dice_6.png" width=10%>
-    ----
-    <img src="assets/dice_black/dice_3.png" width=10%>---
-</p>
+<div align="center">
+    <img src="assets/dice_white/dice_6.png" width=10%>
+    <img src="assets/dice_black/dice_3.png" width=10%>
+</div>
 
 <p align="center">It's <b>Jotaro Kujo</b> <img src='assets/jotaro_kujo.png' width=30> turn. You rolled a <b style="color:Tomato;font-size:25px;">9</b></p>
 
