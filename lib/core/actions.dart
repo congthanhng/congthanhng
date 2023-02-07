@@ -2,21 +2,6 @@ import '../docs/how_to_play.dart';
 import '../docs/introduce.dart';
 import 'state_data.dart';
 
-String generateAttack(int point) {
-  return 'https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C$point&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.';
-}
-
-String generateAttackUsingMP(int point) {
-  return 'https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattackx2%7C$point&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.';
-}
-
-String generateHeal(int point) {
-  return 'https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C$point&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.';
-}
-
-String generateHealUsingMP(int point) {
-  return 'https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Chealx2%7C$point&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.';
-}
 
 String generateHP(int current) {
   int div = ((current / 100) * 10).floor();
@@ -85,11 +70,11 @@ String generateCharacter(String key) {
 String generateTypeAction(String type) {
   switch (type) {
     case "attack":
-      return "<img src='assets/actions/attack.png' width=25>";
-    case 'attackx2': return "<img src='assets/actions/attack.png' width=25><img src='assets/actions/attack.png' width=25>";
-    case 'heal' : return "<img src='assets/actions/heal.png' width=25>";
+      return "<img src='assets/actions/attack.png' width=30>";
+    case 'attackx2': return "<img src='assets/actions/attack.png' width=30><img src='assets/actions/attack.png' width=30>";
+    case 'heal' : return "<img src='assets/actions/heal.png' width=30>";
     default:
-      return "<img src='assets/actions/heal.png' width=25><img src='assets/actions/heal.png' width=25>";
+      return "<img src='assets/actions/heal.png' width=30><img src='assets/actions/heal.png' width=30>";
   }
 }
 
@@ -155,10 +140,10 @@ String generateREADME(
 
 | Type Action |Choices *(pick one of them!)*                                                                                                                                                                          |
 |:-------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <img src="assets/actions/attack.png" width=25> | [Attack ${isDioTurn ? "**Jotaro Kujo**" : "**Dio Brando**"}: ${data.totalDice.toString()} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
-| <img src="assets/actions/heal.png" width=25> | [Heal ${isDioTurn ? "**Dio Brando**" : "**Jotaro Kujo**"}: ${data.totalDice.toString()} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
-${canPowerful ? "| <img src='assets/actions/attack.png' width=25><img src='assets/actions/attack.png' width=25> | [Using MP, Attack with x2 damage: ${data.totalDice * 2} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattackx2%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |" : ""}
-${canPowerful ? "| <img src='assets/actions/heal.png' width=25><img src='assets/actions/heal.png' width=25> | [Using MP, Heal with x2 value: ${data.totalDice * 2} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Chealx2%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |" : ""}
+| <img src="assets/actions/attack.png" width=30> | [Attack ${isDioTurn ? "**Jotaro Kujo**" : "**Dio Brando**"}: ${data.totalDice.toString()} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
+| <img src="assets/actions/heal.png" width=30> | [Heal ${isDioTurn ? "**Dio Brando**" : "**Jotaro Kujo**"}: ${data.totalDice.toString()} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
+${canPowerful ? "| <img src='assets/actions/attack.png' width=30><img src='assets/actions/attack.png' width=30> | [Using MP, Attack with x2 damage: ${data.totalDice * 2} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattackx2%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |" : ""}
+${canPowerful ? "| <img src='assets/actions/heal.png' width=30><img src='assets/actions/heal.png' width=30> | [Using MP, Heal with x2 value: ${data.totalDice * 2} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Chealx2%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |" : ""}
 
 </div>
 
