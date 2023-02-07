@@ -1,0 +1,14 @@
+{
+  "dio": {
+    "win": 2,
+    "attackDmg": 466,
+    "healRecover": 54
+  },
+  "joJo": {
+    "win": 2,
+    "attackDmg": 428,
+    "healRecover": 65
+  },
+  "moves": 98,
+  "completeGame": 4
+}

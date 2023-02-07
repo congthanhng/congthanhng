@@ -4,8 +4,9 @@ import 'dart:io';
 import 'dart:math';
 
 import 'core/state_data.dart';
-import 'how_to_play.dart';
-import 'introduce.dart';
+import 'data/data_path.dart';
+import 'docs/how_to_play.dart';
+import 'docs/introduce.dart';
 
 String example = "battle|play|healx2|10";
 
@@ -35,12 +36,12 @@ void main(List<String> arguments) async {
   ActionState actionState = args[2].actionStateFromString();
   int point = int.parse(args[3]);
 
-  Map<String, dynamic> stateData = await readJsonFile('lib/core/state.json');
+  Map<String, dynamic> stateData = await readJsonFile(statePath);
   Map<String, dynamic> activityData =
-      await readJsonFile('lib/core/activity.json');
-  Map<String, dynamic> userData = await readJsonFile('lib/core/user.json');
+      await readJsonFile(activityPath);
+  Map<String, dynamic> userData = await readJsonFile(userRecordPath);
   Map<String, dynamic> battleLog =
-      await readJsonFile('lib/core/battle_log.json');
+      await readJsonFile(battleLogPath);
   StateData resource = StateData.fromJson(stateData);
 
   //init battleLog
@@ -52,7 +53,7 @@ void main(List<String> arguments) async {
   if (ActionState.values.toString().contains(args[2]) &&
       point == resource.totalDice) {
     userData[userName] = (userData[userName] ?? 0) + 1;
-    await File('lib/core/user.json').writeAsString(jsonEncode(userData));
+    await File(userRecordPath).writeAsString(jsonEncode(userData));
 
     int attackValue = 0;
     int healValue = 0;
@@ -112,11 +113,11 @@ void main(List<String> arguments) async {
         var dice2 = Random().nextInt(6) + 1;
         reset.dice1 = dice1;
         reset.dice2 = dice2;
-        await File('lib/core/state.json')
+        await File(statePath)
             .writeAsString(jsonEncode(reset.toJson()));
         activityData['dio']['win']++;
         activityData['completeGame']++;
-        await File('lib/core/activity.json')
+        await File(activityPath)
             .writeAsString(jsonEncode(activityData));
 
         await File('README.md').writeAsString(generateREADME(
@@ -154,11 +155,11 @@ void main(List<String> arguments) async {
         var dice2 = Random().nextInt(6) + 1;
         reset.dice1 = dice1;
         reset.dice2 = dice2;
-        await File('lib/core/state.json')
+        await File(statePath)
             .writeAsString(jsonEncode(reset.toJson()));
         activityData['joJo']['win']++;
         activityData['completeGame']++;
-        await File('lib/core/activity.json')
+        await File(activityPath)
             .writeAsString(jsonEncode(activityData));
         await File('README.md').writeAsString(generateREADME(
             reset, canPowerful, activityData, userData, battleLog));
@@ -193,17 +194,17 @@ void main(List<String> arguments) async {
     resource.dice2 = dice2;
 
     // print('toJsonString: ${resource.toJsonString()}');
-    await File('lib/core/state.json')
+    await File(statePath)
         .writeAsString(jsonEncode(resource.toJson()));
 
     await File('README.md').writeAsString(generateREADME(
         resource, canPowerful, activityData, userData, battleLog));
 
     activityData['moves']++;
-    await File('lib/core/activity.json')
+    await File(activityPath)
         .writeAsString(jsonEncode(activityData));
 
-    await File('lib/core/battle_log.json').writeAsString(jsonEncode(battleLog));
+    await File(battleLogPath).writeAsString(jsonEncode(battleLog));
   } else
     throw Exception('The Issue is not correct with title format');
 }
