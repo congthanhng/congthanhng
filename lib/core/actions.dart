@@ -82,6 +82,17 @@ String generateCharacter(String key) {
   }
 }
 
+String generateTypeAction(String type) {
+  switch (type) {
+    case "attack":
+      return "<img src='assets/actions/attack.png' width=25>";
+    case 'attackx2': return "<img src='assets/actions/attack.png' width=25><img src='assets/actions/attack.png' width=25>";
+    case 'heal' : return "<img src='assets/actions/heal.png' width=25>";
+    default:
+      return "<img src='assets/actions/heal.png' width=25><img src='assets/actions/heal.png' width=25>";
+  }
+}
+
 String generatePlayerCheckIn(Map<String, dynamic> userData) {
   return userData.entries
       .toList()
@@ -142,12 +153,12 @@ String generateREADME(
 
 <div align="center">
 
-| Choices *(pick one of them!)*                                                                                                                                                                          |
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Attack ${isDioTurn ? "**Jotaro Kujo**" : "**Dio Brando**"}: ${data.totalDice.toString()} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
-| [Heal ${isDioTurn ? "**Dio Brando**" : "**Jotaro Kujo**"}: ${data.totalDice.toString()} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
-${canPowerful ? "| [Using MP, Attack with x2 damage: ${data.totalDice * 2} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattackx2%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |" : ""}
-${canPowerful ? "| [Using MP, Heal with x2 value: ${data.totalDice * 2} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Chealx2%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |" : ""}
+| Type Action |Choices *(pick one of them!)*                                                                                                                                                                          |
+|:-------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <img src="assets/actions/attack.png" width=25> | [Attack ${isDioTurn ? "**Jotaro Kujo**" : "**Dio Brando**"}: ${data.totalDice.toString()} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
+| <img src="assets/actions/heal.png" width=25> | [Heal ${isDioTurn ? "**Dio Brando**" : "**Jotaro Kujo**"}: ${data.totalDice.toString()} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
+${canPowerful ? "| <img src='assets/actions/attack.png' width=25><img src='assets/actions/attack.png' width=25> | [Using MP, Attack with x2 damage: ${data.totalDice * 2} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattackx2%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |" : ""}
+${canPowerful ? "| <img src='assets/actions/heal.png' width=25><img src='assets/actions/heal.png' width=25> | [Using MP, Heal with x2 value: ${data.totalDice * 2} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Chealx2%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |" : ""}
 
 </div>
 
@@ -157,10 +168,10 @@ ${canPowerful ? "| [Using MP, Heal with x2 value: ${data.totalDice * 2} points](
 
 **:alarm_clock: Most recent moves**
 
-| Team | Dices rolled | Action | Made by |
-| ---- | :----: | ------- | ------- |
-| ${generateCharacter(battleLog.values.last["character"])} | ${battleLog.values.last["point"]} | ${battleLog.values.last["state"]} | [@${battleLog.values.last["player_name"]}](https://github.com/${battleLog.values.last["player_name"]}) |
-| ${generateCharacter(battleLog.values.toList()[battleLog.values.length - 2]["character"])} | ${battleLog.values.toList()[battleLog.values.length - 2]["point"]} | ${battleLog.values.toList()[battleLog.values.length - 2]["state"]} | [@${battleLog.values.toList()[battleLog.values.length - 2]["player_name"]}](https://github.com/${battleLog.values.toList()[battleLog.values.length - 2]["player_name"]}) |
+| Team | Dices rolled | Type Action | Made by |
+| ---- | :----: | :-------: | ------- |
+| ${generateCharacter(battleLog.values.last["character"])} | ${battleLog.values.last["point"]} | ${generateTypeAction(battleLog.values.last["state"])} | [@${battleLog.values.last["player_name"]}](https://github.com/${battleLog.values.last["player_name"]}) |
+| ${generateCharacter(battleLog.values.toList()[battleLog.values.length - 2]["character"])} | ${battleLog.values.toList()[battleLog.values.length - 2]["point"]} | ${generateTypeAction(battleLog.values.toList()[battleLog.values.length - 2]["state"])} | [@${battleLog.values.toList()[battleLog.values.length - 2]["player_name"]}](https://github.com/${battleLog.values.toList()[battleLog.values.length - 2]["player_name"]}) |
 
 </div>
 <br>
