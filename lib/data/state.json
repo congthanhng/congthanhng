@@ -1,15 +1,15 @@
 {
   "Dio": {
     "name": "Dio Brando",
-    "HP": 52,
-    "Mana": 11
+    "HP": 45,
+    "Mana": 18
   },
   "JoJo": {
     "name": "Jotaro Kujo",
     "HP": 46,
     "Mana": 25
   },
-  "isDioTurn": false,
-  "Dice1": 1,
-  "Dice2": 6
+  "isDioTurn": true,
+  "Dice1": 3,
+  "Dice2": 4
 }
