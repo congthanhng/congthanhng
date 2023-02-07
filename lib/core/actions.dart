@@ -177,3 +177,12 @@ ${generatePlayerCheckIn(userData)}
   ''';
   return result;
 }
+
+// String generateGameRecord(
+//     StateData data,
+//     bool canPowerful,
+//     Map<String, dynamic> activityData,
+//     Map<String, dynamic> userData,
+//     Map<String, dynamic> battleLog){
+//
+// }

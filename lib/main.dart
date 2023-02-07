@@ -99,6 +99,8 @@ void main(List<String> arguments) async {
         await File(activityPath)
             .writeAsString(jsonEncode(activityData));
 
+        var historyData = await _gameHistoryRecord(battleLog, true);
+
         await File('README.md').writeAsString(generateREADME(
             reset, canPowerful, activityData, userData, battleLog));
         return;
@@ -140,6 +142,9 @@ void main(List<String> arguments) async {
         activityData['completeGame']++;
         await File(activityPath)
             .writeAsString(jsonEncode(activityData));
+
+        var historyData = await _gameHistoryRecord(battleLog, false);
+
         await File('README.md').writeAsString(generateREADME(
             reset, canPowerful, activityData, userData, battleLog));
         return;
@@ -194,4 +199,20 @@ Future<Map<String, dynamic>> readJsonFile(String filePath) async {
   return map;
 }
 
+Future<Map<String, dynamic>> _gameHistoryRecord(Map<String, dynamic> battleLog, bool isDioWon)async{
+  Map<String, dynamic> historyData = await readJsonFile(gameHistoryPath);
+  var currentRecordKey = historyData.entries.length;
+  historyData['$currentRecordKey'] = {};
+  historyData['$currentRecordKey']['isDioWon'] = isDioWon;
+  historyData['$currentRecordKey']['gameNumber'] = currentRecordKey;
+  var listDio = battleLog.values.where((element) => element["character"] == "Dio",).map((e) => e["player_name"],).toSet();
+  var listJoJo = battleLog.values.where((element) => element["character"] != "Dio",).map((e) => e["player_name"],).toSet();
+  historyData['$currentRecordKey']['dioPlayer'] = [...listDio];
+  historyData['$currentRecordKey']['jojoPlayer'] = [...listJoJo];
+  historyData['$currentRecordKey']['totalMoves'] = battleLog.length;
 
+  await File(gameHistoryPath)
+      .writeAsString(jsonEncode(historyData));
+
+  return historyData;
+}
