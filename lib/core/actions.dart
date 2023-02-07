@@ -111,7 +111,7 @@ String generateREADME(
 
 </div>
 
-<p align="center">It's the <b>${isDioTurn ? "Dio Brando <img src='assets/dio_brando.png' width=30>" : "Jotaro Kujo <img src='assets/jotaro_kujo.png' width=30>"}<b> team's turn.</p>
+<p align="center">It's the ${isDioTurn ? "<b>Dio Brando</b> <img src='assets/dio_brando.png' width=30>" : "<b>Jotaro Kujo</b> <img src='assets/jotaro_kujo.png' width=30>"} team's turn.</p>
 <table align="center">
   <thead align="center">
     <tr>
@@ -137,7 +137,7 @@ String generateREADME(
     <img src="${generateDice(data.dice2, false)}" width=10%>---
 </p>
 
-<p align="center"><b>${isDioTurn ? "Dio Brando <img src='assets/dio_brando.png' width=30>" : "Jotaro Kujo <img src='assets/jotaro_kujo.png' width=30>"}<b> turn. <b>You rolled a ${data.totalDice.toString()}!</b></p>
+<p align="center">It's ${isDioTurn ? "<b>Dio Brando</b> <img src='assets/dio_brando.png' width=30>" : "<b>Jotaro Kujo</b> <img src='assets/jotaro_kujo.png' width=30>"} turn. You rolled a <b>${data.totalDice.toString()}</b></p>
 
 <p align="center">What would you like to do?</p>
 
@@ -145,9 +145,9 @@ String generateREADME(
 
 | Choices *(pick one of them!)*                                                                                                                                                                          |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Attack ${isDioTurn ? "**Jotaro Kujo**" : "**Dio Brando**"} with ${data.totalDice.toString()} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
-| [Heal ${isDioTurn ? "**Dio Brando**" : "**Jotaro Kujo**"} with ${data.totalDice.toString()} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
-${canPowerful ? "| [Using MP, Attack with x2 dame: ${data.totalDice * 2} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattackx2%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |" : ""}
+| [Attack ${isDioTurn ? "**Jotaro Kujo**" : "**Dio Brando**"}: ${data.totalDice.toString()} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattack%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
+| [Heal ${isDioTurn ? "**Dio Brando**" : "**Jotaro Kujo**"}: ${data.totalDice.toString()} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cheal%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
+${canPowerful ? "| [Using MP, Attack with x2 damage: ${data.totalDice * 2} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Cattackx2%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |" : ""}
 ${canPowerful ? "| [Using MP, Heal with x2 value: ${data.totalDice * 2} points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7Cplay%7Chealx2%7C${data.totalDice.toString()}&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |" : ""}
 
 </div>
