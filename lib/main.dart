@@ -125,6 +125,10 @@ void main(List<String> arguments) async {
           battleLog = {};
           await File(battleLogPath).writeAsString(jsonEncode(battleLog));
 
+          var won = historyData['${activityData['completeGame']}']['dioPlayer']
+              as List<String>;
+          var lose = historyData['${activityData['completeGame']}']
+              ['jojoPlayer'] as List<String>;
           //create new issue
           await github.issues.create(
               RepositorySlug.full('$repositoryFullName'),
@@ -133,12 +137,7 @@ void main(List<String> arguments) async {
                       '🎉🎉 Congratulations! Game ${activityData['completeGame']} is Completed! 🎉🎉',
                   state: 'closed',
                   labels: [gameEnd],
-                  body: bodyGameEnd(
-                      true,
-                      historyData['${activityData['completeGame']}']
-                          ['dioPlayer'],
-                      historyData['${activityData['completeGame']}']
-                          ['jojoPlayer'])));
+                  body: bodyGameEnd(true, won, lose)));
           return;
         } else {
           //decrease jojo HP
@@ -197,6 +196,10 @@ void main(List<String> arguments) async {
           battleLog = {};
           await File(battleLogPath).writeAsString(jsonEncode(battleLog));
 
+          var won = historyData['${activityData['completeGame']}']['jojoPlayer']
+              as List<String>;
+          var lose = historyData['${activityData['completeGame']}']['dioPlayer']
+              as List<String>;
           //create new issue
           await github.issues.create(
               RepositorySlug.full('$repositoryFullName'),
@@ -205,12 +208,7 @@ void main(List<String> arguments) async {
                       '🎉🎉 Congratulations! Game ${activityData['completeGame']} is Completed! 🎉🎉',
                   state: 'closed',
                   labels: [gameEnd],
-                  body: bodyGameEnd(
-                      false,
-                      historyData['${activityData['completeGame']}']
-                          ['jojoPlayer'],
-                      historyData['${activityData['completeGame']}']
-                          ['dioPlayer'])));
+                  body: bodyGameEnd(false, won, lose)));
           return;
         } else {
           //decrease dio HP
@@ -272,7 +270,7 @@ void main(List<String> arguments) async {
         RepositorySlug.full('$repositoryFullName'),
         issueNumber,
         [failureLabel]);
-    throw Exception('The Issue is not correct with title format');
+    throw Exception(e);
   }
 }
 
