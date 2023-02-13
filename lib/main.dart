@@ -36,230 +36,234 @@ void main(List<String> arguments) async {
   battleLog[keyLog] = {};
   battleLog[keyLog]["player_name"] = userName;
   battleLog[keyLog]["point"] = resource.totalDice;
+  try {
+    if (ActionState.values.toString().contains(args[2]) &&
+        point == resource.totalDice) {
+      userData[userName] = (userData[userName] ?? 0) + 1;
+      await File(userRecordPath).writeAsString(jsonEncode(userData));
 
-  if (ActionState.values.toString().contains(args[2]) &&
-      point == resource.totalDice) {
-    userData[userName] = (userData[userName] ?? 0) + 1;
-    await File(userRecordPath).writeAsString(jsonEncode(userData));
+      int attackValue = 0;
+      int healValue = 0;
+      bool canPowerful = false;
+      switch (actionState) {
+        case ActionState.attack:
+          attackValue = point;
 
-    int attackValue = 0;
-    int healValue = 0;
-    bool canPowerful = false;
-    switch (actionState) {
-      case ActionState.attack:
-        attackValue = point;
+          //set State of battle log
+          battleLog[keyLog]["state"] = "attack";
+          break;
+        case ActionState.attackx2:
+          //set State of battle log
+          battleLog[keyLog]["state"] = "attackx2";
+          if (resource.isDioTurn) {
+            if (resource.dio.mana >= 15) {
+              attackValue = point * 2;
+              resource.dio.mana = 0;
+            } else {
+              attackValue = point;
+            }
+          } else {
+            if (resource.joJo.mana >= 15) {
+              attackValue = point * 2;
+              resource.joJo.mana = 0;
+            } else {
+              attackValue = point;
+            }
+          }
+          break;
+        case ActionState.heal:
+          //set State of battle log
 
-        //set State of battle log
-        battleLog[keyLog]["state"] = "attack";
-        break;
-      case ActionState.attackx2:
-        //set State of battle log
-        battleLog[keyLog]["state"] = "attackx2";
-        if (resource.isDioTurn) {
-          if (resource.dio.mana >= 15) {
-            attackValue = point * 2;
+          battleLog[keyLog]["state"] = "heal";
+          healValue = point;
+          break;
+        case ActionState.healx2:
+          //set State of battle log
+
+          battleLog[keyLog]["state"] = "healx2";
+          healValue = point * 2;
+          if (resource.isDioTurn) {
             resource.dio.mana = 0;
           } else {
-            attackValue = point;
-          }
-        } else {
-          if (resource.joJo.mana >= 15) {
-            attackValue = point * 2;
             resource.joJo.mana = 0;
-          } else {
-            attackValue = point;
+          }
+          break;
+      }
+
+      if (resource.isDioTurn) {
+        battleLog[keyLog]["character"] = "Dio";
+        if (resource.joJo.hp <= 0 || resource.joJo.hp <= attackValue) {
+          //Dio WIN
+          //reset game
+          var reset = resource.resetGame(false);
+          var dice1 = Random().nextInt(6) + 1;
+          var dice2 = Random().nextInt(6) + 1;
+          reset.dice1 = dice1;
+          reset.dice2 = dice2;
+          await File(statePath).writeAsString(jsonEncode(reset.toJson()));
+          activityData['dio']['win']++;
+          activityData['completeGame']++;
+          await File(activityPath).writeAsString(jsonEncode(activityData));
+
+          var historyData = await _gameHistoryRecord(
+              battleLog, true, activityData['completeGame']);
+
+          await File('README.md').writeAsString(generateREADME(
+              reset, canPowerful, activityData, userData, battleLog));
+
+          //comment and add label to current issue
+          await github.issues.createComment(
+              RepositorySlug.full('$repositoryFullName'),
+              issueNumber,
+              moveSuccess(userName));
+          await github.issues.addLabelsToIssue(
+              RepositorySlug.full('$repositoryFullName'),
+              issueNumber,
+              [successLabelType(data.contains('attack'))]);
+
+          //reset battleLog
+          battleLog = {};
+          await File(battleLogPath).writeAsString(jsonEncode(battleLog));
+
+          //create new issue
+          await github.issues.create(
+              RepositorySlug.full('$repositoryFullName'),
+              IssueRequest(
+                  title:
+                      '🎉🎉 Congratulations! Game ${activityData['completeGame']} is Completed! 🎉🎉',
+                  state: 'closed',
+                  labels: [gameEnd],
+                  body: bodyGameEnd(
+                      true,
+                      historyData['${activityData['completeGame']}']
+                          ['dioPlayer'],
+                      historyData['${activityData['completeGame']}']
+                          ['jojoPlayer'])));
+          return;
+        } else {
+          //decrease jojo HP
+          resource.joJo.hp -= attackValue;
+          activityData['dio']['attackDmg'] += attackValue;
+          //increase JoJO MP
+          resource.joJo.mana += attackValue;
+          if (resource.joJo.mana >= 15) {
+            resource.joJo.mana = 15;
+            canPowerful = true;
           }
         }
-        break;
-      case ActionState.heal:
-        //set State of battle log
 
-        battleLog[keyLog]["state"] = "heal";
-        healValue = point;
-        break;
-      case ActionState.healx2:
-        //set State of battle log
+        if (resource.dio.hp + healValue > 50) {
+          int remainHealValue = healValue - (50 - resource.dio.hp);
+          activityData['dio']['healRecover'] += 50 - resource.dio.hp;
 
-        battleLog[keyLog]["state"] = "healx2";
-        healValue = point * 2;
-        if (resource.isDioTurn) {
-          resource.dio.mana = 0;
+          resource.dio.mana += remainHealValue;
+          resource.dio.hp = 50;
         } else {
-          resource.joJo.mana = 0;
+          resource.dio.hp += healValue;
+          activityData['dio']['healRecover'] += healValue;
         }
-        break;
-    }
-
-    if (resource.isDioTurn) {
-      battleLog[keyLog]["character"] = "Dio";
-      if (resource.joJo.hp <= 0 || resource.joJo.hp <= attackValue) {
-        //Dio WIN
-        //reset game
-        var reset = resource.resetGame(false);
-        var dice1 = Random().nextInt(6) + 1;
-        var dice2 = Random().nextInt(6) + 1;
-        reset.dice1 = dice1;
-        reset.dice2 = dice2;
-        await File(statePath).writeAsString(jsonEncode(reset.toJson()));
-        activityData['dio']['win']++;
-        activityData['completeGame']++;
-        await File(activityPath).writeAsString(jsonEncode(activityData));
-
-        var historyData = await _gameHistoryRecord(
-            battleLog, true, activityData['completeGame']);
-
-        await File('README.md').writeAsString(generateREADME(
-            reset, canPowerful, activityData, userData, battleLog));
-
-        //comment and add label to current issue
-        await github.issues.createComment(
-            RepositorySlug.full('$repositoryFullName'),
-            issueNumber,
-            moveSuccess(userName));
-        await github.issues.addLabelsToIssue(
-            RepositorySlug.full('$repositoryFullName'),
-            issueNumber,
-            [successLabelType(data.contains('attack'))]);
-
-        //reset battleLog
-        battleLog = {};
-        await File(battleLogPath).writeAsString(jsonEncode(battleLog));
-
-        //create new issue
-        await github.issues.create(
-            RepositorySlug.full('$repositoryFullName'),
-            IssueRequest(
-                title:
-                    '🎉🎉 Congratulations! Game ${activityData['completeGame']} is Completed! 🎉🎉',
-                state: 'closed',
-                labels: [gameEnd],
-                body: bodyGameEnd(
-                    true,
-                    historyData['${activityData['completeGame']}']['dioPlayer'],
-                    historyData['${activityData['completeGame']}']
-                        ['jojoPlayer'])));
-        return;
       } else {
-        //decrease jojo HP
-        resource.joJo.hp -= attackValue;
-        activityData['dio']['attackDmg'] += attackValue;
-        //increase JoJO MP
-        resource.joJo.mana += attackValue;
-        if (resource.joJo.mana >= 15) {
-          resource.joJo.mana = 15;
-          canPowerful = true;
+        battleLog[keyLog]["character"] = "JoJo";
+        if (resource.dio.hp <= 0 || resource.dio.hp <= attackValue) {
+          //JoJo WIN
+          //reset game
+          var reset = resource.resetGame(true);
+          var dice1 = Random().nextInt(6) + 1;
+          var dice2 = Random().nextInt(6) + 1;
+          reset.dice1 = dice1;
+          reset.dice2 = dice2;
+          await File(statePath).writeAsString(jsonEncode(reset.toJson()));
+          activityData['joJo']['win']++;
+          activityData['completeGame']++;
+          await File(activityPath).writeAsString(jsonEncode(activityData));
+
+          var historyData = await _gameHistoryRecord(
+              battleLog, false, activityData['completeGame']);
+
+          await File('README.md').writeAsString(generateREADME(
+              reset, canPowerful, activityData, userData, battleLog));
+
+          //comment and add label to current issue
+          await github.issues.createComment(
+              RepositorySlug.full('$repositoryFullName'),
+              issueNumber,
+              moveSuccess(userName));
+          await github.issues.addLabelsToIssue(
+              RepositorySlug.full('$repositoryFullName'),
+              issueNumber,
+              [successLabelType(data.contains('attack'))]);
+
+          //reset battleLog
+          battleLog = {};
+          await File(battleLogPath).writeAsString(jsonEncode(battleLog));
+
+          //create new issue
+          await github.issues.create(
+              RepositorySlug.full('$repositoryFullName'),
+              IssueRequest(
+                  title:
+                      '🎉🎉 Congratulations! Game ${activityData['completeGame']} is Completed! 🎉🎉',
+                  state: 'closed',
+                  labels: [gameEnd],
+                  body: bodyGameEnd(
+                      false,
+                      historyData['${activityData['completeGame']}']
+                          ['jojoPlayer'],
+                      historyData['${activityData['completeGame']}']
+                          ['dioPlayer'])));
+          return;
+        } else {
+          //decrease dio HP
+          resource.dio.hp -= attackValue;
+          activityData['joJo']['attackDmg'] += attackValue;
+          //increase dio MP
+          resource.dio.mana += attackValue;
+          if (resource.dio.mana >= 15) {
+            resource.dio.mana = 15;
+            canPowerful = true;
+          }
+        }
+        if (resource.joJo.hp + healValue > 50) {
+          int remainHealValue = healValue - (50 - resource.joJo.hp);
+          activityData['joJo']['healRecover'] += healValue;
+          resource.joJo.mana += remainHealValue;
+          resource.joJo.hp = 50;
+        } else {
+          resource.joJo.hp += healValue;
+          activityData['joJo']['healRecover'] += healValue;
         }
       }
 
-      if (resource.dio.hp + healValue > 50) {
-        int remainHealValue = healValue - (50 - resource.dio.hp);
-        activityData['dio']['healRecover'] += 50 - resource.dio.hp;
+      resource.isDioTurn = !resource.isDioTurn;
 
-        resource.dio.mana += remainHealValue;
-        resource.dio.hp = 50;
-      } else {
-        resource.dio.hp += healValue;
-        activityData['dio']['healRecover'] += healValue;
-      }
+      var dice1 = Random().nextInt(6) + 1;
+      var dice2 = Random().nextInt(6) + 1;
+      resource.dice1 = dice1;
+      resource.dice2 = dice2;
+
+      // print('toJsonString: ${resource.toJsonString()}');
+      await File(statePath).writeAsString(jsonEncode(resource.toJson()));
+
+      await File('README.md').writeAsString(generateREADME(
+          resource, canPowerful, activityData, userData, battleLog));
+
+      activityData['moves']++;
+      await File(activityPath).writeAsString(jsonEncode(activityData));
+
+      await File(battleLogPath).writeAsString(jsonEncode(battleLog));
+
+      await github.issues.createComment(
+          RepositorySlug.full('$repositoryFullName'),
+          issueNumber,
+          moveSuccess(userName));
+      await github.issues.addLabelsToIssue(
+          RepositorySlug.full('$repositoryFullName'),
+          issueNumber,
+          [successLabelType(data.contains('attack'))]);
     } else {
-      battleLog[keyLog]["character"] = "JoJo";
-      if (resource.dio.hp <= 0 || resource.dio.hp <= attackValue) {
-        //JoJo WIN
-        //reset game
-        var reset = resource.resetGame(true);
-        var dice1 = Random().nextInt(6) + 1;
-        var dice2 = Random().nextInt(6) + 1;
-        reset.dice1 = dice1;
-        reset.dice2 = dice2;
-        await File(statePath).writeAsString(jsonEncode(reset.toJson()));
-        activityData['joJo']['win']++;
-        activityData['completeGame']++;
-        await File(activityPath).writeAsString(jsonEncode(activityData));
-
-        var historyData = await _gameHistoryRecord(
-            battleLog, false, activityData['completeGame']);
-
-        await File('README.md').writeAsString(generateREADME(
-            reset, canPowerful, activityData, userData, battleLog));
-
-        //comment and add label to current issue
-        await github.issues.createComment(
-            RepositorySlug.full('$repositoryFullName'),
-            issueNumber,
-            moveSuccess(userName));
-        await github.issues.addLabelsToIssue(
-            RepositorySlug.full('$repositoryFullName'),
-            issueNumber,
-            [successLabelType(data.contains('attack'))]);
-
-        //reset battleLog
-        battleLog = {};
-        await File(battleLogPath).writeAsString(jsonEncode(battleLog));
-
-        //create new issue
-        await github.issues.create(
-            RepositorySlug.full('$repositoryFullName'),
-            IssueRequest(
-                title:
-                    '🎉🎉 Congratulations! Game ${activityData['completeGame']} is Completed! 🎉🎉',
-                state: 'closed',
-                labels: [gameEnd],
-                body: bodyGameEnd(
-                    false,
-                    historyData['${activityData['completeGame']}']
-                        ['jojoPlayer'],
-                    historyData['${activityData['completeGame']}']
-                        ['dioPlayer'])));
-        return;
-      } else {
-        //decrease dio HP
-        resource.dio.hp -= attackValue;
-        activityData['joJo']['attackDmg'] += attackValue;
-        //increase dio MP
-        resource.dio.mana += attackValue;
-        if (resource.dio.mana >= 15) {
-          resource.dio.mana = 15;
-          canPowerful = true;
-        }
-      }
-      if (resource.joJo.hp + healValue > 50) {
-        int remainHealValue = healValue - (50 - resource.joJo.hp);
-        activityData['joJo']['healRecover'] += healValue;
-        resource.joJo.mana += remainHealValue;
-        resource.joJo.hp = 50;
-      } else {
-        resource.joJo.hp += healValue;
-        activityData['joJo']['healRecover'] += healValue;
-      }
+      throw Exception('The Issue is not correct with title format');
     }
-
-    resource.isDioTurn = !resource.isDioTurn;
-
-    var dice1 = Random().nextInt(6) + 1;
-    var dice2 = Random().nextInt(6) + 1;
-    resource.dice1 = dice1;
-    resource.dice2 = dice2;
-
-    // print('toJsonString: ${resource.toJsonString()}');
-    await File(statePath).writeAsString(jsonEncode(resource.toJson()));
-
-    await File('README.md').writeAsString(generateREADME(
-        resource, canPowerful, activityData, userData, battleLog));
-
-    activityData['moves']++;
-    await File(activityPath).writeAsString(jsonEncode(activityData));
-
-    await File(battleLogPath).writeAsString(jsonEncode(battleLog));
-
-    await github.issues.createComment(
-        RepositorySlug.full('$repositoryFullName'),
-        issueNumber,
-        moveSuccess(userName));
-    await github.issues.addLabelsToIssue(
-        RepositorySlug.full('$repositoryFullName'),
-        issueNumber,
-        [successLabelType(data.contains('attack'))]);
-  } else {
+  } catch (e) {
     await github.issues.createComment(
         RepositorySlug.full('$repositoryFullName'),
         issueNumber,
