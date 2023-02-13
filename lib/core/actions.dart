@@ -2,7 +2,6 @@ import '../docs/how_to_play.dart';
 import '../docs/introduce.dart';
 import 'state_data.dart';
 
-
 String generateHP(int current) {
   int div = ((current / 50) * 10).floor();
   List<String> result = [];
@@ -71,8 +70,10 @@ String generateTypeAction(String type) {
   switch (type) {
     case "attack":
       return "<img src='assets/actions/attack.png' width=30>";
-    case 'attackx2': return "<img src='assets/actions/attack.png' width=30><img src='assets/actions/attack.png' width=30>";
-    case 'heal' : return "<img src='assets/actions/heal.png' width=30>";
+    case 'attackx2':
+      return "<img src='assets/actions/attack.png' width=30><img src='assets/actions/attack.png' width=30>";
+    case 'heal':
+      return "<img src='assets/actions/heal.png' width=30>";
     default:
       return "<img src='assets/actions/heal.png' width=30><img src='assets/actions/heal.png' width=30>";
   }
@@ -82,7 +83,7 @@ String generatePlayerCheckIn(Map<String, dynamic> userData) {
   return userData.entries
       .toList()
       .map((e) =>
-          '<a href="https://github.com/${e.key}"><img src="https://img.shields.io/badge/@${e.key}-${e.value.toString()}-blue" ></a>')
+  '<a href="https://github.com/${e.key}"><img src="https://img.shields.io/badge/@${e.key}-${e.value.toString()}-blue" ></a>')
       .join(' ');
 }
 
@@ -95,7 +96,7 @@ String generateREADME(
   var isDioTurn = data.isDioTurn;
 
   String afterAction =
-      '''<h2 align="center">Welcome to Community Battle game</h2>
+  '''<h2 align="center">Welcome to Community Battle game</h2>
 <p align="center">Welcome to my Github profile! We're playing Battle game, you can join with us!</p>
 
 <div align="center">
@@ -149,16 +150,7 @@ ${canPowerful ? "| <img src='assets/actions/heal.png' width=30><img src='assets/
 
 <br>
 
-<div align="center">
-
-**:alarm_clock: Most recent moves**
-
-| Team | Dices rolled | Type Action | Made by |
-| ---- | :----: | :-------: | ------- |
-| ${generateCharacter(battleLog.values.last["character"])} | ${battleLog.values.last["point"]} | ${generateTypeAction(battleLog.values.last["state"])} | [@${battleLog.values.last["player_name"]}](https://github.com/${battleLog.values.last["player_name"]}) |
-| ${generateCharacter(battleLog.values.toList()[battleLog.values.length - 2]["character"])} | ${battleLog.values.toList()[battleLog.values.length - 2]["point"]} | ${generateTypeAction(battleLog.values.toList()[battleLog.values.length - 2]["state"])} | [@${battleLog.values.toList()[battleLog.values.length - 2]["player_name"]}](https://github.com/${battleLog.values.toList()[battleLog.values.length - 2]["player_name"]}) |
-
-</div>
+${generateMostRecentMove(battleLog)}
 <br>
 <div align="center">
 
@@ -177,6 +169,22 @@ ${generatePlayerCheckIn(userData)}
   ''';
   return result;
 }
+
+String generateMostRecentMove(Map<String, dynamic> battleLog) =>
+    battleLog.values.isNotEmpty
+        ? '''
+<div align="center">
+
+**:alarm_clock: Most recent moves**
+
+| Team | Dices rolled | Type Action | Made by |
+| ---- | :----: | :-------: | ------- |
+| ${generateCharacter(battleLog.values.last["character"])} | ${battleLog.values.last["point"]} | ${generateTypeAction(battleLog.values.last["state"])} | [@${battleLog.values.last["player_name"]}](https://github.com/${battleLog.values.last["player_name"]}) |
+${battleLog.values.length >= 2 ? "| ${generateCharacter(battleLog.values.toList()[battleLog.values.length - 2]["character"])} | ${battleLog.values.toList()[battleLog.values.length - 2]["point"]} | ${generateTypeAction(battleLog.values.toList()[battleLog.values.length - 2]["state"])} | [@${battleLog.values.toList()[battleLog.values.length - 2]["player_name"]}](https://github.com/${battleLog.values.toList()[battleLog.values.length - 2]["player_name"]}) |" : ''}
+
+</div>
+'''
+        : '';
 
 // String generateGameRecord(
 //     StateData data,
