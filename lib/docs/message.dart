@@ -1,5 +1,4 @@
-const String successLabel = '👊 Move-Success';
-const String failureLabel = '🚫 Move-Fail';
+const String failureLabel = '🚫 Action-Fail';
 const String gameEnd = '👑 Game-End';
 
 
@@ -17,4 +16,4 @@ Hi @$userName, Your move is failure! Please try again at https://github.com/cong
 The Issue will be automatically closed.
 ''';
 
-String successLabelType(bool isAttack) => '${isAttack?"👊":"💚"} Move-Success';
+String successLabelType(bool isAttack) => '${isAttack?"👊 Attack":"💚 Heal"}-Success';
