@@ -9,6 +9,7 @@ import 'core/action_state.dart';
 import 'core/actions.dart';
 import 'core/state_data.dart';
 import 'data/data_path.dart';
+import 'docs/message.dart';
 
 void main(List<String> arguments) async {
   final authToken = Platform.environment['GITHUB_API_TOKEN'];
@@ -192,10 +193,10 @@ void main(List<String> arguments) async {
     await File(battleLogPath).writeAsString(jsonEncode(battleLog));
 
     await github.issues.createComment(RepositorySlug.full('$repositoryFullName'),
-        issueNumber, 'Hi @$userName, Your move is successful!');
+        issueNumber, moveSuccess(userName));
   } else {
     await github.issues.createComment(RepositorySlug.full('$repositoryFullName'),
-        issueNumber, 'Hi @$userName, Your move is failure!');
+        issueNumber, moveFailure(userName));
     throw Exception('The Issue is not correct with title format');
   }
 }

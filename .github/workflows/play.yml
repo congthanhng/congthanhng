@@ -35,10 +35,6 @@ jobs:
           commit_message: Apply run-game changes
       - name: Close Issue
         uses: peter-evans/close-issue@v2
-        with:
-          comment: "Hi @${{ github.event.issue.user.login }}! Your move is successful. The Issue will be closed."
       - name: The job has failed
         if: ${{ failure() }}
         uses: peter-evans/close-issue@v2
-        with:
-          comment: "Hi @${{ github.event.issue.user.login }}! Your move failed. Please try again. The Issue will be closed."
