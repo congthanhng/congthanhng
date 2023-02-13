@@ -105,12 +105,39 @@ void main(List<String> arguments) async {
         activityData['completeGame']++;
         await File(activityPath).writeAsString(jsonEncode(activityData));
 
-        var historyData = await _gameHistoryRecord(battleLog, true);
+        var historyData = await _gameHistoryRecord(
+            battleLog, true, activityData['completeGame']);
 
         await File('README.md').writeAsString(generateREADME(
             reset, canPowerful, activityData, userData, battleLog));
-        await github.issues.addLabelsToIssue(RepositorySlug.full('$repositoryFullName'),
-            issueNumber, [gameEnd]);
+
+        //comment and add label to current issue
+        await github.issues.createComment(
+            RepositorySlug.full('$repositoryFullName'),
+            issueNumber,
+            moveSuccess(userName));
+        await github.issues.addLabelsToIssue(
+            RepositorySlug.full('$repositoryFullName'),
+            issueNumber,
+            [successLabelType(data.contains('attack'))]);
+
+        //reset battleLog
+        battleLog = {};
+        await File(battleLogPath).writeAsString(jsonEncode(battleLog));
+
+        //create new issue
+        await github.issues.create(
+            RepositorySlug.full('$repositoryFullName'),
+            IssueRequest(
+                title:
+                    '🎉🎉 Congratulations! Game ${activityData['completeGame']} is Completed! 🎉🎉',
+                state: 'closed',
+                labels: [gameEnd],
+                body: bodyGameEnd(
+                    true,
+                    historyData['${activityData['completeGame']}']['dioPlayer'],
+                    historyData['${activityData['completeGame']}']
+                        ['jojoPlayer'])));
         return;
       } else {
         //decrease jojo HP
@@ -149,13 +176,40 @@ void main(List<String> arguments) async {
         activityData['completeGame']++;
         await File(activityPath).writeAsString(jsonEncode(activityData));
 
-        var historyData = await _gameHistoryRecord(battleLog, false);
+        var historyData = await _gameHistoryRecord(
+            battleLog, false, activityData['completeGame']);
 
         await File('README.md').writeAsString(generateREADME(
             reset, canPowerful, activityData, userData, battleLog));
 
-        await github.issues.addLabelsToIssue(RepositorySlug.full('$repositoryFullName'),
-            issueNumber, [gameEnd]);
+        //comment and add label to current issue
+        await github.issues.createComment(
+            RepositorySlug.full('$repositoryFullName'),
+            issueNumber,
+            moveSuccess(userName));
+        await github.issues.addLabelsToIssue(
+            RepositorySlug.full('$repositoryFullName'),
+            issueNumber,
+            [successLabelType(data.contains('attack'))]);
+
+        //reset battleLog
+        battleLog = {};
+        await File(battleLogPath).writeAsString(jsonEncode(battleLog));
+
+        //create new issue
+        await github.issues.create(
+            RepositorySlug.full('$repositoryFullName'),
+            IssueRequest(
+                title:
+                    '🎉🎉 Congratulations! Game ${activityData['completeGame']} is Completed! 🎉🎉',
+                state: 'closed',
+                labels: [gameEnd],
+                body: bodyGameEnd(
+                    false,
+                    historyData['${activityData['completeGame']}']
+                        ['jojoPlayer'],
+                    historyData['${activityData['completeGame']}']
+                        ['dioPlayer'])));
         return;
       } else {
         //decrease dio HP
@@ -197,15 +251,23 @@ void main(List<String> arguments) async {
 
     await File(battleLogPath).writeAsString(jsonEncode(battleLog));
 
-    await github.issues.createComment(RepositorySlug.full('$repositoryFullName'),
-        issueNumber, moveSuccess(userName));
-    await github.issues.addLabelsToIssue(RepositorySlug.full('$repositoryFullName'),
-        issueNumber, [successLabelType(data.contains('attack'))]);
+    await github.issues.createComment(
+        RepositorySlug.full('$repositoryFullName'),
+        issueNumber,
+        moveSuccess(userName));
+    await github.issues.addLabelsToIssue(
+        RepositorySlug.full('$repositoryFullName'),
+        issueNumber,
+        [successLabelType(data.contains('attack'))]);
   } else {
-    await github.issues.createComment(RepositorySlug.full('$repositoryFullName'),
-        issueNumber, moveFailure(userName));
-    await github.issues.addLabelsToIssue(RepositorySlug.full('$repositoryFullName'),
-        issueNumber, [failureLabel]);
+    await github.issues.createComment(
+        RepositorySlug.full('$repositoryFullName'),
+        issueNumber,
+        moveFailure(userName));
+    await github.issues.addLabelsToIssue(
+        RepositorySlug.full('$repositoryFullName'),
+        issueNumber,
+        [failureLabel]);
     throw Exception('The Issue is not correct with title format');
   }
 }
@@ -217,9 +279,9 @@ Future<Map<String, dynamic>> readJsonFile(String filePath) async {
 }
 
 Future<Map<String, dynamic>> _gameHistoryRecord(
-    Map<String, dynamic> battleLog, bool isDioWon) async {
+    Map<String, dynamic> battleLog, bool isDioWon, int gameNumber) async {
   Map<String, dynamic> historyData = await readJsonFile(gameHistoryPath);
-  var currentRecordKey = historyData.entries.length;
+  var currentRecordKey = gameNumber;
   historyData['$currentRecordKey'] = {};
   historyData['$currentRecordKey']['isDioWon'] = isDioWon;
   historyData['$currentRecordKey']['gameNumber'] = currentRecordKey;
