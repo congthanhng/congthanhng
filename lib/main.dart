@@ -125,10 +125,8 @@ void main(List<String> arguments) async {
           battleLog = {};
           await File(battleLogPath).writeAsString(jsonEncode(battleLog));
 
-          var won = historyData['${activityData['completeGame']}']['dioPlayer']
-              as List<String>;
-          var lose = historyData['${activityData['completeGame']}']
-              ['jojoPlayer'] as List<String>;
+          var won = historyData['${activityData['completeGame']}']['dioPlayer'];
+          var lose = historyData['${activityData['completeGame']}']['jojoPlayer'];
           //create new issue
           await github.issues.create(
               RepositorySlug.full('$repositoryFullName'),
