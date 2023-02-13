@@ -18,7 +18,7 @@ The Issue will be automatically closed.
 
 String successLabelType(bool isAttack) => '${isAttack?"👊 Attack":"💚 Heal"}-Success';
 
-String bodyGameEnd(bool isDioWon, List<String> wonTeam, List<String> loseTeam) =>
+String bodyGameEnd(bool isDioWon, List<dynamic> wonTeam, List<dynamic> loseTeam) =>
 '''
 🎊🎊 Congratulations, ${isDioWon ? "<b>Dio Brando</b> <img src='assets/dio_brando.png' width=30>" : "<b>Jotaro Kujo</b> <img src='assets/jotaro_kujo.png' width=30>"} Team WON!
 
@@ -29,4 +29,4 @@ Please try again in the next game: ${generatePlayer(loseTeam)}
 The new game will be started immediately! 🤘🤘
 ''';
 
-String generatePlayer(List<String> players) => players.map((e) => '@$e',).join(', ');
+String generatePlayer(List<dynamic> players) => players.map((e) => '@$e',).join(', ');
