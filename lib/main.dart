@@ -3,12 +3,17 @@ import 'dart:core';
 import 'dart:io';
 import 'dart:math';
 
+import 'package:github/github.dart';
+
 import 'core/action_state.dart';
 import 'core/actions.dart';
 import 'core/state_data.dart';
 import 'data/data_path.dart';
 
+GitHub github = GitHub(auth: findAuthenticationFromEnvironment());
+
 void main(List<String> arguments) async {
+  print('userName ---- ${github.auth?.username}');
   String data = arguments[0];
   String userName = arguments[1];
   List<String> args = data.split('|');
@@ -189,8 +194,9 @@ void main(List<String> arguments) async {
         .writeAsString(jsonEncode(activityData));
 
     await File(battleLogPath).writeAsString(jsonEncode(battleLog));
-  } else
+  } else {
     throw Exception('The Issue is not correct with title format');
+  }
 }
 
 Future<Map<String, dynamic>> readJsonFile(String filePath) async {
