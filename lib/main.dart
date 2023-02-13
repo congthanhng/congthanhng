@@ -30,13 +30,22 @@ void main(List<String> arguments) async {
   Map<String, dynamic> userData = await readJsonFile(userRecordPath);
   Map<String, dynamic> battleLog = await readJsonFile(battleLogPath);
   StateData resource = StateData.fromJson(stateData);
-
+  try {
+  if (battleLog.isNotEmpty) {
+    if(battleLog.values.where((element) => element['player_name'] == userName,).toList().last['character']!=args[1]){
+      await github.issues.createComment(
+          RepositorySlug.full('$repositoryFullName'),
+          issueNumber,
+          dontMoveBothTeam(userName));
+      throw Exception();
+    }
+  }
   //init battleLog
   var keyLog = DateTime.now().toString();
   battleLog[keyLog] = {};
   battleLog[keyLog]["player_name"] = userName;
   battleLog[keyLog]["point"] = resource.totalDice;
-  try {
+
     if (ActionState.values.toString().contains(args[2]) &&
         point == resource.totalDice) {
       userData[userName] = (userData[userName] ?? 0) + 1;
@@ -53,7 +62,7 @@ void main(List<String> arguments) async {
           battleLog[keyLog]["state"] = "attack";
           break;
         case ActionState.attackx2:
-          //set State of battle log
+        //set State of battle log
           battleLog[keyLog]["state"] = "attackx2";
           if (resource.isDioTurn) {
             if (resource.dio.mana >= 15) {
@@ -72,13 +81,13 @@ void main(List<String> arguments) async {
           }
           break;
         case ActionState.heal:
-          //set State of battle log
+        //set State of battle log
 
           battleLog[keyLog]["state"] = "heal";
           healValue = point;
           break;
         case ActionState.healx2:
-          //set State of battle log
+        //set State of battle log
 
           battleLog[keyLog]["state"] = "healx2";
           healValue = point * 2;
@@ -132,7 +141,7 @@ void main(List<String> arguments) async {
               RepositorySlug.full('$repositoryFullName'),
               IssueRequest(
                   title:
-                      '🎉🎉 Congratulations! Game ${activityData['completeGame']} is Completed! 🎉🎉',
+                  '🎉🎉 Congratulations! Game ${activityData['completeGame']} is Completed! 🎉🎉',
                   state: 'closed',
                   labels: [gameEnd],
                   body: bodyGameEnd(true, won, lose)));
@@ -201,7 +210,7 @@ void main(List<String> arguments) async {
               RepositorySlug.full('$repositoryFullName'),
               IssueRequest(
                   title:
-                      '🎉🎉 Congratulations! Game ${activityData['completeGame']} is Completed! 🎉🎉',
+                  '🎉🎉 Congratulations! Game ${activityData['completeGame']} is Completed! 🎉🎉',
                   state: 'closed',
                   labels: [gameEnd],
                   body: bodyGameEnd(false, won, lose)));
@@ -276,8 +285,8 @@ Future<Map<String, dynamic>> readJsonFile(String filePath) async {
   return map;
 }
 
-Future<Map<String, dynamic>> _gameHistoryRecord(
-    Map<String, dynamic> battleLog, bool isDioWon, int gameNumber) async {
+Future<Map<String, dynamic>> _gameHistoryRecord(Map<String, dynamic> battleLog,
+    bool isDioWon, int gameNumber) async {
   Map<String, dynamic> historyData = await readJsonFile(gameHistoryPath);
   var currentRecordKey = gameNumber;
   historyData['$currentRecordKey'] = {};
@@ -286,18 +295,18 @@ Future<Map<String, dynamic>> _gameHistoryRecord(
   var listDio = battleLog.values
       .where(
         (element) => element["character"] == "Dio",
-      )
+  )
       .map(
         (e) => e["player_name"],
-      )
+  )
       .toSet();
   var listJoJo = battleLog.values
       .where(
         (element) => element["character"] != "Dio",
-      )
+  )
       .map(
         (e) => e["player_name"],
-      )
+  )
       .toSet();
   historyData['$currentRecordKey']['dioPlayer'] = [...listDio];
   historyData['$currentRecordKey']['jojoPlayer'] = [...listJoJo];

@@ -30,3 +30,5 @@ The new game will be started immediately! 🤘🤘
 ''';
 
 String generatePlayer(List<dynamic> players) => players.map((e) => '@$e',).join(', ');
+
+String dontMoveBothTeam(String userName)=> "Sorry @$userName, you can't play both teams in a game! You can ask someone to play the next turn.";
