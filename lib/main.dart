@@ -3,24 +3,31 @@ import 'dart:core';
 import 'dart:io';
 import 'dart:math';
 
+import 'package:github/github.dart';
+
 import 'core/action_state.dart';
 import 'core/actions.dart';
 import 'core/state_data.dart';
 import 'data/data_path.dart';
 
 void main(List<String> arguments) async {
-  String data = arguments[0];
-  String userName = arguments[1];
+  final authToken = Platform.environment['GITHUB_API_TOKEN'];
+  final owner = Platform.environment['REPOSITORY_OWNER'];
+  final issueNumber = int.parse(Platform.environment['ISSUE_NUMBER'] ?? '');
+  final repositoryFullName = Platform.environment['REPOSITORY_NAME'];
+
+  final github = GitHub(auth: Authentication.withToken(authToken));
+
+  String data = Platform.environment['ISSUE_TITLE'] ?? '';
+  String userName = Platform.environment['USER_PLAYER'] ?? '';
   List<String> args = data.split('|');
   ActionState actionState = args[2].actionStateFromString();
   int point = int.parse(args[3]);
 
   Map<String, dynamic> stateData = await readJsonFile(statePath);
-  Map<String, dynamic> activityData =
-      await readJsonFile(activityPath);
+  Map<String, dynamic> activityData = await readJsonFile(activityPath);
   Map<String, dynamic> userData = await readJsonFile(userRecordPath);
-  Map<String, dynamic> battleLog =
-      await readJsonFile(battleLogPath);
+  Map<String, dynamic> battleLog = await readJsonFile(battleLogPath);
   StateData resource = StateData.fromJson(stateData);
 
   //init battleLog
@@ -92,12 +99,10 @@ void main(List<String> arguments) async {
         var dice2 = Random().nextInt(6) + 1;
         reset.dice1 = dice1;
         reset.dice2 = dice2;
-        await File(statePath)
-            .writeAsString(jsonEncode(reset.toJson()));
+        await File(statePath).writeAsString(jsonEncode(reset.toJson()));
         activityData['dio']['win']++;
         activityData['completeGame']++;
-        await File(activityPath)
-            .writeAsString(jsonEncode(activityData));
+        await File(activityPath).writeAsString(jsonEncode(activityData));
 
         var historyData = await _gameHistoryRecord(battleLog, true);
 
@@ -136,12 +141,10 @@ void main(List<String> arguments) async {
         var dice2 = Random().nextInt(6) + 1;
         reset.dice1 = dice1;
         reset.dice2 = dice2;
-        await File(statePath)
-            .writeAsString(jsonEncode(reset.toJson()));
+        await File(statePath).writeAsString(jsonEncode(reset.toJson()));
         activityData['joJo']['win']++;
         activityData['completeGame']++;
-        await File(activityPath)
-            .writeAsString(jsonEncode(activityData));
+        await File(activityPath).writeAsString(jsonEncode(activityData));
 
         var historyData = await _gameHistoryRecord(battleLog, false);
 
@@ -178,19 +181,23 @@ void main(List<String> arguments) async {
     resource.dice2 = dice2;
 
     // print('toJsonString: ${resource.toJsonString()}');
-    await File(statePath)
-        .writeAsString(jsonEncode(resource.toJson()));
+    await File(statePath).writeAsString(jsonEncode(resource.toJson()));
 
     await File('README.md').writeAsString(generateREADME(
         resource, canPowerful, activityData, userData, battleLog));
 
     activityData['moves']++;
-    await File(activityPath)
-        .writeAsString(jsonEncode(activityData));
+    await File(activityPath).writeAsString(jsonEncode(activityData));
 
     await File(battleLogPath).writeAsString(jsonEncode(battleLog));
-  } else
+
+    await github.issues.createComment(RepositorySlug.full('$repositoryFullName'),
+        issueNumber, 'Hi @$userName, Your move is successful!');
+  } else {
+    await github.issues.createComment(RepositorySlug.full('$repositoryFullName'),
+        issueNumber, 'Hi @$userName, Your move is failure!');
     throw Exception('The Issue is not correct with title format');
+  }
 }
 
 Future<Map<String, dynamic>> readJsonFile(String filePath) async {
@@ -199,20 +206,34 @@ Future<Map<String, dynamic>> readJsonFile(String filePath) async {
   return map;
 }
 
-Future<Map<String, dynamic>> _gameHistoryRecord(Map<String, dynamic> battleLog, bool isDioWon)async{
+Future<Map<String, dynamic>> _gameHistoryRecord(
+    Map<String, dynamic> battleLog, bool isDioWon) async {
   Map<String, dynamic> historyData = await readJsonFile(gameHistoryPath);
   var currentRecordKey = historyData.entries.length;
   historyData['$currentRecordKey'] = {};
   historyData['$currentRecordKey']['isDioWon'] = isDioWon;
   historyData['$currentRecordKey']['gameNumber'] = currentRecordKey;
-  var listDio = battleLog.values.where((element) => element["character"] == "Dio",).map((e) => e["player_name"],).toSet();
-  var listJoJo = battleLog.values.where((element) => element["character"] != "Dio",).map((e) => e["player_name"],).toSet();
+  var listDio = battleLog.values
+      .where(
+        (element) => element["character"] == "Dio",
+      )
+      .map(
+        (e) => e["player_name"],
+      )
+      .toSet();
+  var listJoJo = battleLog.values
+      .where(
+        (element) => element["character"] != "Dio",
+      )
+      .map(
+        (e) => e["player_name"],
+      )
+      .toSet();
   historyData['$currentRecordKey']['dioPlayer'] = [...listDio];
   historyData['$currentRecordKey']['jojoPlayer'] = [...listJoJo];
   historyData['$currentRecordKey']['totalMoves'] = battleLog.length;
 
-  await File(gameHistoryPath)
-      .writeAsString(jsonEncode(historyData));
+  await File(gameHistoryPath).writeAsString(jsonEncode(historyData));
 
   return historyData;
 }
