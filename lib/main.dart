@@ -109,6 +109,8 @@ void main(List<String> arguments) async {
 
         await File('README.md').writeAsString(generateREADME(
             reset, canPowerful, activityData, userData, battleLog));
+        await github.issues.addLabelsToIssue(RepositorySlug.full('$repositoryFullName'),
+            issueNumber, [gameEnd]);
         return;
       } else {
         //decrease jojo HP
@@ -151,6 +153,9 @@ void main(List<String> arguments) async {
 
         await File('README.md').writeAsString(generateREADME(
             reset, canPowerful, activityData, userData, battleLog));
+
+        await github.issues.addLabelsToIssue(RepositorySlug.full('$repositoryFullName'),
+            issueNumber, [gameEnd]);
         return;
       } else {
         //decrease dio HP
@@ -194,9 +199,13 @@ void main(List<String> arguments) async {
 
     await github.issues.createComment(RepositorySlug.full('$repositoryFullName'),
         issueNumber, moveSuccess(userName));
+    await github.issues.addLabelsToIssue(RepositorySlug.full('$repositoryFullName'),
+        issueNumber, [successLabelType(data.contains('attack'))]);
   } else {
     await github.issues.createComment(RepositorySlug.full('$repositoryFullName'),
         issueNumber, moveFailure(userName));
+    await github.issues.addLabelsToIssue(RepositorySlug.full('$repositoryFullName'),
+        issueNumber, [failureLabel]);
     throw Exception('The Issue is not correct with title format');
   }
 }
