@@ -20,7 +20,7 @@ String successLabelType(bool isAttack) => '${isAttack?"👊 Attack":"💚 Heal"}
 
 String bodyGameEnd(bool isDioWon, List<dynamic> wonTeam, List<dynamic> loseTeam) =>
 '''
-🎊🎊 Congratulations, ${isDioWon ? "<b>Dio Brando</b> <img src='assets/dio_brando.png' width=30>" : "<b>Jotaro Kujo</b> <img src='assets/jotaro_kujo.png' width=30>"} Team WON!
+🎊🎊 Congratulations, ${isDioWon ? "<b>Dio Brando</b>" : "<b>Jotaro Kujo</b>"} Team WON!
 
 Players of this team: ${generatePlayer(wonTeam)}
 
