@@ -20,24 +20,25 @@ void main(List<String> arguments) async {
   StateData resource = StateData.fromJson(localDB.stateData);
   try {
     //check user in team's side
-    if (localDB.battleLog.isNotEmpty) {
-      if (localDB.battleLog.values
-              .where(
-                (element) => element['player_name'] == gitController.userName,
-              )
-              .toList()
-              .last['character'] !=
-          gitController.character) {
-        await gitController.gitCreateComment(dontMoveBothTeam(gitController.userName));
-        await gitController.closeIssue();
-        return;
-      }
-    }
+    // if (localDB.battleLog.isNotEmpty) {
+    //   if (localDB.battleLog.values
+    //           .where(
+    //             (element) => element['player_name'] == gitController.userName,
+    //           )
+    //           .toList()
+    //           .last['character'] !=
+    //       gitController.character) {
+    //     await gitController.gitCreateComment(dontMoveBothTeam(gitController.userName));
+    //     await gitController.closeIssue();
+    //     return;
+    //   }
+    // }
+
     //init battleLog
-    var keyLog = DateTime.now().toString();
-    localDB.battleLog[keyLog] = {};
-    localDB.battleLog[keyLog]["player_name"] = gitController.userName;
-    localDB.battleLog[keyLog]["point"] = resource.totalDice;
+    var currentTime = DateTime.now().toString();
+    localDB.battleLog[currentTime] = {};
+    localDB.battleLog[currentTime]["player_name"] = gitController.userName;
+    localDB.battleLog[currentTime]["point"] = resource.totalDice;
 
     if (ActionType.values.toString().contains(gitController.actionType.toString()) &&
         gitController.value == resource.totalDice) {
@@ -52,11 +53,11 @@ void main(List<String> arguments) async {
           attackValue = gitController.value;
 
           //set State of battle log
-          localDB.battleLog[keyLog]["state"] = "attack";
+          localDB.battleLog[currentTime]["state"] = "attack";
           break;
         case ActionType.attackx2:
           //set State of battle log
-          localDB.battleLog[keyLog]["state"] = "attackx2";
+          localDB.battleLog[currentTime]["state"] = "attackx2";
           if (resource.isDioTurn) {
             if (resource.dio.mana >= 15) {
               attackValue = gitController.value * 2;
@@ -76,13 +77,13 @@ void main(List<String> arguments) async {
         case ActionType.heal:
           //set State of battle log
 
-          localDB.battleLog[keyLog]["state"] = "heal";
+          localDB.battleLog[currentTime]["state"] = "heal";
           healValue = gitController.value;
           break;
         case ActionType.healx2:
           //set State of battle log
 
-          localDB.battleLog[keyLog]["state"] = "healx2";
+          localDB.battleLog[currentTime]["state"] = "healx2";
           healValue = gitController.value * 2;
           if (resource.isDioTurn) {
             resource.dio.mana = 0;
@@ -93,7 +94,7 @@ void main(List<String> arguments) async {
       }
 
       if (resource.isDioTurn) {
-        localDB.battleLog[keyLog]["character"] = "Dio";
+        localDB.battleLog[currentTime]["character"] = "Dio";
         if (resource.joJo.hp <= 0 || resource.joJo.hp <= attackValue) {
           //Dio WIN
           //reset game
@@ -160,7 +161,7 @@ void main(List<String> arguments) async {
           localDB.activityData['dio']['healRecover'] += healValue;
         }
       } else {
-        localDB.battleLog[keyLog]["character"] = "JoJo";
+        localDB.battleLog[currentTime]["character"] = "JoJo";
         if (resource.dio.hp <= 0 || resource.dio.hp <= attackValue) {
           //JoJo WIN
           //reset game
