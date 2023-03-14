@@ -1,19 +1,19 @@
 
-enum ActionState { attack, attackx2, heal, healx2 }
+enum ActionType { attack, attackx2, heal, healx2 }
 
 extension ActionStateExtension on String {
-  ActionState actionStateFromString() {
+  ActionType actionStateFromString() {
     switch (this) {
       case "attack":
-        return ActionState.attack;
+        return ActionType.attack;
       case "attackx2":
-        return ActionState.attackx2;
+        return ActionType.attackx2;
       case "heal":
-        return ActionState.heal;
+        return ActionType.heal;
       case "healx2":
-        return ActionState.healx2;
+        return ActionType.healx2;
       default:
-        return ActionState.attack;
+        return ActionType.attack;
     }
   }
 }
