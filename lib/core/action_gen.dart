@@ -83,7 +83,7 @@ String generatePlayerCheckIn(Map<String, dynamic> userData) {
   return userData.entries
       .toList()
       .map((e) =>
-  '<a href="https://github.com/${e.key}"><img src="https://img.shields.io/badge/@${e.key}-${e.value.toString()}-blue" ></a>')
+          '<a href="https://github.com/${e.key}"><img src="https://img.shields.io/badge/@${e.key.replaceAll('-', '')}-${e.value.toString()}-blue" ></a>')
       .join(' ');
 }
 
@@ -96,7 +96,7 @@ String generateREADME(
   var isDioTurn = data.isDioTurn;
 
   String afterAction =
-  '''<h2 align="center">Welcome to Community Battle game</h2>
+      '''<h2 align="center">Welcome to Community Battle game</h2>
 <p align="center">Welcome to my Github profile! We're playing Battle game, you can join with us!</p>
 
 <div align="center">
