@@ -1,1 +1,14 @@
-{"dio":{"win":4,"attackDmg":616,"healRecover":87},"joJo":{"win":2,"attackDmg":562,"healRecover":91},"moves":52,"completeGame":6}
+{
+  "dio": {
+    "win": 4,
+    "attackDmg": 616,
+    "healRecover": 87
+  },
+  "joJo": {
+    "win": 2,
+    "attackDmg": 562,
+    "healRecover": 91
+  },
+  "moves": 52,
+  "completeGame": 6
+}

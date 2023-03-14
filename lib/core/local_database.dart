@@ -32,4 +32,16 @@ class LocalDataBase {
   Future<void> writeUserData() async {
     await File(userRecordPath).writeAsString(jsonEncode(userData));
   }
+
+  Future<void> writeActivityData() async {
+    await File(activityPath).writeAsString(jsonEncode(activityData));
+  }
+
+  Future<void> writeStateData() async {
+    await File(statePath).writeAsString(jsonEncode(stateData));
+  }
+
+  Future<void> writeBattleLog() async {
+    await File(battleLogPath).writeAsString(jsonEncode(battleLog));
+  }
 }

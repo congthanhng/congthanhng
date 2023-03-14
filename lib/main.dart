@@ -5,10 +5,11 @@ import 'dart:math';
 
 import 'package:congthanhng/core/git_controller.dart';
 import 'package:congthanhng/core/local_database.dart';
+import 'package:congthanhng/core/utils.dart';
 import 'package:github/github.dart';
 
-import 'core/action_state.dart';
 import 'core/action_gen.dart';
+import 'core/action_state.dart';
 import 'core/state_data.dart';
 import 'data/data_path.dart';
 import 'docs/message.dart';
@@ -21,14 +22,15 @@ void main(List<String> arguments) async {
   try {
     //check user in team's side
     if (localDB.battleLog.isNotEmpty) {
-      if (localDB.battleLog.values
-              .where(
-                (element) => element['player_name'] == gitController.userName,
-              )
-              .toList()
-              .last['character'] !=
-          gitController.character) {
-        await gitController.gitCreateComment(dontMoveBothTeam(gitController.userName));
+      var list = localDB.battleLog.values
+          .where(
+            (element) => element['player_name'] == gitController.userName,
+          )
+          .toList();
+      if (list.isNotEmpty &&
+          list.last['character'] != gitController.character) {
+        await gitController
+            .gitCreateComment(dontMoveBothTeam(gitController.userName));
         await gitController.closeIssue();
         return;
       }
@@ -40,9 +42,12 @@ void main(List<String> arguments) async {
     localDB.battleLog[currentTime]["player_name"] = gitController.userName;
     localDB.battleLog[currentTime]["point"] = resource.totalDice;
 
-    if (ActionType.values.toString().contains(gitController.actionType.toString()) &&
+    if (ActionType.values
+            .toString()
+            .contains(gitController.actionType.toString()) &&
         gitController.value == resource.totalDice) {
-      localDB.userData[gitController.userName] = (localDB.userData[gitController.userName] ?? 0) + 1;
+      localDB.userData[gitController.userName] =
+          (localDB.userData[gitController.userName] ?? 0) + 1;
       await localDB.writeUserData();
 
       int attackValue = 0;
@@ -106,28 +111,36 @@ void main(List<String> arguments) async {
           await File(statePath).writeAsString(jsonEncode(reset.toJson()));
           localDB.activityData['dio']['win']++;
           localDB.activityData['completeGame']++;
-          await File(activityPath).writeAsString(jsonEncode(localDB.activityData));
+          await File(activityPath)
+              .writeAsString(jsonEncode(localDB.activityData));
 
           var historyData = await _gameHistoryRecord(
               localDB.battleLog, true, localDB.activityData['completeGame']);
 
           await File('README.md').writeAsString(generateREADME(
-              reset, canPowerful, localDB.activityData, localDB.userData, localDB.battleLog));
+              reset,
+              canPowerful,
+              localDB.activityData,
+              localDB.userData,
+              localDB.battleLog));
 
           //comment and add label to current issue
-          await gitController.gitCreateComment(
-              moveSuccess(gitController.userName));
+          await gitController
+              .gitCreateComment(moveSuccess(gitController.userName));
           await gitController.github.issues.addLabelsToIssue(
               RepositorySlug.full('${gitController.repositoryFullName}'),
-              gitController.issueNumber,
-              [successLabelType(gitController.actionType.toString().contains('attack'))]);
+              gitController.issueNumber, [
+            successLabelType(
+                gitController.actionType.toString().contains('attack'))
+          ]);
 
           //reset battleLog
           await File(battleLogPath).writeAsString(jsonEncode({}));
 
-          var won = historyData['${localDB.activityData['completeGame']}']['dioPlayer'];
-          var lose =
-              historyData['${localDB.activityData['completeGame']}']['jojoPlayer'];
+          var won = historyData['${localDB.activityData['completeGame']}']
+              ['dioPlayer'];
+          var lose = historyData['${localDB.activityData['completeGame']}']
+              ['jojoPlayer'];
           //create new issue
           await gitController.github.issues.create(
               RepositorySlug.full('${gitController.repositoryFullName}'),
@@ -173,29 +186,36 @@ void main(List<String> arguments) async {
           await File(statePath).writeAsString(jsonEncode(reset.toJson()));
           localDB.activityData['joJo']['win']++;
           localDB.activityData['completeGame']++;
-          await File(activityPath).writeAsString(jsonEncode(localDB.activityData));
+          await File(activityPath)
+              .writeAsString(jsonEncode(localDB.activityData));
 
           var historyData = await _gameHistoryRecord(
               localDB.battleLog, false, localDB.activityData['completeGame']);
 
           await File('README.md').writeAsString(generateREADME(
-              reset, canPowerful, localDB.activityData, localDB.userData, localDB.battleLog));
+              reset,
+              canPowerful,
+              localDB.activityData,
+              localDB.userData,
+              localDB.battleLog));
 
           //comment and add label to current issue
-          await gitController.gitCreateComment(
-              moveSuccess(gitController.userName));
+          await gitController
+              .gitCreateComment(moveSuccess(gitController.userName));
           await gitController.github.issues.addLabelsToIssue(
               RepositorySlug.full('${gitController.repositoryFullName}'),
-              gitController.issueNumber,
-              [successLabelType(gitController.actionType.toString().contains('attack'))]);
+              gitController.issueNumber, [
+            successLabelType(
+                gitController.actionType.toString().contains('attack'))
+          ]);
 
           //reset battleLog
           await File(battleLogPath).writeAsString(jsonEncode({}));
 
-          var won =
-              historyData['${localDB.activityData['completeGame']}']['jojoPlayer'];
-          var lose =
-              historyData['${localDB.activityData['completeGame']}']['dioPlayer'];
+          var won = historyData['${localDB.activityData['completeGame']}']
+              ['jojoPlayer'];
+          var lose = historyData['${localDB.activityData['completeGame']}']
+              ['dioPlayer'];
           //create new issue
           await gitController.github.issues.create(
               RepositorySlug.full('${gitController.repositoryFullName}'),
@@ -239,37 +259,34 @@ void main(List<String> arguments) async {
       await File(statePath).writeAsString(jsonEncode(resource.toJson()));
 
       await File('README.md').writeAsString(generateREADME(
-          resource, canPowerful, localDB.activityData, localDB.userData, localDB.battleLog));
+          resource,
+          canPowerful,
+          localDB.activityData,
+          localDB.userData,
+          localDB.battleLog));
 
       localDB.activityData['moves']++;
       await File(activityPath).writeAsString(jsonEncode(localDB.activityData));
 
       await File(battleLogPath).writeAsString(jsonEncode(localDB.battleLog));
 
-      await gitController.gitCreateComment(
-          moveSuccess(gitController.userName));
+      await gitController.gitCreateComment(moveSuccess(gitController.userName));
       await gitController.github.issues.addLabelsToIssue(
           RepositorySlug.full('${gitController.repositoryFullName}'),
-          gitController.issueNumber,
-          [successLabelType(gitController.actionType.toString().contains('attack'))]);
+          gitController.issueNumber, [
+        successLabelType(gitController.actionType.toString().contains('attack'))
+      ]);
     } else {
       throw Exception('The Issue is not correct with title format');
     }
   } catch (e) {
-    await gitController.gitCreateComment(
-        moveFailure(gitController.userName));
+    await gitController.gitCreateComment(moveFailure(gitController.userName));
     await gitController.github.issues.addLabelsToIssue(
         RepositorySlug.full('${gitController.repositoryFullName}'),
         gitController.issueNumber,
         [failureLabel]);
     throw Exception(e);
   }
-}
-
-Future<Map<String, dynamic>> readJsonFile(String filePath) async {
-  var input = await File(filePath).readAsString();
-  var map = jsonDecode(input);
-  return map;
 }
 
 Future<Map<String, dynamic>> _gameHistoryRecord(
