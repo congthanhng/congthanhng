@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:congthanhng/core/utils.dart';
 import 'package:congthanhng/data/data_path.dart';
 
@@ -24,5 +27,9 @@ class LocalDataBase {
       stateData: stateData,
       userData: userData
     );
+  }
+
+  Future<void> writeUserData() async {
+    await File(userRecordPath).writeAsString(jsonEncode(userData));
   }
 }

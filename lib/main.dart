@@ -20,19 +20,19 @@ void main(List<String> arguments) async {
   StateData resource = StateData.fromJson(localDB.stateData);
   try {
     //check user in team's side
-    // if (localDB.battleLog.isNotEmpty) {
-    //   if (localDB.battleLog.values
-    //           .where(
-    //             (element) => element['player_name'] == gitController.userName,
-    //           )
-    //           .toList()
-    //           .last['character'] !=
-    //       gitController.character) {
-    //     await gitController.gitCreateComment(dontMoveBothTeam(gitController.userName));
-    //     await gitController.closeIssue();
-    //     return;
-    //   }
-    // }
+    if (localDB.battleLog.isNotEmpty) {
+      if (localDB.battleLog.values
+              .where(
+                (element) => element['player_name'] == gitController.userName,
+              )
+              .toList()
+              .last['character'] !=
+          gitController.character) {
+        await gitController.gitCreateComment(dontMoveBothTeam(gitController.userName));
+        await gitController.closeIssue();
+        return;
+      }
+    }
 
     //init battleLog
     var currentTime = DateTime.now().toString();
@@ -43,7 +43,7 @@ void main(List<String> arguments) async {
     if (ActionType.values.toString().contains(gitController.actionType.toString()) &&
         gitController.value == resource.totalDice) {
       localDB.userData[gitController.userName] = (localDB.userData[gitController.userName] ?? 0) + 1;
-      await File(userRecordPath).writeAsString(jsonEncode(localDB.userData));
+      await localDB.writeUserData();
 
       int attackValue = 0;
       int healValue = 0;
