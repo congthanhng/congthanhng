@@ -39,7 +39,7 @@ The new game will be started immediately! 🤘🤘
 ''';
 
 String notifyPreviousPlayer(String userName) =>
-    '''Hi @$userName, The opponent team has moved. The opponent team has moved. Now it your turn. The victory are waiting for you. Play now at: https://github.com/congthanhng
+    '''Hi @$userName, The opponent team has moved. Now it your turn. The victory are waiting for you. Play now at: https://github.com/congthanhng
 
 You can invite your friend to enjoy it: [Share on Twitter...](https://twitter.com/share?text=I%27m+playing+a+battle+game+on+a+GitHub+Profile+Readme!+I+just+fighted.+You+have+the+next+move+at+https://github.com/congthanhng)
 

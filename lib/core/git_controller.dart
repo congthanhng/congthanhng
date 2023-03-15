@@ -66,9 +66,12 @@ class GitController {
         github: GitHub(auth: Authentication.withToken(authToken)));
   }
 
-  Future<void> gitCreateComment(String comment) async {
+  Future<void> gitCreateComment(String comment,
+      {int? previousIssueNumber}) async {
     await github.issues.createComment(
-        RepositorySlug.full('$repositoryFullName'), issueNumber, comment);
+        RepositorySlug.full('$repositoryFullName'),
+        previousIssueNumber ?? issueNumber,
+        comment);
   }
 
   Future<void> closeIssue() async {

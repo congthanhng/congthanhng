@@ -265,8 +265,11 @@ void main(List<String> arguments) async {
 
       //create comment to notify the previous player
       if (previousPlayer.isNotEmpty) {
-        await gitController.gitCreateComment(notifyPreviousPlayer(
-            previousPlayer.entries.first.value['player_name']));
+        await gitController.gitCreateComment(
+            notifyPreviousPlayer(
+                previousPlayer.entries.first.value['player_name']),
+            previousIssueNumber:
+                previousPlayer.entries.first.value['issueNumber']);
       }
 
       //create comment for current player
