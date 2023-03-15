@@ -34,11 +34,18 @@ void main(List<String> arguments) async {
       }
     }
 
+    Map<String, dynamic> previousPlayer = {};
+    if (localDB.battleLog.isNotEmpty) {
+      previousPlayer[localDB.battleLog.entries.last.key] =
+          localDB.battleLog.entries.last.value;
+    }
+
     //create new item in battleLog
     var currentTime = DateTime.now().toString();
     localDB.battleLog[currentTime] = {};
     localDB.battleLog[currentTime]["player_name"] = gitController.userName;
     localDB.battleLog[currentTime]["point"] = statusData.totalDice;
+    localDB.battleLog[currentTime]["issueNumber"] = gitController.issueNumber;
 
     if (gitController.value == statusData.totalDice) {
       localDB.userData[gitController.userName] =
@@ -256,6 +263,13 @@ void main(List<String> arguments) async {
 
       await localDB.writeBattleLogData(localDB.battleLog);
 
+      //create comment to notify the previous player
+      if (previousPlayer.isNotEmpty) {
+        await gitController.gitCreateComment(notifyPreviousPlayer(
+            previousPlayer.entries.first.value['player_name']));
+      }
+
+      //create comment for current player
       await gitController.gitCreateComment(moveSuccess(gitController.userName));
       await gitController.gitAddSuccessLabelsToIssue(
           gitController.actionType.toString().contains('attack'));
