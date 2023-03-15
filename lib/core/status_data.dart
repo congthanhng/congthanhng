@@ -1,20 +1,20 @@
 import 'player.dart';
 
-class StateData {
+class StatusData {
   final Player dio;
   final Player joJo;
   bool isDioTurn;
   int dice1;
   int dice2;
 
-  StateData(
+  StatusData(
       {required this.dio,
       required this.joJo,
       required this.isDioTurn,
       required this.dice1,
       required this.dice2});
 
-  factory StateData.fromJson(Map<String, dynamic> json) => StateData(
+  factory StatusData.fromJson(Map<String, dynamic> json) => StatusData(
       dio: Player.fromJson(json["Dio"]),
       joJo: Player.fromJson(json["JoJo"]),
       isDioTurn: json["isDioTurn"] as bool,
@@ -33,12 +33,12 @@ class StateData {
 
   String toJsonString() => '${this.toJson()}';
 
-  StateData resetGame(bool isDioTurn) {
-    return StateData(
+  StatusData resetGame(bool isNextGameDioTurn) {
+    return StatusData(
         dio: Player(hp: 50, mana: 0, name: 'Dio Brando'),
         joJo: Player(name: 'Jotaro Kujo', mana: 0, hp: 50),
         dice1: 1,
         dice2: 1,
-        isDioTurn: isDioTurn);
+        isDioTurn: isNextGameDioTurn);
   }
 }

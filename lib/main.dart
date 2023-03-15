@@ -3,24 +3,25 @@ import 'dart:core';
 import 'dart:io';
 import 'dart:math';
 
+import 'package:congthanhng/core/exceptions/game_exception.dart';
+import 'package:congthanhng/core/exceptions/git_config_exception.dart';
 import 'package:congthanhng/core/git_controller.dart';
 import 'package:congthanhng/core/local_database.dart';
-import 'package:congthanhng/core/utils.dart';
 import 'package:github/github.dart';
 
 import 'core/action_gen.dart';
 import 'core/action_state.dart';
-import 'core/state_data.dart';
+import 'core/status_data.dart';
 import 'data/data_path.dart';
 import 'docs/message.dart';
 
 void main(List<String> arguments) async {
-  final gitController = GitController.init();
-  final localDB = await LocalDataBase.init();
-
-  StateData resource = StateData.fromJson(localDB.stateData);
   try {
-    //check user in team's side
+    final gitController = GitController.init();
+    final localDB = await LocalDataBase.init();
+
+    StatusData statusData = StatusData.fromJson(localDB.statusData);
+    //Checking the user in a team's side
     if (localDB.battleLog.isNotEmpty) {
       var list = localDB.battleLog.values
           .where(
@@ -29,97 +30,93 @@ void main(List<String> arguments) async {
           .toList();
       if (list.isNotEmpty &&
           list.last['character'] != gitController.character) {
-        await gitController
-            .gitCreateComment(dontMoveBothTeam(gitController.userName));
-        await gitController.closeIssue();
-        return;
+        throw GameException('Can\'t play in both team');
       }
     }
 
-    //init battleLog
+    //create new item in battleLog
     var currentTime = DateTime.now().toString();
     localDB.battleLog[currentTime] = {};
     localDB.battleLog[currentTime]["player_name"] = gitController.userName;
-    localDB.battleLog[currentTime]["point"] = resource.totalDice;
+    localDB.battleLog[currentTime]["point"] = statusData.totalDice;
 
-    if (ActionType.values
-            .toString()
-            .contains(gitController.actionType.toString()) &&
-        gitController.value == resource.totalDice) {
+    if (gitController.value == statusData.totalDice) {
       localDB.userData[gitController.userName] =
           (localDB.userData[gitController.userName] ?? 0) + 1;
-      await localDB.writeUserData();
+      await localDB.writeUserData(localDB.userData);
 
-      int attackValue = 0;
-      int healValue = 0;
-      bool canPowerful = false;
+      int _attackValue = 0;
+      int _healValue = 0;
+      bool _canPowerful = false;
       switch (gitController.actionType) {
         case ActionType.attack:
-          attackValue = gitController.value;
-
-          //set State of battle log
+          _attackValue = gitController.value;
+          //set Status of battle log
           localDB.battleLog[currentTime]["state"] = "attack";
           break;
         case ActionType.attackx2:
-          //set State of battle log
+          //set Status of battle log
           localDB.battleLog[currentTime]["state"] = "attackx2";
-          if (resource.isDioTurn) {
-            if (resource.dio.mana >= 15) {
-              attackValue = gitController.value * 2;
-              resource.dio.mana = 0;
+          if (statusData.isDioTurn) {
+            if (statusData.dio.mana >= 15) {
+              _attackValue = gitController.value * 2;
+              statusData.dio.mana = 0;
             } else {
-              attackValue = gitController.value;
+              _attackValue = gitController.value;
             }
           } else {
-            if (resource.joJo.mana >= 15) {
-              attackValue = gitController.value * 2;
-              resource.joJo.mana = 0;
+            if (statusData.joJo.mana >= 15) {
+              _attackValue = gitController.value * 2;
+              statusData.joJo.mana = 0;
             } else {
-              attackValue = gitController.value;
+              _attackValue = gitController.value;
             }
           }
           break;
         case ActionType.heal:
-          //set State of battle log
-
+          //set Status of battle log
           localDB.battleLog[currentTime]["state"] = "heal";
-          healValue = gitController.value;
+          _healValue = gitController.value;
           break;
         case ActionType.healx2:
-          //set State of battle log
-
+          //set Status of battle log
           localDB.battleLog[currentTime]["state"] = "healx2";
-          healValue = gitController.value * 2;
-          if (resource.isDioTurn) {
-            resource.dio.mana = 0;
+          _healValue = gitController.value * 2;
+          if (statusData.isDioTurn) {
+            statusData.dio.mana = 0;
           } else {
-            resource.joJo.mana = 0;
+            statusData.joJo.mana = 0;
           }
+          break;
+        case ActionType.none:
           break;
       }
 
-      if (resource.isDioTurn) {
+      //begin action and save data
+      if (statusData.isDioTurn) {
         localDB.battleLog[currentTime]["character"] = "Dio";
-        if (resource.joJo.hp <= 0 || resource.joJo.hp <= attackValue) {
-          //Dio WIN
+        if (statusData.joJo.hp <= 0 || statusData.joJo.hp <= _attackValue) {
+          //Dio will WIN
           //reset game
-          var reset = resource.resetGame(false);
+          var reset = statusData.resetGame(false);
           var dice1 = Random().nextInt(6) + 1;
           var dice2 = Random().nextInt(6) + 1;
           reset.dice1 = dice1;
           reset.dice2 = dice2;
-          await File(statePath).writeAsString(jsonEncode(reset.toJson()));
+          await localDB.writeStatusData(reset.toJson());
+
           localDB.activityData['dio']['win']++;
           localDB.activityData['completeGame']++;
+          await localDB.writeActivityData(reset.toJson());
+
           await File(activityPath)
               .writeAsString(jsonEncode(localDB.activityData));
 
-          var historyData = await _gameHistoryRecord(
-              localDB.battleLog, true, localDB.activityData['completeGame']);
+          var historyData = await localDB.gameHistoryRecord(true);
 
           await File('README.md').writeAsString(generateREADME(
               reset,
-              canPowerful,
+              _canPowerful,
               localDB.activityData,
               localDB.userData,
               localDB.battleLog));
@@ -127,15 +124,11 @@ void main(List<String> arguments) async {
           //comment and add label to current issue
           await gitController
               .gitCreateComment(moveSuccess(gitController.userName));
-          await gitController.github.issues.addLabelsToIssue(
-              RepositorySlug.full('${gitController.repositoryFullName}'),
-              gitController.issueNumber, [
-            successLabelType(
-                gitController.actionType.toString().contains('attack'))
-          ]);
+          await gitController.gitAddSuccessLabelsToIssue(
+              gitController.actionType.toString().contains('attack'));
 
           //reset battleLog
-          await File(battleLogPath).writeAsString(jsonEncode({}));
+          await localDB.writeBattleLogData({});
 
           var won = historyData['${localDB.activityData['completeGame']}']
               ['dioPlayer'];
@@ -153,48 +146,46 @@ void main(List<String> arguments) async {
           return;
         } else {
           //decrease jojo HP
-          resource.joJo.hp -= attackValue;
-          localDB.activityData['dio']['attackDmg'] += attackValue;
+          statusData.joJo.hp -= _attackValue;
+          localDB.activityData['dio']['attackDmg'] += _attackValue;
           //increase JoJO MP
-          resource.joJo.mana += attackValue;
-          if (resource.joJo.mana >= 15) {
-            resource.joJo.mana = 15;
-            canPowerful = true;
+          statusData.joJo.mana += _attackValue;
+          if (statusData.joJo.mana >= 15) {
+            statusData.joJo.mana = 15;
+            _canPowerful = true;
           }
         }
 
-        if (resource.dio.hp + healValue > 50) {
-          int remainHealValue = healValue - (50 - resource.dio.hp);
-          localDB.activityData['dio']['healRecover'] += 50 - resource.dio.hp;
+        if (statusData.dio.hp + _healValue > 50) {
+          int remainHealValue = _healValue - (50 - statusData.dio.hp);
+          localDB.activityData['dio']['healRecover'] += 50 - statusData.dio.hp;
 
-          resource.dio.mana += remainHealValue;
-          resource.dio.hp = 50;
+          statusData.dio.mana += remainHealValue;
+          statusData.dio.hp = 50;
         } else {
-          resource.dio.hp += healValue;
-          localDB.activityData['dio']['healRecover'] += healValue;
+          statusData.dio.hp += _healValue;
+          localDB.activityData['dio']['healRecover'] += _healValue;
         }
       } else {
         localDB.battleLog[currentTime]["character"] = "JoJo";
-        if (resource.dio.hp <= 0 || resource.dio.hp <= attackValue) {
-          //JoJo WIN
+        if (statusData.dio.hp <= 0 || statusData.dio.hp <= _attackValue) {
+          //JoJo will WIN
           //reset game
-          var reset = resource.resetGame(true);
+          var reset = statusData.resetGame(true);
           var dice1 = Random().nextInt(6) + 1;
           var dice2 = Random().nextInt(6) + 1;
           reset.dice1 = dice1;
           reset.dice2 = dice2;
-          await File(statePath).writeAsString(jsonEncode(reset.toJson()));
+          await localDB.writeStatusData(reset.toJson());
           localDB.activityData['joJo']['win']++;
           localDB.activityData['completeGame']++;
-          await File(activityPath)
-              .writeAsString(jsonEncode(localDB.activityData));
+          await localDB.writeActivityData(localDB.activityData);
 
-          var historyData = await _gameHistoryRecord(
-              localDB.battleLog, false, localDB.activityData['completeGame']);
+          var historyData = await localDB.gameHistoryRecord(false);
 
           await File('README.md').writeAsString(generateREADME(
               reset,
-              canPowerful,
+              _canPowerful,
               localDB.activityData,
               localDB.userData,
               localDB.battleLog));
@@ -202,15 +193,11 @@ void main(List<String> arguments) async {
           //comment and add label to current issue
           await gitController
               .gitCreateComment(moveSuccess(gitController.userName));
-          await gitController.github.issues.addLabelsToIssue(
-              RepositorySlug.full('${gitController.repositoryFullName}'),
-              gitController.issueNumber, [
-            successLabelType(
-                gitController.actionType.toString().contains('attack'))
-          ]);
+          await gitController.gitAddSuccessLabelsToIssue(
+              gitController.actionType.toString().contains('attack'));
 
           //reset battleLog
-          await File(battleLogPath).writeAsString(jsonEncode({}));
+          await localDB.writeBattleLogData({});
 
           var won = historyData['${localDB.activityData['completeGame']}']
               ['jojoPlayer'];
@@ -228,95 +215,68 @@ void main(List<String> arguments) async {
           return;
         } else {
           //decrease dio HP
-          resource.dio.hp -= attackValue;
-          localDB.activityData['joJo']['attackDmg'] += attackValue;
+          statusData.dio.hp -= _attackValue;
+          localDB.activityData['joJo']['attackDmg'] += _attackValue;
           //increase dio MP
-          resource.dio.mana += attackValue;
-          if (resource.dio.mana >= 15) {
-            resource.dio.mana = 15;
-            canPowerful = true;
+          statusData.dio.mana += _attackValue;
+          if (statusData.dio.mana >= 15) {
+            statusData.dio.mana = 15;
+            _canPowerful = true;
           }
         }
-        if (resource.joJo.hp + healValue > 50) {
-          int remainHealValue = healValue - (50 - resource.joJo.hp);
-          localDB.activityData['joJo']['healRecover'] += healValue;
-          resource.joJo.mana += remainHealValue;
-          resource.joJo.hp = 50;
+        if (statusData.joJo.hp + _healValue > 50) {
+          int remainHealValue = _healValue - (50 - statusData.joJo.hp);
+          localDB.activityData['joJo']['healRecover'] += _healValue;
+          statusData.joJo.mana += remainHealValue;
+          statusData.joJo.hp = 50;
         } else {
-          resource.joJo.hp += healValue;
-          localDB.activityData['joJo']['healRecover'] += healValue;
+          statusData.joJo.hp += _healValue;
+          localDB.activityData['joJo']['healRecover'] += _healValue;
         }
       }
 
-      resource.isDioTurn = !resource.isDioTurn;
+      statusData.isDioTurn = !statusData.isDioTurn;
 
       var dice1 = Random().nextInt(6) + 1;
       var dice2 = Random().nextInt(6) + 1;
-      resource.dice1 = dice1;
-      resource.dice2 = dice2;
+      statusData.dice1 = dice1;
+      statusData.dice2 = dice2;
 
-      // print('toJsonString: ${resource.toJsonString()}');
-      await File(statePath).writeAsString(jsonEncode(resource.toJson()));
+      localDB.writeStatusData(statusData.toJson());
 
       await File('README.md').writeAsString(generateREADME(
-          resource,
-          canPowerful,
+          statusData,
+          _canPowerful,
           localDB.activityData,
           localDB.userData,
           localDB.battleLog));
 
       localDB.activityData['moves']++;
-      await File(activityPath).writeAsString(jsonEncode(localDB.activityData));
+      await localDB.writeActivityData(localDB.activityData);
 
-      await File(battleLogPath).writeAsString(jsonEncode(localDB.battleLog));
+      await localDB.writeBattleLogData(localDB.battleLog);
 
       await gitController.gitCreateComment(moveSuccess(gitController.userName));
-      await gitController.github.issues.addLabelsToIssue(
-          RepositorySlug.full('${gitController.repositoryFullName}'),
-          gitController.issueNumber, [
-        successLabelType(gitController.actionType.toString().contains('attack'))
-      ]);
+      await gitController.gitAddSuccessLabelsToIssue(
+          gitController.actionType.toString().contains('attack'));
     } else {
-      throw Exception('The Issue is not correct with title format');
+      throw GitConfigException(
+          'The Rolled Dices Value is not match with current data. Maybe someone has played before you.');
     }
   } catch (e) {
-    await gitController.gitCreateComment(moveFailure(gitController.userName));
-    await gitController.github.issues.addLabelsToIssue(
-        RepositorySlug.full('${gitController.repositoryFullName}'),
-        gitController.issueNumber,
-        [failureLabel]);
-    throw Exception(e);
+    if (e is GameException) {
+      var gitAuth = GitAuthentication();
+      await gitAuth.gitCreateComment(dontMoveBothTeam(gitAuth.userName));
+      await gitAuth.gitAddFailureLabelsToIssue();
+      await gitAuth.closeIssue();
+    } else if (e is GitConfigException) {
+      var gitAuth = GitAuthentication();
+      await gitAuth.gitCreateComment(
+          moveFailureWithGitConfigError(gitAuth.userName, e.message));
+      await gitAuth.gitAddFailureLabelsToIssue();
+      await gitAuth.closeIssue();
+    } else {
+      throw Exception(e);
+    }
   }
-}
-
-Future<Map<String, dynamic>> _gameHistoryRecord(
-    Map<String, dynamic> battleLog, bool isDioWon, int gameNumber) async {
-  Map<String, dynamic> historyData = await readJsonFile(gameHistoryPath);
-  var currentRecordKey = gameNumber;
-  historyData['$currentRecordKey'] = {};
-  historyData['$currentRecordKey']['isDioWon'] = isDioWon;
-  historyData['$currentRecordKey']['gameNumber'] = currentRecordKey;
-  var listDio = battleLog.values
-      .where(
-        (element) => element["character"] == "Dio",
-      )
-      .map(
-        (e) => e["player_name"],
-      )
-      .toSet();
-  var listJoJo = battleLog.values
-      .where(
-        (element) => element["character"] != "Dio",
-      )
-      .map(
-        (e) => e["player_name"],
-      )
-      .toSet();
-  historyData['$currentRecordKey']['dioPlayer'] = [...listDio];
-  historyData['$currentRecordKey']['jojoPlayer'] = [...listJoJo];
-  historyData['$currentRecordKey']['totalMoves'] = battleLog.length;
-
-  await File(gameHistoryPath).writeAsString(jsonEncode(historyData));
-
-  return historyData;
 }

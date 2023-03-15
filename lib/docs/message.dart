@@ -16,6 +16,15 @@ Hi @$userName, Your move is failure! Please try again at https://github.com/cong
 The Issue will be automatically closed.
 ''';
 
+String moveFailureWithGitConfigError(String userName, String message) =>
+    '''
+Hi @$userName, Your move is failure with error: "$message" 
+
+Please try again at https://github.com/congthanhng
+
+The Issue will be automatically closed.
+''';
+
 String successLabelType(bool isAttack) => '${isAttack?"👊 Attack":"💚 Heal"}-Success';
 
 String bodyGameEnd(bool isDioWon, List<dynamic> wonTeam, List<dynamic> loseTeam) =>

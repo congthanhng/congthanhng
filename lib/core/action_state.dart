@@ -1,5 +1,5 @@
 
-enum ActionType { attack, attackx2, heal, healx2 }
+enum ActionType { none, attack, attackx2, heal, healx2 }
 
 extension ActionStateExtension on String {
   ActionType actionStateFromString() {
@@ -13,7 +13,7 @@ extension ActionStateExtension on String {
       case "healx2":
         return ActionType.healx2;
       default:
-        return ActionType.attack;
+        return ActionType.none;
     }
   }
 }

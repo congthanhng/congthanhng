@@ -1,6 +1,6 @@
 import '../docs/how_to_play.dart';
 import '../docs/introduce.dart';
-import 'state_data.dart';
+import 'status_data.dart';
 
 String generateHP(int current) {
   int div = ((current / 50) * 10).floor();
@@ -88,7 +88,7 @@ String generatePlayerCheckIn(Map<String, dynamic> userData) {
 }
 
 String generateREADME(
-    StateData data,
+    StatusData data,
     bool canPowerful,
     Map<String, dynamic> activityData,
     Map<String, dynamic> userData,
