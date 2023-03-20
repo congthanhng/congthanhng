@@ -3,14 +3,14 @@
 
 <div align="center">
 
-![](https://img.shields.io/badge/Moves%20played-55-blue)
+![](https://img.shields.io/badge/Moves%20played-56-blue)
 ![](https://img.shields.io/badge/Completed%20games-6-orange)
 ![](https://img.shields.io/badge/Total%20players-13-red)
 <img src="https://komarev.com/ghpvc/?username=congthanhng&color=blue" />
 
 </div>
 
-<p align="center">It's the <b>Jotaro Kujo</b> <img src='assets/jotaro_kujo.png' width=30> team's turn.</p>
+<p align="center">It's the <b>Dio Brando</b> <img src='assets/dio_brando.png' width=30> team's turn.</p>
 <table align="center">
   <thead align="center">
     <tr>
@@ -25,17 +25,17 @@
     </tr>
     <tr>
       <td>HP: ████░░░░░░ 22/50 <br> MP: ████░░ 10/15 <br>Won: 2</td>
-      <td>HP: ███░░░░░░░ 18/50 <br> MP: ██████ 15/15 <br>Won: 4</td>
+      <td>HP: ██░░░░░░░░ 14/50 <br> MP: ██████ 15/15 <br>Won: 4</td>
     </tr>
   </tbody>
 </table>
 
 <div align="center">
-    <img src="assets/dice_white/dice_2.png" width=10%>
-    <img src="assets/dice_black/dice_2.png" width=10%>
+    <img src="assets/dice_white/dice_1.png" width=10%>
+    <img src="assets/dice_black/dice_6.png" width=10%>
 </div>
 <br>
-<p align="center">It's <b>Jotaro Kujo</b> <img src='assets/jotaro_kujo.png' width=30> turn. You rolled a <b style="color:Tomato;font-size:25px;">4</b></p>
+<p align="center">It's <b>Dio Brando</b> <img src='assets/dio_brando.png' width=30> turn. You rolled a <b style="color:Tomato;font-size:25px;">7</b></p>
 
 <p align="center">What would you like to do?</p>
 
@@ -43,10 +43,10 @@
 
 | Type Action |Choices *(pick one of them!)*                                                                                                                                                                          |
 |:-------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <img src="assets/actions/attack.png" width=30> | [Attack **Dio Brando**: 4 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7CJoJo%7Cattack%7C4&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
-| <img src="assets/actions/heal.png" width=30> | [Heal **Jotaro Kujo**: 4 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7CJoJo%7Cheal%7C4&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
-
-
+| <img src="assets/actions/attack.png" width=30> | [Attack **Jotaro Kujo**: 7 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7CDio%7Cattack%7C7&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.) |
+| <img src="assets/actions/heal.png" width=30> | [Heal **Dio Brando**: 7 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7CDio%7Cheal%7C7&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
+| <img src='assets/actions/attack.png' width=30><img src='assets/actions/attack.png' width=30> | [Using MP, Attack with x2 damage: 14 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7CDio%7Cattackx2%7C7&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
+| <img src='assets/actions/heal.png' width=30><img src='assets/actions/heal.png' width=30> | [Using MP, Heal with x2 value: 14 points](https://github.com/congthanhng/congthanhng/issues/new?title=battle%7CDio%7Chealx2%7C7&body=Just+push+%27Submit+new+issue%27.+You+don%27t+need+to+do+anything+else.)           |
 
 </div>
 
@@ -58,8 +58,8 @@
 
 | Team | Dices rolled | Type Action | Made by |
 | ---- | :----: | :-------: | ------- |
+| <img src='assets/jotaro_kujo.png' width=30> | 4 | <img src='assets/actions/attack.png' width=30> | [@congthanhng](https://github.com/congthanhng) |
 | <img src='assets/dio_brando.png' width=30> | 10 | <img src='assets/actions/attack.png' width=30> | [@bkpecho](https://github.com/bkpecho) |
-| <img src='assets/jotaro_kujo.png' width=30> | 9 | <img src='assets/actions/attack.png' width=30><img src='assets/actions/attack.png' width=30> | [@congthanhng](https://github.com/congthanhng) |
 
 </div>
 
@@ -68,7 +68,7 @@
 
 **🎮 Players check-in**
 
-<a href="https://github.com/congthanhng"><img src="https://img.shields.io/badge/@congthanhng-40-blue" ></a> <a href="https://github.com/congthanhngnashtech"><img src="https://img.shields.io/badge/@congthanhngnashtech-3-blue" ></a> <a href="https://github.com/chihuy105"><img src="https://img.shields.io/badge/@chihuy105-2-blue" ></a> <a href="https://github.com/vietkeep"><img src="https://img.shields.io/badge/@vietkeep-1-blue" ></a> <a href="https://github.com/BBBloveRED"><img src="https://img.shields.io/badge/@BBBloveRED-1-blue" ></a> <a href="https://github.com/thewind11235"><img src="https://img.shields.io/badge/@thewind11235-1-blue" ></a> <a href="https://github.com/qcuong97"><img src="https://img.shields.io/badge/@qcuong97-1-blue" ></a> <a href="https://github.com/bone1406"><img src="https://img.shields.io/badge/@bone1406-1-blue" ></a> <a href="https://github.com/fatoligih"><img src="https://img.shields.io/badge/@fatoligih-1-blue" ></a> <a href="https://github.com/mynamebvh"><img src="https://img.shields.io/badge/@mynamebvh-1-blue" ></a> <a href="https://github.com/trantrongkim98"><img src="https://img.shields.io/badge/@trantrongkim98-2-blue" ></a> <a href="https://github.com/congng-dev"><img src="https://img.shields.io/badge/@congngdev-1-blue" ></a> <a href="https://github.com/bkpecho"><img src="https://img.shields.io/badge/@bkpecho-2-blue" ></a>
+<a href="https://github.com/congthanhng"><img src="https://img.shields.io/badge/@congthanhng-41-blue" ></a> <a href="https://github.com/congthanhngnashtech"><img src="https://img.shields.io/badge/@congthanhngnashtech-3-blue" ></a> <a href="https://github.com/chihuy105"><img src="https://img.shields.io/badge/@chihuy105-2-blue" ></a> <a href="https://github.com/vietkeep"><img src="https://img.shields.io/badge/@vietkeep-1-blue" ></a> <a href="https://github.com/BBBloveRED"><img src="https://img.shields.io/badge/@BBBloveRED-1-blue" ></a> <a href="https://github.com/thewind11235"><img src="https://img.shields.io/badge/@thewind11235-1-blue" ></a> <a href="https://github.com/qcuong97"><img src="https://img.shields.io/badge/@qcuong97-1-blue" ></a> <a href="https://github.com/bone1406"><img src="https://img.shields.io/badge/@bone1406-1-blue" ></a> <a href="https://github.com/fatoligih"><img src="https://img.shields.io/badge/@fatoligih-1-blue" ></a> <a href="https://github.com/mynamebvh"><img src="https://img.shields.io/badge/@mynamebvh-1-blue" ></a> <a href="https://github.com/trantrongkim98"><img src="https://img.shields.io/badge/@trantrongkim98-2-blue" ></a> <a href="https://github.com/congng-dev"><img src="https://img.shields.io/badge/@congngdev-1-blue" ></a> <a href="https://github.com/bkpecho"><img src="https://img.shields.io/badge/@bkpecho-2-blue" ></a>
 
 </div>
 
