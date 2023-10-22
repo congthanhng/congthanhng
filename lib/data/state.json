@@ -1,1 +1,1 @@
-{"Dio":{"name":"Dio Brando","HP":34,"Mana":15},"JoJo":{"name":"Jotaro Kujo","HP":44,"Mana":6},"isDioTurn":true,"Dice1":5,"Dice2":5}
+{"Dio":{"name":"Dio Brando","HP":34,"Mana":0},"JoJo":{"name":"Jotaro Kujo","HP":24,"Mana":15},"isDioTurn":false,"Dice1":3,"Dice2":2}
