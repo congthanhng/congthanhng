@@ -200,5 +200,6 @@ sure you ping me in your issue or PR by adding `cc @congthanhng`, as I don't rec
   <a href="https://www.buymeacoffee.com/congthanhng"> <img align="center" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="20%" alt="congthanhng" /></a>
   <a href="https://ko-fi.com/congthanhng"> <img align="center" src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" width="20%" alt="congthanhng" /></a></p>
 <p align="center"><img align="center" src="https://komarev.com/ghpvc/?username=congthanhng&color=blue" /></p>
+![Visitor Count](https://profile-counter.glitch.me/congthanhng/count.svg)
 
   
